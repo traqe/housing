@@ -23,7 +23,7 @@ use App\Student;
 use App\StudentAccount;
 use App\Subject;
 use App\Work;
-//use App\Beneficiary;
+use App\Beneficiary;
 use App\Spouse;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -122,8 +122,8 @@ class PersonController extends Controller
         $people = Person::all();
 
         // beneficiaries of each person captured here and passed into compact
-        //$beneficiaries = Beneficiary::where('person_id', $id)->get();
-        $spouse = Spouse::where('person_id',$id)->get();
+        $beneficiaries = Beneficiary::where('person_id', $id)->get();
+        //$spouse = Spouse::where('person_id', $id)->get();
 
         $applications = Application::where('applicant_id', $id)->get();
         // foreach($applications as $s){
@@ -132,7 +132,7 @@ class PersonController extends Controller
         // return "";
         $stands = Stand::where('status', 'Available')->get(); //orderby('price','desc')->paginate(10);
 
-        return View('persons.show', compact('people', 'person', 'genders', 'maritals', 'batches', 'standTypes', 'applications', 'stands', 'spouse'));
+        return View('persons.show', compact('people', 'person', 'genders', 'maritals', 'batches', 'standTypes', 'applications', 'stands', 'beneficiaries'));
     }
 
     public function generateStudentID()
