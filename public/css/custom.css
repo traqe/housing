@@ -1,0 +1,56 @@
+.anyClass {
+    height:400px;
+    overflow-y: scroll;
+}
+tr{cursor: pointer; transition: all .25s ease-in-out}
+.selected{background-color: red; font-weight: bold; color: #fff;}
+
+tr.active td {
+    background-color: #8fc3f7;
+}
+
+.breadcrumb-fixed {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 5em;
+}
+
+.breadcrumb-push {
+    margin-top: 5em;
+}
+
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+#ModalForm  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.modal-backdrop {
+  background-color: transparent;
+  
+}

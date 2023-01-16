@@ -1,0 +1,28 @@
+.anyClass {
+    height:400px;
+    overflow-y: scroll;
+}
+tr{cursor: pointer; transition: all .25s ease-in-out}
+.selected{background-color: red; font-weight: bold; color: #fff;}
+
+tr.active td {
+    background-color: #8fc3f7;
+}
+
+.breadcrumb-fixed {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 5em;
+}
+
+.breadcrumb-push {
+    margin-top: 5em;
+}
+
+a.disabled {
+    /* Make the disabled links grayish*/
+    color: gray;
+    /* And disable the pointer events */
+    pointer-events: none;
+}
