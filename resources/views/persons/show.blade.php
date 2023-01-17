@@ -216,18 +216,18 @@
                     <!--heading-->
                     <div class="card-header">
                         <i class="fa fa-child">
-                            <strong>Beneficiaries</strong>
+                            <strong>Spouse</strong>
                         </i>
                     </div>
                     <!--body card-->
                     <div style="height: 0px;">
                         <div class="card-body" style="background-color: white;">
                             <div class="pull-right">
-                                <!--take me to a page that enables me to add a new beneficiary-->
-                                <!--this benefeciary should have save and finish buttons-->
-                                <a href="{{request('id')}}/addBeneficiary">
-                                    <button class="btn btn-sm btn-primary" title="Add Beneficiary">
-                                        <i class="fa fa-plus"> Add Beneficiary</i>
+                                <!--take me to a page that enables me to add a new spouse-->
+                                <!--this spouse should have save and finish buttons-->
+                                <a href="{{request('id')}}/addSpouse">
+                                    <button class="btn btn-sm btn-primary" title="Add Spouse">
+                                        <i class="fa fa-plus"> Add Spouse</i>
                                     </button>
                                 </a>
                             </div>
@@ -243,9 +243,9 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Relation</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
+                                            <th>Title</th>
+                                            <th>Mobile</th>
+                                            <th>Address</th>
                                             <th>Occupation</th>
                                             <th>Income</th>
                                         </tr>
