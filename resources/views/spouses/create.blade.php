@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date_marriage">Date of Marriage</label>
-                        <input type="text" name="date_marriage" class="form-control" required>
+                        <input type="date" name="date_marriage" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <div class="form-group">

@@ -814,10 +814,11 @@ Route::middleware('auth')->group(function () {
   Route::get('/bulksms', ['uses' => 'BulkSmsController@sendForm', 'as' => 'send']);
   Route::post('/bulksms', 'BulkSmsController@sendSms');
 
-  //spouse routes
+  /*spouse routes
   Route::get('PERSONS/{id}/addSpouse', ['uses' => 'SpouseController@create', 'as' => 'createSpouse']);
   Route::post('PERSONS/{id}/addSpouse', ['uses' => 'SpouseController@store']);
   Route::put('/spouse/{id}/edit', ['uses' => 'SpouseController@update', 'as' => 'updateSpouse']);
+  */
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
