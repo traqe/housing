@@ -23,8 +23,6 @@ class SpouseController extends Controller
         // to update columns
         $spouse = new Spouse();
         $spouse->name = request('name') . " " . request('surname');
-        $spouse->name = request('name');
-        $spouse->surname = request('surname');
         $spouse->title = request('title');
         $spouse->nationalid = request('nationalid');
         $spouse->gender_id = request('gender_id');

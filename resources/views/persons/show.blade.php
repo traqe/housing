@@ -251,26 +251,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($beneficiaries as $beneficiary)
+                                        @foreach($spouse as $spouse)
                                         <tr>
-                                            <td>{{$beneficiary->name}}</td>
+                                            <td>{{$spouse->name}}</td>
                                             <td>
-                                                {{$beneficiary->relation}}
+                                                {{$spouse->title}}
                                             </td>
-                                            <td>{{$beneficiary->age}}</td>
-                                            <td>{{$beneficiary->sex}}</td>
-                                            <td>{{$beneficiary->occupation}}</td>
+                                            <td>{{$spouse->mobile}}</td>
+                                            <td>{{$spouse->address}}</td>
+                                            <td>{{$spouse->occupation}}</td>
                                             <td>
-                                                {{$beneficiary->income}}
+                                                {{$spouse->income}}
                                                 <div class="pull-right">
-                                                    <!--edit beneficiary-->
-                                                    <a href="/housing/editBeneficiary/{{$beneficiary->id}}" onclick="" title="Edit Beneficiary">
+                                                    <!--edit spouse-->
+                                                    <a href="/housing/editSpouse/{{$spouse->id}}" onclick="" title="Edit Spouse">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
-                                                    <form method="POST" action="/housing/deleteBeneficiary/{{$beneficiary->id}}" style="padding-left: 0;">
+                                                    <form method="POST" action="/housing/deleteSpouse/{{$spouse->id}}" style="padding-left: 0;">
                                                         {{csrf_field()}}
                                                         {{method_field('DELETE')}}
-                                                        <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Beneficiary?')" title="Delete Beneficiary" class="text-warning">
+                                                        <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Spouse?')" title="Delete Spouse" class="text-warning">
                                                             <i class="fa fa-trash"></i>
                                                         </button>
                                                     </form>

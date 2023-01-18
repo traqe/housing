@@ -6,7 +6,7 @@
         <div class="card card-accent-primary">
             <div class="card-header">
                 <i class="fa fa-plus"></i>
-                <strong>Add Beneficiary</strong>
+                <strong>Add Spouse</strong>
                 <small>for Applicant name</small>
             </div>
             <div class="card-body">
@@ -19,7 +19,7 @@
                 @endif
 
                 {{--@include('layouts.partials.alerts')--}}
-                <form method="POST" action="/housing/PERSONS/{{request('id')}}/addBeneficiary">
+                <form method="POST" action="/housing/PERSONS/{{request('id')}}/addSpouse">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -31,32 +31,45 @@
                         <input type="text" name="surname" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="relation">Relation</label>
-                        <input type="text" name="relation" class="form-control" required>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationalid">National ID</label>
+                        <input type="text" name="nationalid" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="text" name="gender" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="text" name="mobile" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" name="age" class="form-control" required>
+                        <label for="address">Address</label>
+                        <input type="text" name="address" class="form-control" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="sex">Sex</label>
-                        <input type="text" name="sex" class="form-control" required>
+                        <label for="marriage_cert">Marriage Certificate</label>
+                        <input type="text" name="marriage_cert" class="form-control" required>
                     </div>
-
                     <div class="form-group">
                         <label for="occupation">Occupation</label>
                         <input type="text" name="occupation" class="form-control" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="date_marriage">Date of Marriage</label>
+                        <input type="text" name="date_marriage" class="form-control" required>
+                    </div>
                     <div class="form-group">
                         <div class="form-group">
                             <label for="income">Income</label>
                             <input type="text" name="income" class="form-control" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa  fa-check-circle"></span> Add Beneficiary</button>
+                    <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa  fa-check-circle"></span> Add Spouse</button>
                     {{--<a href="{{route("secondary")}}" type="button" class="btn btn-warning btn-flat pull-right" style="margin-right: 5px;">--}}
                     {{--<i class="fa fa-angle-double-right"></i> Next--}}
                     {{--<a/>--}}
