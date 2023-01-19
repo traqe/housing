@@ -93,6 +93,10 @@ class PersonController extends Controller
 
         NextOfKin::UpdateOrCreate(['person_id' => $person->id], ['fullname' => $request->fullname, 'relationship' => $request->relationship, 'telephone' => $request->noktelephone, 'email' => $request->nokemail, 'address' => $request->nokaddress, 'created_by' => Auth::user()->id, 'created_at' => Carbon::now()]);
 
+        if ($request->marital_id == 2) {
+            // return spouse details view if person is married
+            return redirect()->route('addSpouse', $person->id);
+        }
         return redirect()->route('viewPerson', $person->id);
     }
 

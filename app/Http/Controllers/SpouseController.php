@@ -33,10 +33,9 @@ class SpouseController extends Controller
         $spouse->occupation = request('occupation');
         $spouse->date_marriage = request('date_marriage');
         $spouse->income = request('income');
+        $spouse->person_id = $person_id;
         // $spouse->created_by =
         // 'name', 'surname', 'title', 'nationalid', 'gender_id', 'mobile', 'address', 'marriage_cert', 'occupation', 'date_marriage', 'income', 'person_id', 'created_at', 'created_by', 'updated_at'
-        $spouse->person_id = $person_id;
-
         $spouse->save();
 
         return redirect()->back()->with('addSuccess', 'Added successfully');

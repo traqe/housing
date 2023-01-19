@@ -40,7 +40,10 @@
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender</label>
-                        <input type="text" name="gender" class="form-control" required>
+                        <select name="gender_id" id="gender_id" class="form-control input-group-lg reg_name" required>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="mobile">Mobile</label>
