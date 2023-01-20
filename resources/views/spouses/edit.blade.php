@@ -18,7 +18,7 @@
                 @endif
 
                 {{--@include('layouts.partials.alerts')--}}
-                <!--edit spouse-->
+                <!--edit spouse  -->
                 <form method="POST" action="/housing/editSpouse/{{$spouse->id}}">
                     {{csrf_field()}}
                     {{method_field('PUT')}}
@@ -26,6 +26,10 @@
                     <!--spouse id passed to our form-->
                     <div class="form-group">
                         <input type="hidden" name="id" class="form-control" value="{{ $spouse->id }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" name="person_id" class="form-control" value="{{ $spouse->person_id }}">
                     </div>
 
                     <div class="form-group">
@@ -50,7 +54,7 @@
 
                     <div class="form-group">
                         <label for="sex">Gender</label>
-                        <input type="text" name="gender" class="form-control" required value="{{ $spouse->gender }}">
+                        <input type="text" name="gender_id" class="form-control" required value="{{ $spouse->gender->gender }}">
                     </div>
 
                     <div class="form-group">
@@ -81,7 +85,7 @@
                     <div class="form-group">
                         <div class="form-group">
                             <label for="income">Income</label>
-                            <input type="text" name="income" class="form-control" required value="{{ $spouse->income }}">
+                            <input type="text" name="income" class="form-control" value="{{ $spouse->income }}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa  fa-check-circle"></span> Update</button>

@@ -18,7 +18,7 @@
                 </div>
                 @endif
 
-                {{--@include('layouts.partials.alerts')--}}
+                {{--@include('layouts.partials.alerts') --}}
                 <form method="POST" action="/housing/PERSONS/{{request('id')}}/addSpouse">
                     {{csrf_field()}}
                     <div class="form-group">

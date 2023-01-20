@@ -263,7 +263,7 @@
                                             <td>
                                                 {{$spouse->income}}
                                                 <div class="pull-right">
-                                                    <!--edit spouse-->
+                                                    <!--edit spouse /housing -->
                                                     <a href="/housing/editSpouse/{{$spouse->id}}" onclick="" title="Edit Spouse">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>

@@ -50,14 +50,23 @@ class SpouseController extends Controller
         $spouse->surname = request('surname');
         $spouse->title = request('title');
         $spouse->nationalid = request('nationalid');
-        $spouse->gender_id = request('gender_id');
+
+        // making gender an integer value.
+        if (request('gender_id') == 'Male' or request('gender_id') == 'male') {
+            $spouse->gender_id = 1;
+        } elseif (request('gender_id') == 'Female' or request('gender_id') == 'female')
+            $spouse->gender_id = 2;
+        else {
+            $spouse->gender_id = null;
+        }
+
+        $spouse->person_id = request('person_id');
         $spouse->mobile = request('mobile');
         $spouse->address = request('address');
         $spouse->marriage_cert = request('marriage_cert');
         $spouse->occupation = request('occupation');
         $spouse->date_marriage = request('date_marriage');
         $spouse->income = request('income');
-        $spouse->person_id = request('person_id');
         // $spouse->created_by =
         // 'name', 'surname', 'title', 'nationalid', 'gender_id', 'mobile', 'address', 'marriage_cert', 'occupation', 'date_marriage', 'income', 'person_id', 'created_at', 'created_by', 'updated_at'
         $spouse->save();
