@@ -54,255 +54,60 @@
                             <div class="table-responsive">
                                 <table id="table-detail" class="table table-hover table-bordered">
                                     <tbody>
-                                       <tr>
-                                                                <td>Firstname</td>
-                                                                                    <td>{{$person->firstname}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Surname</td>
-                                                                                    <td>{{$person->surname}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>National ID</td>
-                                                                                    <td>{{$person->nationalid}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Gender</td>
-                                                                                    <td>{{$person->gender->gender}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Marital Status</td>
-                                                                                    <td>{{$person->marital->maritalstatus}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Mobile</td>
-                                                                                    <td>{{$person->mobile}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Email</td>
-                                                                                    <td>{{$person->email}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Address</td>
-                                                                                    <td>{{$person->address}}</td>
-                                                                                </tr>
+                                        <tr>
+                                            <td>Firstname</td>
+                                            <td>{{$person->firstname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Surname</td>
+                                            <td>{{$person->surname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>National ID</td>
+                                            <td>{{$person->nationalid}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>{{$person->gender->gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobile</td>
+                                            <td>{{$person->mobile}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{{$person->email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>{{$person->address}}</td>
+                                        </tr>
 
-                                                                                <tr>
-                                                                                    <td>Next of Kin</td>
-                                                                                    <td>{{$person->nok['fullname']}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Relationship</td>
-                                                                                    <td>{{$person->nok['relationship']}}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Phone</td>
-                                                                                    <td>{{$person->nok['telephone']}}</td>
-                                                                                </tr>
+                                        <tr>
+                                            <td>Next of Kin</td>
+                                            <td>{{$person->nok['fullname']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Relationship</td>
+                                            <td>{{$person->nok['relationship']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>{{$person->nok['telephone']}}</td>
+                                        </tr>
 
-                                                                                <tr>
-                                                                                    <td>Address</td>
-                                                                                    <td>{{$person->nok['address']}}</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>{{$person->nok['address']}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                                                    </div>
+                            </div>
 
-                                                                </div>
-                                                                <!-- /.box-body -->
-                                                            </div>
-                                                            {{--<div class="card card-accent-primary">--}}
-                                                            {{--<div class="card-header">--}}
-                                                            {{--<i class="fa fa-paperclip">--}}
-                                                            {{--<strong>Attachments</strong>--}}
-                                                            {{--<small>Details</small>--}}
-                                                            {{--</i>--}}
-                                                            {{--</div>--}}
-                                                            {{--<div class="card-body">--}}
-                                                            {{--<div class="table-responsive">--}}
-                                                            {{--<table id="table-detail" class="table table-striped">--}}
-                                                            {{--<tbody>--}}
-                                                            {{--<tr>--}}
-                                                            {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download O Level Certificate</i></a> </td>--}}
-                                                            {{--</tr>--}}
-                                                            {{--<tr>--}}
-                                                            {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download A Level Certificate</i></a> </td>--}}
-                                                            {{--</tr>--}}
-
-                                                            {{--<tr>--}}
-                                                            {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download Tertiary Education Certificate</i></a> </td>--}}
-                                                            {{--</tr>--}}
-
-                                                            {{--<tr>--}}
-                                                            {{--<td><a href="{{route('downloadSummary', $application->userIdNum)}}" target="_blank"> <i class="fa fa-cloud-download"> Download Application Summary</i></a> </td>--}}
-                                                            {{--</tr>--}}
-                                                            {{--</tbody>--}}
-                                                            {{--</table>--}}
-                                                            {{--</div>--}}
-
-                                                            {{--</div>--}}
-                                                            {{--<!-- /.box-body -->--}}
-                                                            {{--</div>--}}
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            @include('layouts.partials.alerts')
-                                                            <div class="card card-accent-primary">
-                                                                <div class="card-header">
-                                                                    <i>
-                                                                        <strong>
-                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionApps" aria-expanded="false" class="collapsed">
-                                                                                <strong>Successfully Submitted</strong>
-                                                                                <small>Applications</small>
-                                                                            </a>
-                                                                        </strong>
-                                                                    </i>
-                                                                </div>
-                                                                <div id="accordionApps" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                                                    <div class="card-body">
-                                                                        <div class="pull-right">
-                                                                            <button href="#addApp" data-toggle="modal" class="btn btn-sm btn-primary" title="Add Application">
-                                                                                <i class="fa fa-plus"> Add Application</i>
-                                                                            </button>
-                                        
-                                                                            <button href="#addCession" data-toggle="modal" class="btn btn-sm btn-success" title="Add Cession">
-                                                                                <i class="fa fa-plus"> Add Cession</i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <br />
-                                                                        <br />
-                                                                        <div class="table-responsive">
-                                                                            <table id="table-detail" class="table table-sm table-hover table-bordered">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>AppNo</th>
-                                                                                        <th>Batch</th>
-                                                                                        <th>Date</th>
-                                                                                        <th>Stand Type</th>
-                                                                                        <th>Stand No</th>
-                                                                                        <th>Status</th>
-                                                                                        {{--<th>Details</th>--}}
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    @forelse($applications as $s)
-                                                                                    <tr>
-                                                                                        <td>{{$s->id}}</td>
-                                                                                        <td>
-                                                                                            {{$s->batch->batch}}
-                                                                                        </td>
-                                                                                        <td>{{$s->created_at}}</td>
-                                                                                        <td>{{$s->standType->type}}</td>
-                                                                                        <td>@if ($s->allocations->count() > 0) <a href="{{route('showStand', $s->allocations->first()->stand->id)}}"> {{$s->allocations->first()->stand->stand_no}}</a> @endif</td>
-                                                                                        <td>
-                                                                                            {{$s->stage->stage}}
-                                                                                            <div class="pull-right">
-                                                                                                <a href="#allocate" onclick="allocate('{{$s->id}}')" data-toggle="modal" title="Allocate Stand">
-                                                                                                    <i class="fa fa-pencil"></i>
-                                                                                                </a>
-                                                                                                <a href="{{route('applications')}}" title="View Application" class="text-warning">
-                                                                                                    <i class="fa fa-eye"></i>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    @empty
-                                                                                    @endforelse
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                        </div>
                         <!-- /.box-body -->
                     </div>
-                    <div class="card card-accent-primary">
-                        <!--heading-->
-                        <div class="card-header">
-                            <i class="fa fa-child">
-                                <strong>SPOUSE</strong>
-                            </i>
-                            <div class="pull-right">
-                                <!--take me to a page that enables me to add a new beneficiary-->
-                                <!--this benefeciary should have save and finish buttons-->
-                                @if ($person->marital->maritalstatus == 'Married')
-                                    <a href="{{request('id')}}/addSpouse">
-                                        <button class="btn btn-sm btn-primary" title="Add Spouse">
-                                            <i class="fa fa-plus"> Add Spouse</i>
-                                        </button>
-                                    </a>
-                                @else
-                                    <button class="btn btn-sm btn-primary" title="Add Spouse" disabled>
-                                        <i class="fa fa-plus"> Add Spouse</i>
-                                    </button>
-                                </a>
-                                @endif
-                            </div>
-                        </div>
-                        <!--body card-->
-                        <div style="height: 0px;">
-                            <div class="card-body" style="background-color: white;">
-                                @if (session('deleteSuccess'))
-                                <div class="alert alert-info">
-                                    {{ session('deleteSuccess') }}
-                                </div>
-                                @endif
-                                <br />
-                                <div class="table-responsive">
-                                    <table id="table-detail" class="table table-sm table-hover table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Tittle</th>
-                                                <th>Name</th>
-                                                <th>Surname</th>
-                                                <th>National ID</th>
-                                                <th>Sex</th>
-                                                <th>Occupation</th>
-                                                <th>Income</th>
-                                                <th>Mobile</th>
-                                                <th>Address</th>
-                                                <th>Marriage Cert No.</th>
-                                                <th>Date Of Marriage</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($spouse as $spouse)
-                                            <tr>
-                                                <td>{{$spouse->title}}</td>
-                                                <td>{{$spouse->name}}</td>
-                                                <td>{{$spouse->surname}}</td>
-                                                <td>{{$spouse->nationalid}}</td>
-                                                <td>{{$spouse->gender_id}}</td>
-                                                <td>{{$spouse->occupation}}</td>
-                                                <td>{{$spouse->income}}</td>
-                                                <td>{{$spouse->mobile}}</td>
-                                                <td>{{$spouse->address}}</td>
-                                                <td>{{$spouse->marriage_cert}}</td>
-                                                <td>
-                                                    {{$spouse->date_marriage}}
-                                                    <div class="pull-right">
-                                                        <!--edit beneficiary-->
-                                                        <a href="#" data-toggle="modal" data-target="#editSpouse" data-backrop="false" class="" title="Edit Personal Details">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                        <form method="POST" action="#" style="padding-left: 0;">
-                                                            {{csrf_field()}}
-                                                            {{method_field('DELETE')}}
-                                                            <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Beneficiary?')" title="Delete Beneficiary" class="text-warning">
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            
                     {{--<div class="card card-accent-primary">--}}
                     {{--<div class="card-header">--}}
                     {{--<i class="fa fa-paperclip">--}}
@@ -336,153 +141,330 @@
                     {{--<!-- /.box-body -->--}}
                     {{--</div>--}}
                 </div>
-                
+                <div class="col-md-7">
+                    @include('layouts.partials.alerts')
+                    <div class="card card-accent-primary">
+                        <div class="card-header">
+                            <i>
+                                <strong>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordionApps" aria-expanded="false" class="collapsed">
+                                        <strong>Successfully Submitted</strong>
+                                        <small>Applications</small>
+                                    </a>
+                                </strong>
+                            </i>
+                        </div>
+                        <div id="accordionApps" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div class="card-body">
+                                <div class="pull-right">
+                                    <button href="#addApp" data-toggle="modal" class="btn btn-sm btn-primary" title="Add Application">
+                                        <i class="fa fa-plus"> Add Application</i>
+                                    </button>
 
-                    {{--<div class="box-group" id="accordion">--}}
-                    {{--<div class="card card-accent-primary">--}}
-                    {{--<div class="card-header">--}}
-                    {{--<i>--}}
-                    {{--<strong>--}}
-                    {{--<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" class="collapsed">--}}
-                    {{--<strong>Application</strong>--}}
-                    {{--<small>Details</small>--}}
-                    {{--</a>--}}
-                    {{--</strong>--}}
-                    {{--</i>--}}
-                    {{--</div>--}}
-                    {{--<div id="collapse5" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">--}}
-                    {{--<div class="card-body">--}}
-                    {{--<form method="post" action="{{route('createApplication')}}" class="form-horizontal">--}}
-                    {{--{{csrf_field()}}--}}
-                    {{--<input type="hidden" value="{{$person->userIdNum}}" name="userIdNum">--}}
-                    {{--<input type="hidden" value="{{$session}}" name="Session">--}}
-                    {{--<input type="hidden" value="{{date('Y').'-'.($appnum + 1)}}" name="applicationNum">--}}
-                    {{--<input type="hidden" value="Manual" name="applicationType">--}}
-                    {{--<input type="hidden" value="{{date('Y')}}" name="appYear">--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="EntryCriteria" id="EntryCriteria" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>Entry Type</option>--}}
-                    {{--<option value="Normal">Normal</option>--}}
-                    {{--<option value="Mature">Mature</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="EntryType" id="EntryType" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>Format</option>--}}
-                    {{--<option value="Block">Block</option>--}}
-                    {{--<option value="Conventional">Conventional</option>--}}
-                    {{--<option value="Parallel">Parallel</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="Session" id="Session" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>Select Intake</option>--}}
-                    {{--@forelse($session as $app)--}}
-                    {{--<option value="{{$app->session}}">{{$app->title}}</option>--}}
-                    {{--@empty--}}
-                    {{--@endforelse--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="C1Code" id="C1Code" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>First Choice Programme</option>--}}
-                    {{--@forelse($courses as $su)--}}
-                    {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-                    {{--@empty--}}
-                    {{--@endforelse--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="C2Code" id="C2Code" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>Second Choice Programme</option>--}}
-                    {{--@forelse($courses as $su)--}}
-                    {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-                    {{--@empty--}}
-                    {{--@endforelse--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<input type="text"  name="Sponsor" placeholder="Sponsor"  class="form-control" required>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<label>--}}
-                    {{--<input type="checkbox" style="zoom:2.0;"  name="StaffMember">--}}
-                    {{--</label>--}}
-                    {{--Tick if You Are a Staff Member--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<input type="text"  name="LastSchoolAttended" placeholder="Last School Attended" class="form-control" required>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<input type="text"  name="FromDate" placeholder="From Date e.g. August 2010" class="form-control" required>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<input type="text"  name="ToDate" placeholder="To Date e.g. March 2014" class="form-control" required>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<input type="text"  name="LastSchoolAddress"  placeholder="Last School Address" class="form-control" required>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<select name="aboutus" id="aboutus" class="form-control input-group-lg reg_name" required>--}}
-                    {{--<option value="" selected disabled>How did you hear about Zimbabwe School Of Mines</option>--}}
-                    {{--<option value="Facebook">Facebook</option>--}}
-                    {{--<option value="Website">Website</option>--}}
-                    {{--<option value="Friend">Friend</option>--}}
-                    {{--<option value="Outreach Programmes">Outreach Programmes</option>--}}
-
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div><!--/form-group-->--}}
-                    {{--<div class="form-group">--}}
-                    {{--<div class="col-sm-12">--}}
-                    {{--<button type="submit"  class="btn btn-primary btn-flat pull-right">  <span class="fa fa-check-circle"></span> Save </button>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<br/>--}}
-                    {{--<br/>--}}
-                    {{--</form>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
+                                    <button href="#addCession" data-toggle="modal" class="btn btn-sm btn-success" title="Add Cession">
+                                        <i class="fa fa-plus"> Add Cession</i>
+                                    </button>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="table-responsive">
+                                    <table id="table-detail" class="table table-sm table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>AppNo</th>
+                                                <th>Batch</th>
+                                                <th>Date</th>
+                                                <th>Stand Type</th>
+                                                <th>Stand No</th>
+                                                <th>Status</th>
+                                                {{--<th>Details</th>--}}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse($applications as $s)
+                                            <tr>
+                                                <td>{{$s->id}}</td>
+                                                <td>
+                                                    {{$s->batch->batch}}
+                                                </td>
+                                                <td>{{$s->created_at}}</td>
+                                                <td>{{$s->standType->type}}</td>
+                                                <td>@if ($s->allocations->count() > 0) <a href="{{route('showStand', $s->allocations->first()->stand->id)}}"> {{$s->allocations->first()->stand->stand_no}}</a> @endif</td>
+                                                <td>
+                                                    {{$s->stage->stage}}
+                                                    <div class="pull-right">
+                                                        <a href="#allocate" onclick="allocate('{{$s->id}}')" data-toggle="modal" title="Allocate Stand">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </a>
+                                                        <a href="{{route('applications')}}" title="View Application" class="text-warning">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @empty
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <div class="card card-accent-primary">
+                    <!--heading-->
+                    <div class="card-header">
+                        <i class="fa fa-child">
+                            <strong>Spouse</strong>
+                        </i>
+                    </div>
+                    <!--body card-->
+                    <div style="height: 0px;">
+                        <div class="card-body" style="background-color: white;">
+                            <div class="pull-right">
+                                <!--take me to a page that enables me to add a new spouse-->
+                                <!--this spouse should have save and finish buttons-->
+                                <a href="{{request('id')}}/addSpouse">
+                                    <button class="btn btn-sm btn-primary" title="Add Spouse">
+                                        <i class="fa fa-plus"> Add Spouse</i>
+                                    </button>
+                                </a>
+                            </div>
+                            @if (session('deleteSuccess'))
+                            <div class="alert alert-info">
+                                {{ session('deleteSuccess') }}
+                            </div>
+                            @endif
+                            <br />
+                            <br />
+                            <div class="table-responsive">
+                                <table id="table-detail" class="table table-sm table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Title</th>
+                                            <th>Mobile</th>
+                                            <th>Address</th>
+                                            <th>Occupation</th>
+                                            <th>Income</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($spouse as $spouse)
+                                        <tr>
+                                            <td>{{$spouse->name}}</td>
+                                            <td>
+                                                {{$spouse->title}}
+                                            </td>
+                                            <td>{{$spouse->mobile}}</td>
+                                            <td>{{$spouse->address}}</td>
+                                            <td>{{$spouse->occupation}}</td>
+                                            <td>
+                                                {{$spouse->income}}
+                                                <div class="pull-right">
+                                                    <!--edit spouse /housing -->
+                                                    <a href="/housing/editSpouse/{{$spouse->id}}" onclick="" title="Edit Spouse">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <form method="POST" action="/housing/deleteSpouse/{{$spouse->id}}" style="padding-left: 0;">
+                                                        {{csrf_field()}}
+                                                        {{method_field('DELETE')}}
+                                                        <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Spouse?')" title="Delete Spouse" class="text-warning">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                {{--<div class="card card-accent-primary">--}}
+                {{--<div class="card-header">--}}
+                {{--<i class="fa fa-paperclip">--}}
+                {{--<strong>Attachments</strong>--}}
+                {{--<small>Details</small>--}}
+                {{--</i>--}}
+                {{--</div>--}}
+                {{--<div class="card-body">--}}
+                {{--<div class="table-responsive">--}}
+                {{--<table id="table-detail" class="table table-striped">--}}
+                {{--<tbody>--}}
+                {{--<tr>--}}
+                {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download O Level Certificate</i></a> </td>--}}
+                {{--</tr>--}}
+                {{--<tr>--}}
+                {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download A Level Certificate</i></a> </td>--}}
+                {{--</tr>--}}
+
+                {{--<tr>--}}
+                {{--<td><a href="#"> <i class="fa fa-cloud-download"> Download Tertiary Education Certificate</i></a> </td>--}}
+                {{--</tr>--}}
+
+                {{--<tr>--}}
+                {{--<td><a href="{{route('downloadSummary', $application->userIdNum)}}" target="_blank"> <i class="fa fa-cloud-download"> Download Application Summary</i></a> </td>--}}
+                {{--</tr>--}}
+                {{--</tbody>--}}
+                {{--</table>--}}
+                {{--</div>--}}
+
+                {{--</div>--}}
+                {{--<!-- /.box-body -->--}}
+                {{--</div>--}}
             </div>
 
-            <!-- /.box -->
+
+            {{--<div class="box-group" id="accordion">--}}
+            {{--<div class="card card-accent-primary">--}}
+            {{--<div class="card-header">--}}
+            {{--<i>--}}
+            {{--<strong>--}}
+            {{--<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" class="collapsed">--}}
+            {{--<strong>Application</strong>--}}
+            {{--<small>Details</small>--}}
+            {{--</a>--}}
+            {{--</strong>--}}
+            {{--</i>--}}
+            {{--</div>--}}
+            {{--<div id="collapse5" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">--}}
+            {{--<div class="card-body">--}}
+            {{--<form method="post" action="{{route('createApplication')}}" class="form-horizontal">--}}
+            {{--{{csrf_field()}}--}}
+            {{--<input type="hidden" value="{{$person->userIdNum}}" name="userIdNum">--}}
+            {{--<input type="hidden" value="{{$session}}" name="Session">--}}
+            {{--<input type="hidden" value="{{date('Y').'-'.($appnum + 1)}}" name="applicationNum">--}}
+            {{--<input type="hidden" value="Manual" name="applicationType">--}}
+            {{--<input type="hidden" value="{{date('Y')}}" name="appYear">--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="EntryCriteria" id="EntryCriteria" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>Entry Type</option>--}}
+            {{--<option value="Normal">Normal</option>--}}
+            {{--<option value="Mature">Mature</option>--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="EntryType" id="EntryType" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>Format</option>--}}
+            {{--<option value="Block">Block</option>--}}
+            {{--<option value="Conventional">Conventional</option>--}}
+            {{--<option value="Parallel">Parallel</option>--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="Session" id="Session" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>Select Intake</option>--}}
+            {{--@forelse($session as $app)--}}
+            {{--<option value="{{$app->session}}">{{$app->title}}</option>--}}
+            {{--@empty--}}
+            {{--@endforelse--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="C1Code" id="C1Code" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>First Choice Programme</option>--}}
+            {{--@forelse($courses as $su)--}}
+            {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
+            {{--@empty--}}
+            {{--@endforelse--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="C2Code" id="C2Code" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>Second Choice Programme</option>--}}
+            {{--@forelse($courses as $su)--}}
+            {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
+            {{--@empty--}}
+            {{--@endforelse--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<input type="text"  name="Sponsor" placeholder="Sponsor"  class="form-control" required>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<label>--}}
+            {{--<input type="checkbox" style="zoom:2.0;"  name="StaffMember">--}}
+            {{--</label>--}}
+            {{--Tick if You Are a Staff Member--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<input type="text"  name="LastSchoolAttended" placeholder="Last School Attended" class="form-control" required>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<input type="text"  name="FromDate" placeholder="From Date e.g. August 2010" class="form-control" required>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<input type="text"  name="ToDate" placeholder="To Date e.g. March 2014" class="form-control" required>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<input type="text"  name="LastSchoolAddress"  placeholder="Last School Address" class="form-control" required>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<select name="aboutus" id="aboutus" class="form-control input-group-lg reg_name" required>--}}
+            {{--<option value="" selected disabled>How did you hear about Zimbabwe School Of Mines</option>--}}
+            {{--<option value="Facebook">Facebook</option>--}}
+            {{--<option value="Website">Website</option>--}}
+            {{--<option value="Friend">Friend</option>--}}
+            {{--<option value="Outreach Programmes">Outreach Programmes</option>--}}
+
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div><!--/form-group-->--}}
+            {{--<div class="form-group">--}}
+            {{--<div class="col-sm-12">--}}
+            {{--<button type="submit"  class="btn btn-primary btn-flat pull-right">  <span class="fa fa-check-circle"></span> Save </button>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--<br/>--}}
+            {{--<br/>--}}
+            {{--</form>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+
         </div>
+
     </div>
+
+    <!-- /.box -->
+</div>
+</div>
 </div>
 
 <div class="modal fade" id="addApp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -641,147 +623,147 @@
     <!-- /.modal-dialog -->
 </div>
 
-        <!--beneficiaries-->
-       
-        {{--<div class="box-group" id="accordion">--}}
-        {{--<div class="card card-accent-primary">--}}
-        {{--<div class="card-header">--}}
-        {{--<i>--}}
-        {{--<strong>--}}
-        {{--<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" class="collapsed">--}}
-        {{--<strong>Application</strong>--}}
-        {{--<small>Details</small>--}}
-        {{--</a>--}}
-        {{--</strong>--}}
-        {{--</i>--}}
-        {{--</div>--}}
-        {{--<div id="collapse5" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">--}}
-        {{--<div class="card-body">--}}
-        {{--<form method="post" action="{{route('createApplication')}}" class="form-horizontal">--}}
-        {{--{{csrf_field()}}--}}
-        {{--<input type="hidden" value="{{$person->userIdNum}}" name="userIdNum">--}}
-        {{--<input type="hidden" value="{{$session}}" name="Session">--}}
-        {{--<input type="hidden" value="{{date('Y').'-'.($appnum + 1)}}" name="applicationNum">--}}
-        {{--<input type="hidden" value="Manual" name="applicationType">--}}
-        {{--<input type="hidden" value="{{date('Y')}}" name="appYear">--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="EntryCriteria" id="EntryCriteria" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>Entry Type</option>--}}
-        {{--<option value="Normal">Normal</option>--}}
-        {{--<option value="Mature">Mature</option>--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="EntryType" id="EntryType" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>Format</option>--}}
-        {{--<option value="Block">Block</option>--}}
-        {{--<option value="Conventional">Conventional</option>--}}
-        {{--<option value="Parallel">Parallel</option>--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
+<!--beneficiaries-->
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="Session" id="Session" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>Select Intake</option>--}}
-        {{--@forelse($session as $app)--}}
-        {{--<option value="{{$app->session}}">{{$app->title}}</option>--}}
-        {{--@empty--}}
-        {{--@endforelse--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
+{{--<div class="box-group" id="accordion">--}}
+{{--<div class="card card-accent-primary">--}}
+{{--<div class="card-header">--}}
+{{--<i>--}}
+{{--<strong>--}}
+{{--<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" class="collapsed">--}}
+{{--<strong>Application</strong>--}}
+{{--<small>Details</small>--}}
+{{--</a>--}}
+{{--</strong>--}}
+{{--</i>--}}
+{{--</div>--}}
+{{--<div id="collapse5" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">--}}
+{{--<div class="card-body">--}}
+{{--<form method="post" action="{{route('createApplication')}}" class="form-horizontal">--}}
+{{--{{csrf_field()}}--}}
+{{--<input type="hidden" value="{{$person->userIdNum}}" name="userIdNum">--}}
+{{--<input type="hidden" value="{{$session}}" name="Session">--}}
+{{--<input type="hidden" value="{{date('Y').'-'.($appnum + 1)}}" name="applicationNum">--}}
+{{--<input type="hidden" value="Manual" name="applicationType">--}}
+{{--<input type="hidden" value="{{date('Y')}}" name="appYear">--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="EntryCriteria" id="EntryCriteria" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>Entry Type</option>--}}
+{{--<option value="Normal">Normal</option>--}}
+{{--<option value="Mature">Mature</option>--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="EntryType" id="EntryType" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>Format</option>--}}
+{{--<option value="Block">Block</option>--}}
+{{--<option value="Conventional">Conventional</option>--}}
+{{--<option value="Parallel">Parallel</option>--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
+
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="Session" id="Session" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>Select Intake</option>--}}
+{{--@forelse($session as $app)--}}
+{{--<option value="{{$app->session}}">{{$app->title}}</option>--}}
+{{--@empty--}}
+{{--@endforelse--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
 
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="C1Code" id="C1Code" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>First Choice Programme</option>--}}
-        {{--@forelse($courses as $su)--}}
-        {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-        {{--@empty--}}
-        {{--@endforelse--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="C2Code" id="C2Code" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>Second Choice Programme</option>--}}
-        {{--@forelse($courses as $su)--}}
-        {{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-        {{--@empty--}}
-        {{--@endforelse--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<input type="text"  name="Sponsor" placeholder="Sponsor"  class="form-control" required>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="C1Code" id="C1Code" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>First Choice Programme</option>--}}
+{{--@forelse($courses as $su)--}}
+{{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
+{{--@empty--}}
+{{--@endforelse--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="C2Code" id="C2Code" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>Second Choice Programme</option>--}}
+{{--@forelse($courses as $su)--}}
+{{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
+{{--@empty--}}
+{{--@endforelse--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<input type="text"  name="Sponsor" placeholder="Sponsor"  class="form-control" required>--}}
+{{--</div>--}}
+{{--</div>--}}
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<label>--}}
-        {{--<input type="checkbox" style="zoom:2.0;"  name="StaffMember">--}}
-        {{--</label>--}}
-        {{--Tick if You Are a Staff Member--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<label>--}}
+{{--<input type="checkbox" style="zoom:2.0;"  name="StaffMember">--}}
+{{--</label>--}}
+{{--Tick if You Are a Staff Member--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<input type="text"  name="LastSchoolAttended" placeholder="Last School Attended" class="form-control" required>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<input type="text"  name="FromDate" placeholder="From Date e.g. August 2010" class="form-control" required>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<input type="text"  name="ToDate" placeholder="To Date e.g. March 2014" class="form-control" required>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<input type="text"  name="LastSchoolAttended" placeholder="Last School Attended" class="form-control" required>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<input type="text"  name="FromDate" placeholder="From Date e.g. August 2010" class="form-control" required>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<input type="text"  name="ToDate" placeholder="To Date e.g. March 2014" class="form-control" required>--}}
+{{--</div>--}}
+{{--</div>--}}
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<input type="text"  name="LastSchoolAddress"  placeholder="Last School Address" class="form-control" required>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<input type="text"  name="LastSchoolAddress"  placeholder="Last School Address" class="form-control" required>--}}
+{{--</div>--}}
+{{--</div>--}}
 
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<select name="aboutus" id="aboutus" class="form-control input-group-lg reg_name" required>--}}
-        {{--<option value="" selected disabled>How did you hear about Zimbabwe School Of Mines</option>--}}
-        {{--<option value="Facebook">Facebook</option>--}}
-        {{--<option value="Website">Website</option>--}}
-        {{--<option value="Friend">Friend</option>--}}
-        {{--<option value="Outreach Programmes">Outreach Programmes</option>--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<select name="aboutus" id="aboutus" class="form-control input-group-lg reg_name" required>--}}
+{{--<option value="" selected disabled>How did you hear about Zimbabwe School Of Mines</option>--}}
+{{--<option value="Facebook">Facebook</option>--}}
+{{--<option value="Website">Website</option>--}}
+{{--<option value="Friend">Friend</option>--}}
+{{--<option value="Outreach Programmes">Outreach Programmes</option>--}}
 
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div><!--/form-group-->--}}
-        {{--<div class="form-group">--}}
-        {{--<div class="col-sm-12">--}}
-        {{--<button type="submit"  class="btn btn-primary btn-flat pull-right">  <span class="fa fa-check-circle"></span> Save </button>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--<br/>--}}
-        {{--<br/>--}}
-        {{--</form>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div><!--/form-group-->--}}
+{{--<div class="form-group">--}}
+{{--<div class="col-sm-12">--}}
+{{--<button type="submit"  class="btn btn-primary btn-flat pull-right">  <span class="fa fa-check-circle"></span> Save </button>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--<br/>--}}
+{{--<br/>--}}
+{{--</form>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
 
-    </div>
+</div>
 
 </div>
 
@@ -1120,118 +1102,11 @@
     <!-- /.modal-dialog -->
 </div>
 
-<div class="modal fade" id="editSpouse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"><i class="fa fa-street-view"> Edit Spouse </i></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <form class="form-horizontal" action="{{route('updateSpouse',$spouse->id)}}" method="post">
-                <div class="modal-body">
-                    {{csrf_field()}}
-                    {{method_field('PUT')}}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="gender">Title</label>
-                                <input type="text" name="title" value="{{$spouse->title}}" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="gender">Firstname</label>
-                                <input type="text" name="firstname" value="{{$spouse->name}}" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="gender">Surname</label>
-                                <input type="text" name="surname" value="{{$spouse->surname}}" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="gender">National ID</label>
-                                <input type="text" name="nationalid" value="{{$spouse->nationalid}}" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <select name="gender_id" id="gender_id" class="form-control input-group-lg reg_name" required>
-                                    <option value="{{$spouse->gender_id}}" selected disabled>{{$spouse->gender->gender}}</option>
-                                    @forelse($genders as $gender)
-                                    <option value="{{$gender->id}}">{{$gender->gender}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
-                            </div>
-            
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Mobile</label>
-                                    <input type="text" name="mobile" value="{{$spouse->mobile}}" placeholder="263-772728637" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Address</label>
-                                    <input type="text" name="address" value="{{$spouse->address}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Marriage Cert No.</label>
-                                    <input type="text" name="birthplace" value="{{$spouse->marriage_cert}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Date of Marriage</label>
-                                    <input type="date" name="religion" value="{{$spouse->date_marriage}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Occupation</label>
-                                    <input type="text" name="nationality" value="{{$spouse->occupation}}" class="form-control">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Income</label>
-                                    <input type="text" name="fullname" value="{{$spouse->income}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <label for="gender">Reason For Edit</label>
-                                    <input type="text" name="comment" value="{{$spouse->comment}}" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle-o"></span> Save
-                    </button>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
 <script>
-      function allocate(id) {
+    function allocate(id) {
         console.log('My application id is ' + id)
         $('#stand_application_id').val(id);
     }
 </script>
 
 @endsection
-
