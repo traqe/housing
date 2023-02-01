@@ -128,10 +128,18 @@ class ApplicationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $expiry_date = Carbon::now()->addDays(365);
         $receipt = Receipt::where('receipt', $request->receipt)->first();
         if ($receipt != null) {
-            Application::create($request->all());
+
+            Application::create(['applicant_id'=> $request->get('applicant_id'),
+                                'batch_id'=> $request->get('batch_id'),
+                                'stand_type_id'=> $request->get('stand_type_id'),
+                                'application_stage_id'=>$request->get('application_stage_id'),
+                                'receipt'=>$request->get('receipt'),
+                                'created_by'=>$request->get('created_by'),
+                                'expire_date'=> $request->get('expiry_date')]);
             return redirect()->back()->with('info', 'Application Successfully Captured');
         }
         return redirect()->back()->with('info', 'Error receipt number does not exist');
