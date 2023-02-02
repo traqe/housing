@@ -16,6 +16,7 @@ use App\Student;
 use App\Term;
 use App\TimeTable;
 use App\YearFinList;
+use App\Spouse;
 use Illuminate\Http\Request;
 use Toast;
 use Illuminate\Support\Arr;
@@ -196,6 +197,13 @@ class ApplicationController extends Controller
         Application::create($updated);
         Toast::success('Application Successfully Updated');
         return redirect(route('applications.index'));
+    }
+
+    public function showApplication($id)
+    {
+        $application = Application::find($id);
+        $spouse = Spouse::where('person_id', $application->applicant->id)->first();
+        return view('applications.show', ['application' => $application, 'spouse' => $spouse]);
     }
 
     public function getApplicant($id)

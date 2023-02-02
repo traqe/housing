@@ -8,7 +8,7 @@ class Person extends Model
 {
     protected $table = 'tblpersons';
     protected $fillable = [
-        'title', 'firstname', 'surname', 'nationalid',  'dob', 'gender_id', 'marital_id', 'email', 'mobile', 'address', 'birthplace', 'religion', 'telephone', 'nationality',  'created_by', 'updated_by', 'created_at', 'updated_at',
+        'title', 'firstname', 'surname', 'nationalid',  'dob', 'gender_id', 'marital_id', 'email', 'mobile', 'address', 'postaladdress', 'monthly_income', 'occupation', 'businessaddress', 'birthplace', 'religion', 'telephone', 'nationality',  'created_by', 'updated_by', 'created_at', 'updated_at',
     ];
 
     public function gender()
@@ -42,10 +42,14 @@ class Person extends Model
         return $this->hasMany('App\CouncilProperty');
     }
 
-    public function allocation(){
+    public function allocation()
+    {
 
         return $this->hasManyThrough(Allocation::class, Application::class);
-        
-        
+    }
+
+    public function spouse()
+    {
+        return $this->hasMany(Spouse::class, 'person_id');
     }
 }

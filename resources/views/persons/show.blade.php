@@ -196,7 +196,7 @@
                                                         <a href="#allocate" onclick="allocate('{{$s->id}}')" data-toggle="modal" title="Allocate Stand">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
-                                                        <a href="{{route('applications')}}" title="View Application" class="text-warning">
+                                                        <a href="application/{{$s->id}}" title="View Application" class="text-warning">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
                                                     </div>
@@ -519,7 +519,52 @@
                             <input type="text" name="receipt" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="nature_of_dev">Nature Of Intended Development</label>
+                            <input type="text" name="nature_of_dev" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="place_of_intent">Place Of Intended Development</label>
+                            <input type="text" name="place_of_intent" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="details_of_owned">Details Of Other Owned Stands</label>
+                            <input type="text" name="details_of_owned" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="amount_of_capital">Amount Of Capital Available</label>
+                            <input type="text" name="capital_amount" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="other_info">Number of Dependants</label>
+                            <input type="text" name="no_of_dependants" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="other_info">Years resident in Council Area</label>
+                            <input type="text" name="num_of_years_in_council" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+
                     <!--/form-group-->
+
+
 
                 </div>
                 <div class="modal-footer">
@@ -1036,6 +1081,33 @@
                                     <input type="text" name="address" value="{{$person->address}}" class="form-control">
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="gender">Postal Address</label>
+                                    <input type="text" name="postaladdress" value="{{$person->postaladdress != null ? $person->postaladdress : ''}}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="gender">Monthly Income</label>
+                                    <input type="text" name="monthly_income" value="{{$person->monthly_income != null ? $person->monthly_income : ''}}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="gender">Occupation</label>
+                                    <input type="text" name="occupation" value="{{$person->occupation != null ? $person->occupation : ''}}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="gender">Business Address</label>
+                                    <input type="text" name="businessaddress" value="{{$person->businessaddress != null ? $person->businessaddress : ''}}" class="form-control">
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="gender">Birth Place</label>

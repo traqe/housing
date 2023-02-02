@@ -10,7 +10,7 @@ class Application extends Model
     protected $table = 'tblapplications';
 
     public $fillable = [
-        'applicant_id', 'stand_id', 'stand_type_id', 'created_at', 'created_by', 'application_stage_id', 'batch_id', 'receipt', 'details'
+        'applicant_id', 'stand_id', 'stand_type_id', 'created_at', 'created_by', 'application_stage_id', 'batch_id', 'receipt', 'details', 'nature_of_dev', 'place_of_intent',  'details_of_owned', 'capital_amount', 'other_info', 'no_of_dependants', 'num_of_years_in_council'
     ];
 
     public function standType()

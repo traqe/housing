@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
   Route::get('PEOPLE/APPLICATION/{id}', ['uses' => 'PersonController@goToApplication', 'as' => 'goToApplication']);
   //     Route::post('ADDMEDICAL', ['uses' => 'PersonController@addMedical', 'as' => 'addMedical']);
   //     Route::delete('/DELETEMEDICAL', ['uses' => 'PersonController@deleteMedical', 'as' => 'deleteMedical']);
+  // route to move to show each application made by an applicant.
+  Route::get('/PERSONS/application/{id}', ['uses' => 'ApplicationController@showApplication', 'as' => 'showApplication']);
 
   Route::get('/stands', ['uses' => 'StandController@index', 'as' => 'stands']);
   Route::get('/stand/{id}', ['uses' => 'StandController@show', 'as' => 'showStand']);
@@ -439,6 +441,9 @@ Route::middleware('auth')->group(function () {
   Route::get('getDeclinedApplications', ['uses' => 'ReportController@getDeclinedApplications', 'as' => 'getDeclinedApplications']);
   Route::get('getPendingApplications', ['uses' => 'ReportController@getPendingApplications', 'as' => 'getPendingApplications']);
   Route::get('getCompanyProfile', ['uses' => 'ReportController@getCompanyProfile', 'as' => 'getCompanyProfile']);
+
+  //Form routes to re-print forms.
+  Route::get('printApplication/{id}', ['uses' => 'FormController@printApplication', 'as' => 'printApplication']);
 
   //Route::get('/', ['uses'=>'HomeController@index', 'as'=>'home']);
   Route::get('/sms', ['uses' => 'SmsController@index', 'as' => 'sms']);

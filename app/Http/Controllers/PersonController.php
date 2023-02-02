@@ -128,6 +128,7 @@ class PersonController extends Controller
         // beneficiaries of each person captured here and passed into compact
         // $beneficiaries = Beneficiary::where('person_id', $id)->get();
         $spouse = Spouse::where('person_id', $id)->get();
+        //$spouse = $person->spouse;
 
         $applications = Application::where('applicant_id', $id)->get();
         // foreach($applications as $s){

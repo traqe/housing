@@ -34,7 +34,7 @@
                         <a class="nav-link" href="{{route('company')}}"><i class="icon-star"></i> Profile </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('costing-main-stage') }}"><i class="icon-star"></i>Costing Stages</a>
+                        <a class="nav-link" href="{{ route('costing-main-stage') }}"><i class="icon-star"></i> Costing Stages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('marital')}}"><i class="icon-star"></i> Marital Status</a>
