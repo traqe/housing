@@ -58,7 +58,11 @@
                                         </tr>
                                         <tr>
                                             <td>Name & ID No. of Spouse</td>
+                                            @if($spouse != NULL)
                                             <td>{{$spouse->name}}, {{$spouse->surname}} <br> {{$spouse->nationalid}}</td>
+                                            @else
+                                            <td><i>(Not Applicable)</i></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td>Address</td>
@@ -82,7 +86,11 @@
                                         </tr>
                                         <tr>
                                             <td>Marriage Certificate no.</td>
+                                            @if($spouse != NULL)
                                             <td>{{$spouse->marriage_cert}}</td>
+                                            @else
+                                            <td><i>(Not Applicable)</i></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td>Occupation</td>
