@@ -824,6 +824,10 @@ Route::middleware('auth')->group(function () {
   Route::post('PERSONS/{id}/addSpouse', ['uses' => 'SpouseController@store']);
   Route::put('/spouse/{id}/edit', ['uses' => 'SpouseController@update', 'as' => 'updateSpouse']);
   */
+
+  //waitingList
+  Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
+  Route::post('/waiting-list',['uses'=> 'WaitingListController@update','as' =>'updateExpiryDate']);
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
