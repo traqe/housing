@@ -31,6 +31,11 @@
             @include('toast::messages')
         </div>
         <div class="col-md-8">
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">

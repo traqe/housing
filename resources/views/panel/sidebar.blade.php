@@ -83,6 +83,9 @@
                 <a class="nav-link" href="{{route('applications')}}"><i class="fa fa-folder-open"></i> Applications</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('waitinglist')}}"><i class="fa fa-bar-chart"></i> Waiting List</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('councilproperties')}}"><i class="fa fa-university"></i> Council Property</a>
             </li>
             {{--<li class="nav-item">--}}
