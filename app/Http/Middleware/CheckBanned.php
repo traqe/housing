@@ -26,18 +26,17 @@ class CheckBanned
         if ($current_date >= $validity){
             //User::all()->update(array('status' => 0));
             User::where('id', '<>', 0)->update(['status' => 0]);
+        }
+        if(auth()->check() && (auth()->user()->status == 0)){
+            Auth::logout();
 
-            if(auth()->check() && (auth()->user()->status == 0)){
-                Auth::logout();
-    
-                $request->session()->invalidate();
-    
-                $request->session()->regenerateToken();
-    
-                return redirect()->route('login')->with('error', 'Your Account is suspended, please contact Admin.');
-    
-        }
-        }
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect()->route('login')->with('error', 'Your Account is suspended, please contact Admin.');
+
+    }
         
 
     return $next($request);
