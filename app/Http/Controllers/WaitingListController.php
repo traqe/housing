@@ -10,7 +10,6 @@ class WaitingListController extends Controller
     public function index(){
         $applications = Application::where('application_stage_id','1')->get();
         //dd($applications);
-        
         return view('waitinglist.index',compact('applications'));
     }
     

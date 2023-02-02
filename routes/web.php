@@ -823,6 +823,9 @@ Route::middleware('auth')->group(function () {
   //waitingList
   Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
   Route::post('/waiting-list',['uses'=> 'WaitingListController@update','as' =>'updateExpiryDate']);
+
+  //license
+  Route::get('users/status/{user_id}/{status_code}',['uses'=> 'AdminController@updateStatus','as' => 'updateStatus']);
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
