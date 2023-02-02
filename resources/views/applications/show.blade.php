@@ -66,10 +66,11 @@
                                     </tr>
                                     <tr>
                                         <td>Marriage Certificate no.</td>
-                                        if($spouse != NULL)
+                                        @if($spouse != NULL)
                                         <td>{{$spouse->marriage_cert}}</td>
                                         @else
                                         <td><i>(Not Applicable)</i></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td>Occupation</td>
@@ -85,7 +86,7 @@
                                     </tr>
                                     <tr>
                                         <td>Years resident in Council Area</td>
-                                        <td>{{$application->num_of_years_in_councill}}</td>
+                                        <td>{{$application->num_of_years_in_council}}</td>
                                     </tr>
                                 </tbody>
                             </table>
