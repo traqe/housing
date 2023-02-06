@@ -444,6 +444,12 @@ Route::middleware('auth')->group(function () {
 
   //Form routes to re-print forms.
   Route::get('printApplication/{id}', ['uses' => 'FormController@printApplication', 'as' => 'printApplication']);
+  // Route::get('printStageInspection', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
+  // Route::get('printCession', ['uses' => 'FormController@printCession', 'as' => 'printCession']);
+  // Route::get('printLease', ['uses' => 'FormController@printLease', 'as' => 'printLease']);
+  // Route::get('printCertOfCompletion', ['uses' => 'FormController@printCertOfCompletion', 'as' => 'printCertOfCompletion']);
+  // Route::get('printCertOfOccupation', ['uses' => 'FormController@printCertOfOccupation', 'as' => 'printCertOfOccupation']);
+
 
   //Route::get('/', ['uses'=>'HomeController@index', 'as'=>'home']);
   Route::get('/sms', ['uses' => 'SmsController@index', 'as' => 'sms']);
@@ -827,7 +833,7 @@ Route::middleware('auth')->group(function () {
 
   //waitingList
   Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
-  Route::post('/waiting-list',['uses'=> 'WaitingListController@update','as' =>'updateExpiryDate']);
+  Route::post('/waiting-list', ['uses' => 'WaitingListController@update', 'as' => 'updateExpiryDate']);
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
