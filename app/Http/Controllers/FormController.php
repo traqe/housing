@@ -43,7 +43,7 @@ class FormController extends Controller
         $summaryData = array(
             'cession' => $cession,
         );
-        $pdf = PDF::loadView('forms.cessions', $summaryData);
+        $pdf = PDF::loadView('forms.cession', $summaryData);
         $filename = "Cession Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
