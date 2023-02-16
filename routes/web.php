@@ -813,6 +813,7 @@ Route::middleware('auth')->group(function () {
   //notification routes
   Route::get('/bulksms', ['uses' => 'BulkSmsController@sendForm', 'as' => 'send']);
   Route::post('/bulksms', 'BulkSmsController@sendSms');
+  Route::post('/sendOffer',['uses'=> 'BulkSmsController@sendOffer','as' => 'sendOffer']);
 
   /*spouse routes
   Route::get('PERSONS/{id}/addSpouse', ['uses' => 'SpouseController@create', 'as' => 'createSpouse']);

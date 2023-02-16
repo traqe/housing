@@ -199,6 +199,12 @@
                                                         <a href="{{route('applications')}}" title="View Application" class="text-warning">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
+                                                        @if ($s->stage->stage === 'ALLOCATED')
+                                                        <a href="#offer" data-toggle="modal" title="Send Offer Letter" class="text-success">
+                                                            <i class="fa fa-book"></i>
+                                                        @endif
+                                                        
+                                                        </a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -1106,6 +1112,39 @@
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="offer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-ambulance">Send Offer</i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form class="form-horizontal" action="{{route('sendOffer')}}" method="post">
+                <div class="modal-body">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Contact Number</label>
+                            <input type="text" name="contact" value= {{$person->mobile}} class="form-control input-group-lg reg_name" required>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="gender">Message</label><br>
+                            <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day '. $person->nationalid .' You have been offered a stand by olimem.Kindly visit us for more info.' }}</textarea>
+                    
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle-o"></span> Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>
