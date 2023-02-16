@@ -9,6 +9,7 @@ use App\Person;
 
 class BulkSmsController extends Controller
 {
+
     public function sendSms(Request $request){
         // Twillio Credentials
         $sid = env('TWILIO_SID');
@@ -45,4 +46,26 @@ class BulkSmsController extends Controller
         $applicants = Person::with('allocation')->where('','Approved')->get();
         return view('sms.bulksms',compact('applicants'));
     }
+
+    
+    public function sendOffer(Request $request){
+        // Twillio Credentials
+        $sid = getenv('TWILIO_SID');
+        $token = getenv('TWILIO_TOKEN');
+        $client = new Client($sid,$token);
+
+        $number = $request->input('contact');
+        $message = $request->input('message');
+
+        $client->messages->create(
+                $number,
+                ['from'=> getenv('TWILIO_FROM'),
+                'body'=> $message]
+            );
+        return back()->with('success');
+        }
+        
+       
+    
+    
 }
