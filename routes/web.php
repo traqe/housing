@@ -446,7 +446,7 @@ Route::middleware('auth')->group(function () {
 
   //Form routes to re-print forms.
   Route::get('printApplication/{id}', ['uses' => 'FormController@printApplication', 'as' => 'printApplication']);
-  // Route::get('printStageInspection', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
+  Route::get('printStageInspection/{id}', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
   Route::get('printCession/{id}', ['uses' => 'FormController@printCession', 'as' => 'printCession']);
   // Route::get('printLease', ['uses' => 'FormController@printLease', 'as' => 'printLease']);
   // Route::get('printCertOfCompletion', ['uses' => 'FormController@printCertOfCompletion', 'as' => 'printCertOfCompletion']);

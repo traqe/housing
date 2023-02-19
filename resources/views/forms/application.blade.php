@@ -39,7 +39,25 @@
 
 <div id="border">
     <div class="container-fluid">
-        <div id="header"></div>
+        <div id="header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="storage/logo/{{ $company->logo }} " alt="logo" class="rounded-circle" height="90px">
+                    </div>
+                    <div class="col-md-10">
+                        <div align="right" id="details-container">
+                            <h1>{{ $company->name }}</h1>
+                            <div id="details">
+                                <div>{{ $company->address }}</div>
+                                <div>{{ $company->email }}</div>
+                                <div>{{ $company->contact }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">

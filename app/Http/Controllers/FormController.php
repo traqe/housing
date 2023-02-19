@@ -9,6 +9,7 @@ use App\Spouse;
 use App\StageInspection;
 use App\Lease;
 use App\Stand;
+use App\Company;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class FormController extends Controller
@@ -17,9 +18,11 @@ class FormController extends Controller
     {
         $application = Application::find($request->id);
         $spouse = Spouse::where('person_id', $application->applicant->id)->first();
+        $company = Company::all()->first();
         $summaryData = array(
             'application' => $application,
             'spouse' => $spouse,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.application', $summaryData);
         $filename = "Application Form";
@@ -28,9 +31,13 @@ class FormController extends Controller
 
     public function printStageInspection(Request $request)
     {
-        $stageinspection = StageInspection::find($request->id);
+        $stageinspection = StageInspection::where('stand_id', $request->id)->get();
+        $stand = Stand::findOrFail($request->id);
+        $company = Company::all()->first();
         $summaryData = array(
             'stageinspection' => $stageinspection,
+            'stand' => $stand,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.stageinspection', $summaryData);
         $filename = "Stage Inspection Form";
@@ -40,8 +47,10 @@ class FormController extends Controller
     public function printCession(Request $request)
     {
         $cession = Cession::find($request->id);
+        $company = Company::all()->first();
         $summaryData = array(
             'cession' => $cession,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.cession', $summaryData);
         $filename = "Cession Form";
@@ -51,8 +60,10 @@ class FormController extends Controller
     public function printLease(Request $request)
     {
         $lease = Lease::find($request->id);
+        $company = Company::all()->first();
         $summaryData = array(
             'lease' => $lease,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.leases', $summaryData);
         $filename = "Cession Form";
@@ -63,8 +74,10 @@ class FormController extends Controller
     public function printCertOfCompletion(Request $request)
     {
         $stand = Stand::find($request->id);
+        $company = Company::all()->first();
         $summaryData = array(
             'stand' => $stand,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.completioncertificate', $summaryData);
         $filename = "Certificate Of Completion Form";
@@ -75,8 +88,10 @@ class FormController extends Controller
     public function printCertOfOccupation(Request $request)
     {
         $stand = Stand::find($request->id);
+        $company = Company::all()->first();
         $summaryData = array(
             'stand' => $stand,
+            'company' => $company,
         );
         $pdf = PDF::loadView('forms.occupationcertificate', $summaryData);
         $filename = "Certificate Of Completion Form";
