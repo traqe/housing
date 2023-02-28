@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Allocation;
 use Illuminate\Http\Request;
 use App\Application;
 use App\Cession;
@@ -25,6 +26,23 @@ class FormController extends Controller
             'company' => $company,
         );
         $pdf = PDF::loadView('forms.application', $summaryData);
+        $filename = "Application Form";
+        return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
+    }
+
+    public function printOfferLetter(Request $request)
+    {
+        $application = Application::find($request->id);
+        $spouse = Spouse::where('person_id', $application->applicant->id)->first();
+        $company = Company::all()->first();
+        $allocation = Allocation::where('application_id', $application->id)->get()->last();
+        $summaryData = array(
+            'application' => $application,
+            'spouse' => $spouse,
+            'company' => $company,
+            'allocation' => $allocation,
+        );
+        $pdf = PDF::loadView('forms.offerletter', $summaryData);
         $filename = "Application Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }

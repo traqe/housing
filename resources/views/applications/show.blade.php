@@ -8,10 +8,15 @@
                 <div class="card-body">
                     <div class="pull-right">
 
-                        <a href="{{ route('printApplication', $application->id) }}" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
+                        @if($application->application_stage_id == 3 OR $application->application_stage_id == 4)
+                        <a href="{{ route('printOfferLetter', $application->id) }}" id="btn_show_data" class="btn btn-sm btn-warning" title="Show Data">
+                            <i class="fa fa-file"></i> Print Offer Letter
+                        </a>
+                        @endif
+
+                        <a href="{{ route('printApplication', $application->id) }}" id="btn_print_app" class="btn btn-sm btn-primary" title="Show Data">
                             <i class="fa fa-table"></i> Print Application
                         </a>
-
 
                         <a href="" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
                             <i class="fa fa-plus-circle"></i> Add Data

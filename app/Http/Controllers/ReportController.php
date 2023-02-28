@@ -173,6 +173,29 @@ class ReportController extends Controller
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
+    public function getByLaws()
+    {
+        $company = Company::all()->first();
+        $summaryData = array(
+            'company' => $company,
+        );
+        $pdf = PDF::loadView('reports.bylaws', $summaryData);
+        $filename = "By-Laws Report";
+        return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
+    }
+
+    public function getChecklist()
+    {
+        $company = Company::all()->first();
+        $summaryData = array(
+            'company' => $company,
+        );
+        $pdf = PDF::loadView('reports.checklist', $summaryData);
+        $filename = "Checklist Form";
+        return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
+    }
+
+
     public function getProductLoans(Request $request)
     {
         $product = Product::find($request->productId);

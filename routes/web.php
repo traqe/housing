@@ -443,9 +443,13 @@ Route::middleware('auth')->group(function () {
   Route::get('getDeclinedApplications', ['uses' => 'ReportController@getDeclinedApplications', 'as' => 'getDeclinedApplications']);
   Route::get('getPendingApplications', ['uses' => 'ReportController@getPendingApplications', 'as' => 'getPendingApplications']);
   Route::get('getCompanyProfile', ['uses' => 'ReportController@getCompanyProfile', 'as' => 'getCompanyProfile']);
+  Route::get('getByLaws', ['uses' => 'ReportController@getByLaws', 'as' => 'getByLaws']);
+  Route::get('getChecklist', ['uses' => 'ReportController@getChecklist', 'as' => 'getChecklist']);
+
 
   //Form routes to re-print forms.
   Route::get('printApplication/{id}', ['uses' => 'FormController@printApplication', 'as' => 'printApplication']);
+  Route::get('printOfferLetter/{id}', ['uses' => 'FormController@printOfferLetter', 'as' => 'printOfferLetter']);
   Route::get('printStageInspection/{id}', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
   Route::get('printCession/{id}', ['uses' => 'FormController@printCession', 'as' => 'printCession']);
   // Route::get('printLease', ['uses' => 'FormController@printLease', 'as' => 'printLease']);

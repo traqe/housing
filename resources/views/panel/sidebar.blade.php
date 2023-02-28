@@ -151,6 +151,12 @@
                     <li>
                         <a class="nav-link" href="{{route('getCompanyProfile')}}" target="_blank"><i class="icon-star"></i> Company Profile</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{{route('getByLaws')}}" target="_blank"><i class="icon-star"></i> By-Laws</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{route('getChecklist')}}" target="_blank"><i class="icon-star"></i> Checklist</a>
+                    </li>
                 </ul>
 
 

@@ -1,51 +1,104 @@
 <style>
-    img {
-        padding-top: 0.3cm;
+    #border {
+        border: 1px solid black;
+        height: 270mm;
     }
 
-    h1 {
-        padding-left: 7.5cm;
+    .container-fluid {
+        padding: 3mm;
     }
 
-    table,
+    #company-details table {
+        width: 80%;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+    table {
+        width: 80%;
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
     th,
     td {
-        border: 1px solid;
-        text-align: center;
+        padding: 6px;
+        padding-right: 20px;
     }
 
-    #details {
-        font-size: 15pt;
-        line-height: 20pt;
+    #table-detail tr:nth-child(even) {
+        background-color: #f2f2f2;
     }
 
-    #details-container {
-        padding-bottom: 75%;
+    h2,
+    h3 {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #company-details {
+        float: right;
+        width: 70%;
+        padding-left: 10cm;
+    }
+
+    #company-image {
+        width: 30%;
+        float: left;
+    }
+
+    #header {
+        height: 3.7cm;
+    }
+
+    #header-info {
+        border: none;
+        width: 8cm;
+        table-layout: fixed;
+    }
+
+    p {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #requisiteTbl {
+        border-collapse: collapse;
+        padding-left: 5cm;
+        width: 13cm;
+    }
+
+    #requisiteTbl td {
+        border: 1px solid black;
+    }
+
+    #signature-table {
+        width: 20cm;
     }
 </style>
 
-
-<div style="display:flex;">
-    <!-- need a way to use image from a serve -->
-    <img src="storage/logo/{{ $company->logo }} " alt="logo" class="rounded-circle" height="120px">
-
-    <div align="right" id="details-container">
-        <h1>{{ $company->name }}</h1>
-        <div id="details">
-            <div>{{ $company->address }}</div>
-            <div>{{ $company->email }}</div>
-            <div>{{ $company->contact }}</div>
+<div id="border">
+    <div class="container-fluid">
+        <!--header place-->
+        <div id="header">
+            <div class="d-flex">
+                <div id="company-image">
+                    <img src="storage/logo/{{ $company->logo }} " alt="logo" class="rounded-circle" height="100px">
+                </div>
+                <div id="company-details">
+                    <table id="header-info">
+                        <tr>
+                            <td>{{ $company->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->address }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->email }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->contact }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
+        <!--header close here-->
     </div>
-</div>
-
-
-<!--<th width="15%">ADDRESS</th>
-                <th width="15%">EMAIL</th>
-                <th width="10%">CONTACT</th>
-            
-            <td> <span style="font-size:9pt;">{{$company->address}}</span></td>
-            <td> <span style="font-size:9pt;">{{$company->email}}</span></td>
-            <td> <span style="font-size:9pt;">{{$company->contact}}</span></td>-->
-
 </div>

@@ -8,16 +8,10 @@
         padding: 3mm;
     }
 
-    #header {
-        height: 3.7cm;
-        background-color: rgb(247, 247, 247);
-    }
-
     table {
         border-top: 1px solid;
         width: 80%;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
+        font-family: 'Arial Narrow', Arial, sans-serif;
     }
 
     th,
@@ -26,7 +20,7 @@
         padding-right: 20px;
     }
 
-    tr:nth-child(even) {
+    #table-detail tr:nth-child(even) {
         background-color: #f2f2f2;
     }
 
@@ -38,11 +32,56 @@
     p {
         line-height: 8mm;
     }
+
+    #company-details {
+        float: right;
+        width: 70%;
+        padding-left: 10cm;
+    }
+
+    #company-image {
+        width: 30%;
+        float: left;
+    }
+
+    #header {
+        height: 3.7cm;
+    }
+
+    #header-info {
+        border: none;
+        width: 8cm;
+        table-layout: fixed;
+    }
 </style>
 
 <div id="border">
     <div class="container-fluid">
-        <div id="header"></div>
+        <!--header place-->
+        <div id="header">
+            <div class="d-flex">
+                <div id="company-image">
+                    <img src="storage/logo/{{ $company->logo }} " alt="logo" class="rounded-circle" height="100px">
+                </div>
+                <div id="company-details">
+                    <table id="header-info">
+                        <tr>
+                            <td>{{ $company->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->address }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->email }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $company->contact }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--header close here-->
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
