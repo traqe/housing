@@ -827,6 +827,9 @@ Route::middleware('auth')->group(function () {
 
   //license
   Route::get('users/status/{user_id}/{status_code}',['uses'=> 'AdminController@updateStatus','as' => 'updateStatus']);
+
+  //softdeletes
+  Route::delete('repossession/{id}',['uses'=> 'RepossessionController@destroy','as' =>'destroyRepo']);
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
