@@ -216,6 +216,8 @@ class RepossessionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Repossession::find($id)->delete();
+  
+        return redirect()->back();
     }
 }

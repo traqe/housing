@@ -181,6 +181,7 @@
                                             <th>Details</th>
                                             <th>Status</th>
                                             <th>Approved_By</th>
+                                            <th>Actions </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -208,6 +209,13 @@
                                                         </button>
                                                     </div>
                                                     @endif
+                                                </form>
+                                            </td>
+                                            <td>
+                                            <form method="POST" action="{{ route('destroyRepo', $s->id) }}">
+                                            {{csrf_field()}}
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-danger delete" title='Delete'>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
