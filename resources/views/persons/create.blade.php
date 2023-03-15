@@ -95,6 +95,34 @@
 
                     <div class="form-group">
                         <div class="form-group">
+                            <label for="gender">Postal Address</label>
+                            <input type="text" name="postaladdress" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="gender">Monthly Income</label>
+                            <input type="text" name="monthly_income" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="gender">Occupation</label>
+                            <input type="text" name="occupation" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="gender">Business Address</label>
+                            <input type="text" name="businessaddress" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
                             <label for="gender">Birth Place</label>
                             <input type="text" name="birthplace" class="form-control" required>
                         </div>
