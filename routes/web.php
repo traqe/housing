@@ -830,6 +830,19 @@ Route::middleware('auth')->group(function () {
 
   //softdeletes
   Route::delete('repossession/{id}',['uses'=> 'RepossessionController@destroy','as' =>'destroyRepo']);
+
+   //--Lease Routes--//
+   Route::get('lease', ['uses' => 'LeasesController@index', 'as' => 'lease']);
+   Route::get('lease-renewal/{id}/edit', ['uses' => 'LeasesController@renewLease', 'as' => 'lease-renewal']);
+   Route::get('lease-create', ['uses' => 'LeasesController@create', 'as' => 'lease-create']);
+   Route::post('lease-store', ['uses' => 'LeasesController@store', 'as' => 'lease-store']);
+   Route::get('lease-stand-autocomplete', 'LeasesController@searchStands');
+   Route::delete('lease/{id}', ['uses' => 'LeasesController@destroy']);
+   Route::get('lease/{id}/edit',['uses' => 'LeasesController@edit', 'as' => 'lease-edit']);
+   Route::put('lease-update/{id}', ['uses' => 'LeasesController@update', 'as' => 'lease-update']);
+   Route::get('lease/{id}', ['uses' => 'LeasesController@show', 'as' => 'lease-show']);
+   Route::post('lease-decision', ['uses' => 'LeasesController@statusDecision', 'as' => 'lease-decision']);
+   //--End Lease Routes--//
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');

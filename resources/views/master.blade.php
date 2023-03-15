@@ -29,7 +29,8 @@
    <link  href="{{ asset('css/custom.css') }}" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
- </head>
+  @stack('page_css')
+</head>
  <!-- BODY options, add following classes to body to change options
  '.header-fixed' - Fixed Header
  '.brand-minimized' - Minimized brand (Only symbol)
@@ -69,6 +70,12 @@
    @include('panel.scripts')
    @yield('myscript')
 
-  
+   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <!-- <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/> -->
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1tgY7azkSrpVfVqRmqV85oaqVDFtspEs&callback=initMap&v=weekly"
+  defer>
+</script>
+@stack('page_scripts')
  </body>
  </html>
