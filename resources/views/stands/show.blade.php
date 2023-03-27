@@ -143,8 +143,8 @@
                             <strong>Repossession History</strong>
                             <small>Table</small>
                             <div class="pull-right pl-3">
-                                <button href="#" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Add Cession" >
-                                    <i class="fa fa-plus"> Send Notification</i>
+                                <button href="#notice" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Reposession Notice" >
+                                    <i class="fa fa-book"> Send Notification</i>
                                 </button>
                             </div>
                                 <!--ensures that only stands allocated can add repossessions-->
@@ -415,13 +415,11 @@
                             <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save
                             </button>
                         </div>
-    
                     </div>
-
             </form>
         </div>
     </div>
-
+</div>
 
     <!-- reinstatement modal-->
 
@@ -478,7 +476,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- STAGE EDIT MODAL -->
-</div>
+
   
     <!-- START ADD INSPECTION MODAL -->
     
@@ -532,5 +530,39 @@
 
 <!-- END ADD INSPECTION MODAL -->
 
-
-    @endsection
+    <!-- REPOSSESSION NOTICE MODAL -->
+    <div class="modal fade" id="notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-ambulance">Send Notice</i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form class="form-horizontal" action="{{route('sendOffer')}}" method="post">
+                    <div class="modal-body">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="gender">Contact Number</label>
+                                <input type="text" name="contact" value = "{{$gender->mobile}}" class="form-control input-group-lg reg_name" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="gender">Message</label><br>
+                                <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day '. $gender->nationalid .' You have been offered a stand by olimem.Kindly visit us for more info.' }}</textarea>
+                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle-o"></span> Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END REPOSSESSION NOTICE MODAL -->
+    
+@endsection

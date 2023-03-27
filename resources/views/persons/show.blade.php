@@ -573,7 +573,7 @@
                         <div class="col-sm-12">
                             <label for="gender">Expiry Date</label>
                             <input type="date" name="expiry_date" class="form-control input-group-lg reg_name" required>
-                        </div>
+                        </div> 
                     </div>
 
 

@@ -32,10 +32,11 @@ class StageInspectionController extends Controller
         $current_date = Carbon::now();
         $ins_date = $request->ins_date;
 
-        if ($receipt != null){
-            if ($ins_date > $current_date){
-                return redirect()->back()->with('error','Future Date Not Allowed');
+        
+        if ($ins_date > $current_date){
+            return redirect()->back()->with('error','Future Date Not Allowed');
             }
+        else{
             $insp = new StageInspection();
             $insp->stand_id = $request->stand_id;
             $insp->stage = $request->stage;
@@ -50,8 +51,8 @@ class StageInspectionController extends Controller
             } else{
                 return redirect()->back()->with('error','Receipt Invalid');
             }
-            
         }
+            
         return redirect()->back();
     }
 

@@ -78,7 +78,7 @@ class GraveController extends Controller
         $grave = Grave::findorFail($id);
         $status = StandStatus::all();
         
-        return view('graves.edit',compact('grave','status','cemeteryowner'));
+        return view('graves.edit',compact('grave','status'));
 
     }
 

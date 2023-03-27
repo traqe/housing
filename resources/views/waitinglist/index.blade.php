@@ -47,8 +47,8 @@
                                         title="Renew Application"><i class="fa fa-refresh"></i>
                                         </a>
                                         <a  class="text-warning"
-                                            href="#"
-                                            title="Edit Details"><i class="fa fa-eye"></i>
+                                            href="application/{{$app->id}}"
+                                            title="Application Details"><i class="fa fa-eye"></i>
                                         </a>
                                         
                                     </div>
