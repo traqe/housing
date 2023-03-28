@@ -399,7 +399,9 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/cessions', ['uses' => 'CessionController@index', 'as' => 'cessions']);
   Route::post('/addCession', ['uses' => 'CessionController@store', 'as' => 'addCession']);
-  Route::put('/updateCession', ['uses' => 'AllocationController@updateCession', 'as' => 'updateCession']);
+  Route::put('/updateCession', ['uses' => 'AllocationController@updateCession', 'as' => 'updateCession']); #
+  // Route to show each cession details.
+  Route::get('/cessions/{id}', ['uses' => 'CessionController@show', 'as' => 'showCession']);
 
   Route::post('/addRepossession', ['uses' => 'RepossessionController@store', 'as' => 'addRepossession']);
   Route::put('/updateRepossession', ['uses' => 'RepossessionController@update', 'as' => 'updateRepossession']);
@@ -441,9 +443,19 @@ Route::middleware('auth')->group(function () {
   Route::get('getDeclinedApplications', ['uses' => 'ReportController@getDeclinedApplications', 'as' => 'getDeclinedApplications']);
   Route::get('getPendingApplications', ['uses' => 'ReportController@getPendingApplications', 'as' => 'getPendingApplications']);
   Route::get('getCompanyProfile', ['uses' => 'ReportController@getCompanyProfile', 'as' => 'getCompanyProfile']);
+  Route::get('getByLaws', ['uses' => 'ReportController@getByLaws', 'as' => 'getByLaws']);
+  Route::get('getChecklist', ['uses' => 'ReportController@getChecklist', 'as' => 'getChecklist']);
+
 
   //Form routes to re-print forms.
   Route::get('printApplication/{id}', ['uses' => 'FormController@printApplication', 'as' => 'printApplication']);
+  Route::get('printOfferLetter/{id}', ['uses' => 'FormController@printOfferLetter', 'as' => 'printOfferLetter']);
+  Route::get('printStageInspection/{id}', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
+  Route::get('printCession/{id}', ['uses' => 'FormController@printCession', 'as' => 'printCession']);
+  // Route::get('printLease', ['uses' => 'FormController@printLease', 'as' => 'printLease']);
+  // Route::get('printCertOfCompletion', ['uses' => 'FormController@printCertOfCompletion', 'as' => 'printCertOfCompletion']);
+  // Route::get('printCertOfOccupation', ['uses' => 'FormController@printCertOfOccupation', 'as' => 'printCertOfOccupation']);
+
 
   //Route::get('/', ['uses'=>'HomeController@index', 'as'=>'home']);
   Route::get('/sms', ['uses' => 'SmsController@index', 'as' => 'sms']);
@@ -828,6 +840,7 @@ Route::middleware('auth')->group(function () {
 
   //waitingList
   Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
+
   Route::post('/waiting-list',['uses'=> 'WaitingListController@update','as' =>'updateExpiryDate']);
 
   //license

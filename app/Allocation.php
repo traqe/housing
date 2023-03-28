@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Allocation extends Model
 {
@@ -35,6 +36,8 @@ class Allocation extends Model
     //     return $this->morphTo();
     // }
 
-
-
+    public function person()
+    {
+        return $this->hasManyThrough(Person::class, Application::class);
+    }
 }

@@ -216,80 +216,81 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
-                </div>
-                <div class="card card-accent-primary">
-                    <!--heading-->
-                    <div class="card-header">
-                        <i class="fa fa-child">
-                            <strong>Spouse</strong>
-                        </i>
-                    </div>
-                    <!--body card-->
-                    <div style="height: 0px;">
-                        <div class="card-body" style="background-color: white;">
-                            <div class="pull-right">
-                                <!--take me to a page that enables me to add a new spouse-->
-                                <!--this spouse should have save and finish buttons-->
-                                <a href="{{request('id')}}/addSpouse">
-                                    <button class="btn btn-sm btn-primary" title="Add Spouse">
-                                        <i class="fa fa-plus"> Add Spouse</i>
-                                    </button>
-                                </a>
-                            </div>
-                            @if (session('deleteSuccess'))
-                            <div class="alert alert-info">
-                                {{ session('deleteSuccess') }}
-                            </div>
-                            @endif
-                            <br />
-                            <br />
-                            <div class="table-responsive">
-                                <table id="table-detail" class="table table-sm table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Title</th>
-                                            <th>Mobile</th>
-                                            <th>Address</th>
-                                            <th>Occupation</th>
-                                            <th>Income</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($spouse as $spouse)
-                                        <tr>
-                                            <td>{{$spouse->name}}</td>
-                                            <td>
-                                                {{$spouse->title}}
-                                            </td>
-                                            <td>{{$spouse->mobile}}</td>
-                                            <td>{{$spouse->address}}</td>
-                                            <td>{{$spouse->occupation}}</td>
-                                            <td>
-                                                {{$spouse->income}}
-                                                <div class="pull-right">
-                                                    <!--edit spouse /housing -->
-                                                    <a href="/housing/editSpouse/{{$spouse->id}}" onclick="" title="Edit Spouse">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <form method="POST" action="/housing/deleteSpouse/{{$spouse->id}}" style="padding-left: 0;">
-                                                        {{csrf_field()}}
-                                                        {{method_field('DELETE')}}
-                                                        <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Spouse?')" title="Delete Spouse" class="text-warning">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                    <div class="card card-accent-primary">
+                        <!--heading-->
+                        <div class="card-header">
+                            <i class="fa fa-child">
+                                <strong>Spouse</strong>
+                            </i>
+                        </div>
+                        <!--body card-->
+                        <div style="height: 0px;">
+                            <div class="card-body" style="background-color: white;">
+                                <div class="pull-right">
+                                    <!--take me to a page that enables me to add a new spouse-->
+                                    <!--this spouse should have save and finish buttons-->
+                                    <a href="{{request('id')}}/addSpouse">
+                                        <button class="btn btn-sm btn-primary" title="Add Spouse">
+                                            <i class="fa fa-plus"> Add Spouse</i>
+                                        </button>
+                                    </a>
+                                </div>
+                                @if (session('deleteSuccess'))
+                                <div class="alert alert-info">
+                                    {{ session('deleteSuccess') }}
+                                </div>
+                                @endif
+                                <br />
+                                <br />
+                                <div class="table-responsive">
+                                    <table id="table-detail" class="table table-sm table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Title</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Occupation</th>
+                                                <th>Income</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($spouse as $spouse)
+                                            <tr>
+                                                <td>{{$spouse->name}}</td>
+                                                <td>
+                                                    {{$spouse->title}}
+                                                </td>
+                                                <td>{{$spouse->mobile}}</td>
+                                                <td>{{$spouse->address}}</td>
+                                                <td>{{$spouse->occupation}}</td>
+                                                <td>
+                                                    {{$spouse->income}}
+                                                    <div class="pull-right">
+                                                        <!--edit spouse /housing -->
+                                                        <a href="/housing/editSpouse/{{$spouse->id}}" onclick="" title="Edit Spouse">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </a>
+                                                        <form method="POST" action="/housing/deleteSpouse/{{$spouse->id}}" style="padding-left: 0;">
+                                                            {{csrf_field()}}
+                                                            {{method_field('DELETE')}}
+                                                            <button style="border: 0;" type="submit" onclick="return confirm('Are you sure you want to Delete Spouse?')" title="Delete Spouse" class="text-warning">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /.box-body -->
                 </div>
+
 
                 {{--<div class="card card-accent-primary">--}}
                 {{--<div class="card-header">--}}

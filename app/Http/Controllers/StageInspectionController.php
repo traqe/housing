@@ -13,22 +13,25 @@ use Carbon\Carbon;
 
 class StageInspectionController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         //$inspections = StageInspection::all();
 
         //return view('stageinspections.index',compact('inspections'));
     }
 
 
-    public function create(){
+    public function create()
+    {
         //$allocation = Allocation::where('status','APPROVED')->get();
         //$stages = InspectionStages::all();
         //return view('stageinspections.create',compact('stages'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         //$stand_id = request('id');
-        $receipt = Receipt::where('receipt',$request->receipt)->first();
+        $receipt = Receipt::where('receipt', $request->receipt)->first();
         $current_date = Carbon::now();
         $ins_date = $request->ins_date;
 
@@ -43,37 +46,44 @@ class StageInspectionController extends Controller
             $insp->inspector_name = $request->inspector_name;
             $insp->ins_status = $request->ins_status;
             $insp->receipt_no = $request->receipt;
-            $insp->ins_date = $ins_date;
+            $insp->remarks = $request->remarks;
+            $insp->contractors = $request->contractors;
+            $insp->witness = $request->witness;
             $insp->created_by = Auth::user()->id;
 
-            if ($insp->save()){
-                return redirect()->back()->with('info','Stand Inspection saved');
-            } else{
-                return redirect()->back()->with('error','Receipt Invalid');
+            if ($insp->save()) {
+                return redirect()->back()->with('info', 'Stand Inspection saved');
+            } else {
+                return redirect()->back()->with('error', 'Receipt Invalid');
             }
         }
             
         return redirect()->back();
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $stage_insp = StageInspection::findOrFail($id);
         $stages = InspectionStages::all();
-        
-        return view('stageinspections.edit',compact('stage_insp','stages'));
+
+        return view('stageinspections.edit', compact('stage_insp', 'stages'));
     }
 
-    public function update(Request $request,$id){
+    public function update(Request $request, $id)
+    {
 
         $insp = StageInspection::find($id);
         $insp->stage = $request->stage;
         $insp->inspector_name = $request->inspector_name;
         $insp->ins_status = $request->ins_status;
+        $insp->remarks = $request->remarks;
+        $insp->contractors = $request->contractors;
+        $insp->witness = $request->witness;
         //$insp->receipt_no = $request->receipt;
         $insp->ins_date = $request->ins_date;
         $insp->save();
         //$insp->created_by = Auth::user()->id;
-        
-        return redirect()->route('showStand',['id' => $request->stand_id])->with('info','Stand Inspection Updated');           
-        }  
+
+        return redirect()->route('showStand', ['id' => $request->stand_id])->with('info', 'Stand Inspection Updated');
+    }
 }

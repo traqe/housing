@@ -143,24 +143,25 @@
                             <strong>Repossession History</strong>
                             <small>Table</small>
                             <div class="pull-right pl-3">
+
                                 <button href="#notice" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Reposession Notice" >
                                     <i class="fa fa-book"> Send Notification</i>
                                 </button>
                             </div>
-                                <!--ensures that only stands allocated can add repossessions-->
-                             <div class="pull-right">
-                                
-                            @if($stand->status == "ALLOCATED" OR $stand->status == "Allocated" OR $stand->status == "allocated")
-                            <button href="#smallButton" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
-                                <i class="fa fa-plus"> Add Repossession</i>
-                            </button>
-                            @endif 
-                            <!--ensures that only stands repossessed can be reins-ed-->
-                            @if($stand->repossessed == 1)
-                            <button href="#standReinstate" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
-                                <i class="fa fa-home"> Reinstatement Stand</i>
-                            </button>
-                            @endif
+                            <!--ensures that only stands allocated can add repossessions-->
+                            <div class="pull-right">
+
+                                @if($stand->status == "ALLOCATED" OR $stand->status == "Allocated" OR $stand->status == "allocated")
+                                <button href="#smallButton" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
+                                    <i class="fa fa-plus"> Add Repossession</i>
+                                </button>
+                                @endif
+                                <!--ensures that only stands repossessed can be reins-ed-->
+                                @if($stand->repossessed == 1)
+                                <button href="#standReinstate" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
+                                    <i class="fa fa-home"> Reinstatement Stand</i>
+                                </button>
+                                @endif
                             </div>
                         </div>
                         <div class="card-body">
@@ -169,8 +170,8 @@
                                 This stand is currently repossessed.
                             </div>
                             @endif
-                            
-                            
+
+
                             <div class="table-responsive">
                                 <table id="table-detail" class="table table-sm table-hover table-bordered">
                                     <thead>
@@ -226,22 +227,32 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     @include('layouts.partials.alerts')
                     <div class="card">
                         <div class="card-header">
-                            @if ($stand->status == 'ALLOCATED')
+                            @if ($stand->status == 'ALLOCATED' OR $stand->status == 'Allocated' OR $stand->status == 'allocated')
                             <div class="pull-right">
-                                <button  data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()" >
-                                    <i class="fa fa-plus" >Add Inspection</i>
+                                @foreach($stage_insp as $stage)
+                                @if ($stage != NULL)
+                                <a href="{{ route('printStageInspection', $stand->id) }}" class="btn btn-sm btn-success" title="Print Stage Inspection" disabled>
+                                    <i class="fa fa-file"> Print</i>
+                                </a>
+                                @endif
+                                @endforeach
+                                <button data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()">
+                                    <i class="fa fa-plus"> Add Inspection</i>
                                 </button>
 
                             </div>
 
                             @else
                             <div class="pull-right">
-                                <button  data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()" disabled>
-                                    <i class="fa fa-plus" >Add Inspection</i>
+                                <a href="{{ route('printStageInspection', $stand->id) }}" class="btn btn-sm btn-primary" title="Print Stage Inspection" disabled>
+                                    <i class="fa fa-plus">Print</i>
+                                </a>
+                                <button data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()" disabled>
+                                    <i class="fa fa-plus">Add Inspection</i>
                                 </button>
                             </div>
                             @endif
@@ -289,17 +300,17 @@
                         </div>
                     </div>
                 </div>
-                
-                </div>
+
             </div>
-            <!-- /.box -->
         </div>
+        <!-- /.box -->
     </div>
+</div>
 </div>
 
 
 <!-- START EDIT INSPECTION MODAL -->
-{{--  
+{{--
  <div class="modal fade" id="editinspection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -311,48 +322,48 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" action="{{ route('updateStageInspection',$stage_insp->id)}}" method="POST">
-                    
-                    {{ csrf_field() }}
-                    <input type="hidden" value="{{Auth::user()->id }}" name="created_by">
-                    <input type="hidden" value="{{$stand->id }}" name="stand_id">
-                     <div class="form-group">
-                        <label for="grave">Inspection Stage</label>
-                        <select name="stage" class="form-control input-group-lg reg_name" required>
-                            @forelse($stages as $stages)
-                            <option value="{{ $stages->stage }}">{{ $stages->stage }}</option>
 
-                            @empty
-                            @endforelse
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="grave">Inspection Name</label>
-                        <input type="text" value="{{ $stage_insp->inspector_name }}" name="inspector_name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="grave">Inspection Status</label>
-                        <input type="text" value="{{ $stage_insp->ins_status }}" name="ins_status" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="grave">Receipt No.</label>
-                        <input type="text" value="{{ $stage_insp->receipt_no }}" name="receipt" class="form-control" required readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="grave">Inspection Date</label>
-                        <input type="date" value=" {{ $stage_insp->ins_date }}" name="ins_date" class="form-control" required>
-                    </div>
+{{ csrf_field() }}
+<input type="hidden" value="{{Auth::user()->id }}" name="created_by">
+<input type="hidden" value="{{$stand->id }}" name="stand_id">
+<div class="form-group">
+    <label for="grave">Inspection Stage</label>
+    <select name="stage" class="form-control input-group-lg reg_name" required>
+        @forelse($stages as $stages)
+        <option value="{{ $stages->stage }}">{{ $stages->stage }}</option>
 
-                    <input type="submit" class="btn btn-success pull-right">
-            </form>
-            </div>
-        </div>
-    </div>
+        @empty
+        @endforelse
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="grave">Inspection Name</label>
+    <input type="text" value="{{ $stage_insp->inspector_name }}" name="inspector_name" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="grave">Inspection Status</label>
+    <input type="text" value="{{ $stage_insp->ins_status }}" name="ins_status" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="grave">Receipt No.</label>
+    <input type="text" value="{{ $stage_insp->receipt_no }}" name="receipt" class="form-control" required readonly>
+</div>
+<div class="form-group">
+    <label for="grave">Inspection Date</label>
+    <input type="date" value=" {{ $stage_insp->ins_date }}" name="ins_date" class="form-control" required>
+</div>
+
+<input type="submit" class="btn btn-success pull-right">
+</form>
+</div>
+</div>
+</div>
 </div>
 --}}
 <!-- END EDIT INSPECTION MODAL -->
 
-    
+
 <div class="modal fade" id="smallButton" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -363,59 +374,60 @@
                 </button>
             </div>
             <form class="form-horizontal" action="{{route('addRepossession')}}" method="post">
-                    <div class="modal-body">
-                        {{ csrf_field() }}
-                        <input type="hidden" value="{{Auth::user()->id}}" name="captured_by">
-                        <input type="hidden" value="{{$stand->id}}" name="stand_id">
-                        @if ($stand->allocations->where('current_status','CURRENT')->first() != null)
-                        <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->application->id}}" name="application_id">
-                        <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->id}}" name="allocation_id">
-                        <input type="hidden" value="{{($stand->batch != null ? $stand->batch->id : NULL)}}" name="stand_batch_id">
-                        @endif
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Amount Paid</label>
-                                <input type="text" name="amount_paid" id="amount_paid" value="{{$stand->price}}" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-    
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Repayment Date</label>
-                                <input type="date" name="repossession_date" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-    
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Reason</label>
-                                <input type="text" name="reason" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-    
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Repayment Percentage</label>
-                                <input type="number" onKeyUp="calculateRepaymentAmount()" name="repayment_percentage" id="repayment_percentage" class="form-control input-group-lg reg_name">
-                            </div>
-                        </div>
-                        <!--/form-group-->
-    
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Repayment Amount</label>
-                                <input type="number" name="repayment_amount" id="repayment_amount" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save
-                            </button>
+                <div class="modal-body">
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{Auth::user()->id}}" name="captured_by">
+                    <input type="hidden" value="{{$stand->id}}" name="stand_id">
+                    @if ($stand->allocations->where('current_status','CURRENT')->first() != null)
+                    <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->application->id}}" name="application_id">
+                    <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->id}}" name="allocation_id">
+                    <input type="hidden" value="{{($stand->batch != null ? $stand->batch->id : NULL)}}" name="stand_batch_id">
+                    @endif
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Amount Paid</label>
+                            <input type="text" name="amount_paid" id="amount_paid" value="{{$stand->price}}" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Repayment Date</label>
+                            <input type="date" name="repossession_date" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Reason</label>
+                            <input type="text" name="reason" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Repayment Percentage</label>
+                            <input type="number" onKeyUp="calculateRepaymentAmount()" name="repayment_percentage" id="repayment_percentage" class="form-control input-group-lg reg_name">
+                        </div>
+                    </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Repayment Amount</label>
+                            <input type="number" name="repayment_amount" id="repayment_amount" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save
+                        </button>
+                    </div>
+
+                </div>
             </form>
         </div>
     </div>
@@ -476,7 +488,6 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- STAGE EDIT MODAL -->
-
   
     <!-- START ADD INSPECTION MODAL -->
     
@@ -491,44 +502,56 @@
                 </div>
                 <div class="modal-body">
                 <form class="form-horizontal" action="{{ route('saveStageInspection') }}" method="POST">
-                    
-                        {{ csrf_field() }}
-                        <input type="hidden" value="{{Auth::user()->id }}" name="created_by"/>
-                        <input type="hidden" value="{{$stand->id }}" name="stand_id"/>
-                        
-                             <label for="grave">Inspection Stage</label>
-                            <select name="stage" class="form-control input-group-lg reg_name" required>
-                                @forelse($stages as $stages)
-                                <option value="{{ $stages->stage }}">{{ $stages->stage }}</option>
 
-                                @empty
-                                @endforelse
-                            </select>
-                        
-                        <div class="form-group">
-                            <label for="grave">Inspection Name</label>
-                            <input type="text" name="inspector_name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="grave">Inspection Status</label>
-                            <input type="text" name="ins_status" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="grave">Receipt No.</label>
-                            <input type="text" name="receipt" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="grave">Inspection Date</label>
-                            <input type="date" name="ins_date" class="form-control" required>
-                        </div>
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{Auth::user()->id }}" name="created_by" />
+                    <input type="hidden" value="{{$stand->id }}" name="stand_id" />
 
-                        <input type="submit" class="btn btn-success pull-right">
+                    <label for="grave">Inspection Stage</label>
+                    <select name="stage" class="form-control input-group-lg reg_name" required>
+                        @forelse($stages as $stages)
+                        <option value="{{ $stages->stage }}">{{ $stages->stage }}</option>
+
+                        @empty
+                        @endforelse
+                    </select>
+
+                    <div class="form-group">
+                        <label for="grave">Inspection Name</label>
+                        <input type="text" name="inspector_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Inspection Status</label>
+                        <input type="text" name="ins_status" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Contractors</label>
+                        <input type="text" name="contractors" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Receipt No.</label>
+                        <input type="text" name="receipt" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Inspection Date</label>
+                        <input type="date" name="ins_date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Remarks</label>
+                        <input type="text" name="remarks" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grave">Witness</label>
+                        <input type="text" name="witness" class="form-control" required>
+                    </div>
+
+                    <input type="submit" class="btn btn-success pull-right">
                 </form>
             </div>
         </div>
     </div>
 
-<!-- END ADD INSPECTION MODAL -->
+    <!-- END ADD INSPECTION MODAL -->
 
     <!-- REPOSSESSION NOTICE MODAL -->
     <div class="modal fade" id="notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
