@@ -242,4 +242,18 @@ class AdminController extends Controller
 
     }
 
+    public function updateStatus($user_id,$status_code){
+        try{
+            $update_user = User::whereId($user_id)->update([
+                'status' => $status_code
+            ]);
+            if($update_user){
+                return redirect()->route('admin.index')->with('success','User status Updated Successfully');
+            }
+            return redirect()->route('admin.index')->with('error','Failed to update user status ');
+        } catch(\Throwable $th){
+            throw $th;
+        }
+    }
+
 }

@@ -22,6 +22,7 @@ use Toast;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
 
 class ApplicationController extends Controller
 {
@@ -139,8 +140,15 @@ class ApplicationController extends Controller
                                 'stand_type_id'=> $request->get('stand_type_id'),
                                 'application_stage_id'=>$request->get('application_stage_id'),
                                 'receipt'=>$request->get('receipt'),
+                                'nature_of_dev'=>$request->get('nature_of_dev'),
+                                'place_of_intent' => $request->get('place_of_intent'),
+                                'details_of_owned' => $request->get('details_of_owned'),
+                                'capital_amount' => $request->get('capital_amount'),
+                                'no_of_dependants' => $request->get('no_of_dependants'),
+                                'num_of_years_in_council' => $request->get('num_of_years_in_council'),
+                                'expiry_date' => $request->get('expiry_date'),
                                 'created_by'=>$request->get('created_by'),
-                                'expire_date'=> $request->get('expiry_date')]);
+                                ]);
             return redirect()->back()->with('info', 'Application Successfully Captured');
         }
         return redirect()->back()->with('info', 'Error receipt number does not exist');
