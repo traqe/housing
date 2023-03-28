@@ -24,6 +24,14 @@
         background-color: #f2f2f2;
     }
 
+    #table-detail {
+        font-size: 15px;
+    }
+
+    #table-stand tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
     h2,
     h3 {
         font-family: 'Arial Narrow', Arial, sans-serif;
@@ -92,13 +100,8 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="table-detail" class="table table-striped">
+                                <table id="table-stand" class="table table-striped">
                                     <tbody>
-                                        <tr>
-                                            <td>Owner:</td>
-                                            <td>$stageinspection->stand->allocations->application->applicant->name</td>
-                                        </tr>
-
                                         <tr>
                                             <td>Centre</td>
                                             <td>{{$stand->location}}</td>
@@ -126,12 +129,12 @@
                                 <div id="stageInsp">
                                     <table id="table-detail" class="table table-striped">
                                         <tr>
-                                            <td>DESCRIPTION</td>
-                                            <td>APPROVED/NOT APPROVED</td>
-                                            <td>CONTRACTOR</td>
-                                            <td>INSPECTION</td>
-                                            <td>WITNESS</td>
-                                            <td>REMARKS</td>
+                                            <td><strong>DESCRIPTION</strong></td>
+                                            <td><strong>APPROVED/NOT APPROVED</strong></td>
+                                            <td><strong>CONTRACTOR</strong></td>
+                                            <td><strong>INSPECTION</strong></td>
+                                            <td><strong>WITNESS</strong></td>
+                                            <td><strong>REMARKS</strong></td>
                                         </tr>
                                         <tr>
                                             <td>Setting Out</td>
