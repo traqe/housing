@@ -43,7 +43,7 @@ class FormController extends Controller
             'allocation' => $allocation,
         );
         $pdf = PDF::loadView('forms.offerletter', $summaryData);
-        $filename = "Application Form";
+        $filename = "Offer Letter Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
@@ -84,7 +84,7 @@ class FormController extends Controller
             'company' => $company,
         );
         $pdf = PDF::loadView('forms.leases', $summaryData);
-        $filename = "Cession Form";
+        $filename = "Lease Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
@@ -112,7 +112,7 @@ class FormController extends Controller
             'company' => $company,
         );
         $pdf = PDF::loadView('forms.occupationcertificate', $summaryData);
-        $filename = "Certificate Of Completion Form";
+        $filename = "Certificate Of Occupation Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 }
