@@ -174,7 +174,7 @@
                     <td>Date..............................................</td>
                 </tr>
                 <tr>
-                    <td><strong>For Chipinge Rural District Council</strong></td>
+                    <td><strong>For {{$company->name}}</strong></td>
                 </tr>
                 <tr>
                     <td>DR. P Mlilo(CEO)..................................</td>

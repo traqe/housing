@@ -160,7 +160,7 @@
                         </div>
                         <br>
                         <p>I, <strong>{{$cession->owner->firstname.' '.$cession->owner->surname}}</strong>, do hereby cede, assign and transfer to National Reg. No: <strong>{{$cession->beneficiary->nationalid}}</strong>
-                            All my rights and title to and interest in lease number/stand number <strong>{{$cession->stand->stand_no}}</strong> at <strong>{{$cession->stand->address}}</strong> in Chipinge Rural District from ------- day of ---------- (month) ---------- (year)
+                            All my rights and title to and interest in lease number/stand number <strong>{{$cession->stand->stand_no}}</strong> at <strong>{{$cession->stand->address}}</strong> in {{$company->name}} from ------- day of ---------- (month) ---------- (year)
                             <br>
                             Cedent's Signature: <strong>.........................................</strong>
                         </p>
@@ -168,7 +168,7 @@
                         <p>
                             I, <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong>, National Reg.
                             No: <strong>{{$cession->beneficiary->nationalid}}</strong> Phone <strong>{{$cession->beneficiary->mobile}}</strong> Address <strong>{{$cession->stand->address}}</strong> do hereby accept transfer of the Agreement of lease number/stand
-                            number <strong>{{$cession->stand->stand_no}}</strong> at <strong>{{$cession->stand->address}}</strong> in Chipinge Rural District from -------- day of ----------
+                            number <strong>{{$cession->stand->stand_no}}</strong> at <strong>{{$cession->stand->address}}</strong> in {{$company->name}} from -------- day of ----------
                             (month) ---------- (year)
                             <br>
                             Cessionary's Signature: <strong>.........................................</strong>

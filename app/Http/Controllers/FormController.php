@@ -43,7 +43,7 @@ class FormController extends Controller
             'allocation' => $allocation,
         );
         $pdf = PDF::loadView('forms.offerletter', $summaryData);
-        $filename = "Application Form";
+        $filename = "Offer Letter Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
@@ -78,13 +78,19 @@ class FormController extends Controller
     public function printLease(Request $request)
     {
         $lease = Lease::find($request->id);
+
+        $stand = Stand::find($lease->stand_id);
+        $allocation = Allocation::where('stand_id', $stand->id)->get()->last();
+        $application = Application::find($allocation->application_id);
         $company = Company::all()->first();
         $summaryData = array(
             'lease' => $lease,
             'company' => $company,
+            'stand' => $stand, // get allocation
+            'application' => $application, // get applicant
         );
-        $pdf = PDF::loadView('forms.leases', $summaryData);
-        $filename = "Cession Form";
+        $pdf = PDF::loadView('forms.lease', $summaryData);
+        $filename = "Lease Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
@@ -112,7 +118,7 @@ class FormController extends Controller
             'company' => $company,
         );
         $pdf = PDF::loadView('forms.occupationcertificate', $summaryData);
-        $filename = "Certificate Of Completion Form";
+        $filename = "Certificate Of Occupation Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 }
