@@ -91,7 +91,7 @@
                         </div>
                         <div class="form-group">
                             <label for="gender">Status</label>
-                            <input type="text" name="status" value="{{$stand->status}}" class="form-control" required>
+                            <input disabled type="text" name="status" value="{{$stand->status}}" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="gender">Owner</label>

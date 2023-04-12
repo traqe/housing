@@ -115,6 +115,7 @@
             </div>
         </div>
         <!--header close here-->
+        <br>
         <center>
             <p><strong>BUILDING APPRAISAL CHECKLIST</strong></p>
         </center>

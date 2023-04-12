@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gender extends Model
 {
-    protected $fillable =['gender'];
+    protected $fillable = ['gender'];
     protected $table = 'tblgenders';
+    public $timestamps = false;
 
     public function person()
     {

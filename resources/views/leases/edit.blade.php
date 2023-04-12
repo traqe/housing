@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card card-accent-primary">
             <div class="card-header">
                 <i class="fa fa-align-justify"></i>
@@ -28,7 +28,7 @@
                 @include('layouts.partials.alerts')
 
                 <div class="card-body">
- 
+
                     <form method="post" action="{{ route('lease-update', $data->id) }}" enctype="multipart/form-data">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
@@ -52,13 +52,14 @@
                             <input type="date" name="expiry_date" class="form-control" value="{{$data->expiry_date}}" required>
                         </div>
 
+
                         <div class="form-group mb-3">
                             <label for="formFile" class="form-label">Supporting Documents</label>
                             <input class="form-control" type="file" name="file">
                         </div>
-  
+
                         <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa  fa-check-circle"></span> Update Lease Details</button>
-                        
+
                     </form>
 
                 </div>
@@ -80,8 +81,10 @@
 <script type="text/javascript">
     var route = "{{ url('lease-stand-autocomplete') }}";
     $('#search').typeahead({
-        source:  function (term, process) {
-        return $.get(route, { term: term }, function (data) {
+        source: function(term, process) {
+            return $.get(route, {
+                term: term
+            }, function(data) {
                 return process(data);
             });
         }

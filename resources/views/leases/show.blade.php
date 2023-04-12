@@ -65,11 +65,14 @@
                         <input type="date" name="expiry_date" class="form-control" value="{{$data->expiry_date}}" disabled>
                     </div>
 
+                    <!-- if document is not null show downloadable doc -->
+                    @if($document)
                     <div class="form-group mb-3">
                         <h5><a href="{{asset('storage/documents/leases/'.$document->document_name)}}" target="_blank">
                                 Download Documents <i class="fa fa-download"></i>
                             </a></h5>
                     </div>
+                    @endif
 
                     <div class="form-group">
                         @if($data->lease_status == 'PENDING')

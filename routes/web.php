@@ -508,7 +508,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/genders/{id}/edit', ['uses' => 'GenderController@edit', 'as' => 'editGender']);
   Route::get('/genders/{id}', ['uses' => 'GenderController@show', 'as' => 'showGender']);
   Route::get('/gender/create', ['uses' => 'GenderController@create', 'as' => 'createGender']);
-  Route::post('/gender/create', ['uses' => 'GenderController@store']);
+  Route::post('/gender/create', ['uses' => 'GenderController@store', 'as' => 'storeGender']);
   Route::put('updateGender/{id}', ['uses' => 'GenderController@update', 'as' => 'updateGender']);
 
   Route::get('/maritals', ['uses' => 'MaritalController@index', 'as' => 'marital']);

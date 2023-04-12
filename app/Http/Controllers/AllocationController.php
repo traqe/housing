@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use App\Cession;
+use App\Lease;
 
 class AllocationController extends Controller
 {
@@ -49,6 +50,20 @@ class AllocationController extends Controller
         $stand = Stand::find($request->stand_id);
         $stand->status = 'ALLOCATED';
         $stand->save();
+
+        if ($stand->status == "ALLOCATED") {
+            // creating a new lease when stand has been "allocated"
+            $lease = new Lease();
+            $lease->lease_no = "LM/2023";
+            $lease->date_applied = Carbon::today();
+            $lease->expiry_date = Carbon::today()->addDays(546);
+            $lease->entered_by = Auth::user()->id;
+            $lease->lease_status = "PENDING";
+            $lease->stand_id = $stand->id;
+            dd($lease);
+            $lease->save();
+        }
+
 
         $application->application_stage_id = 4;
         $application->save();

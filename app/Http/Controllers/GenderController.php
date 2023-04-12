@@ -37,7 +37,7 @@ class GenderController extends Controller
     public function store(Request $request)
     {
         Gender::create($request->all());
-        return redirect('/genders');
+        return redirect('genders');
     }
 
     /**
@@ -63,7 +63,6 @@ class GenderController extends Controller
         $gender = Gender::findorFail($id);
         //return $gender;
         return View('genders.edit', compact('gender'));
-
     }
 
     /**
@@ -91,5 +90,4 @@ class GenderController extends Controller
         Gender::find($req->id)->delete();
         return redirect('/genders');
     }
-
 }

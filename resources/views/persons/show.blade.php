@@ -202,8 +202,8 @@
                                                         @if ($s->stage->stage === 'ALLOCATED')
                                                         <a href="#offer" data-toggle="modal" title="Send Offer Letter" class="text-success">
                                                             <i class="fa fa-book"></i>
-                                                        @endif
-                                                        
+                                                            @endif
+
                                                         </a>
                                                     </div>
                                                 </td>
@@ -529,10 +529,17 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <label for="nature_of_dev">Nature Of Intended Development</label>
-                            <input type="text" name="nature_of_dev" class="form-control input-group-lg reg_name" required>
+                            <label for="gender">Nature Of Intended Development</label>
+                            <select name="nature_of_dev" id="nature_of_dev" class="form-control input-group-lg reg_name" required>
+                                <option value="" selected disabled>Select Development Nature</option>
+                                @forelse($standclass as $class)
+                                <option value="{{$class->class}}">{{$class->class}}</option>
+                                @empty
+                                @endforelse
+                            </select>
                         </div>
                     </div>
+                    <!--/form-group-->
 
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -574,7 +581,7 @@
                         <div class="col-sm-12">
                             <label for="gender">Expiry Date</label>
                             <input type="date" name="expiry_date" class="form-control input-group-lg reg_name" required>
-                        </div> 
+                        </div>
                     </div>
 
 
@@ -1202,12 +1209,12 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="gender">Contact Number</label>
-                            <input type="text" name="contact" value= {{$person->mobile}} class="form-control input-group-lg reg_name" required>
+                            <input type="text" name="contact" value={{$person->mobile}} class="form-control input-group-lg reg_name" required>
                         </div>
                         <div class="col-sm-12">
                             <label for="gender">Message</label><br>
                             <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day '. $person->nationalid .' You have been offered a stand by olimem.Kindly visit us for more info.' }}</textarea>
-                    
+
                         </div>
                     </div>
                 </div>

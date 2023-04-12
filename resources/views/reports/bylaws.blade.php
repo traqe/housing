@@ -122,13 +122,13 @@
             <strong>
                 (ACT 31/53)
                 <br>
-                CHIPINGE GENERAL BY- LAWS 1959/MODEL BUILDING BY-LAWS
+                {{$company->name}} GENERAL BY- LAWS 1959/MODEL BUILDING BY-LAWS
                 <br>
                 SCHEDULE A
                 <br>
-                CHIPINGE RURAL DISTRICT COUNCIL
+                {{ $company->name }}
                 <br>
-                BUILDING PLAN APPLICATION – DISIGNATED AREA OF CHIPINGE
+                BUILDING PLAN APPLICATION – DISIGNATED AREA OF {{$company->name}}
             </strong>
         </p>
     </center>

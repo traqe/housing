@@ -29,6 +29,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Controllers\ApplicationController;
+use App\StandClass;
 use Illuminate\Database\Eloquent\Builder;
 use phpDocumentor\Reflection\Types\Null_;
 
@@ -124,6 +125,7 @@ class PersonController extends Controller
         $batches = Batch::where('batch_type_id', '2')->get();
         $standTypes = StandType::all();
         $people = Person::all();
+        $standclass = StandClass::all();
 
         // beneficiaries of each person captured here and passed into compact
         // $beneficiaries = Beneficiary::where('person_id', $id)->get();
@@ -137,7 +139,7 @@ class PersonController extends Controller
         // return "";
         $stands = Stand::where('status', 'Available')->get(); //orderby('price','desc')->paginate(10);
 
-        return View('persons.show', compact('people', 'person', 'genders', 'maritals', 'batches', 'standTypes', 'applications', 'stands', 'spouse'));
+        return View('persons.show', compact('people', 'person', 'genders', 'maritals', 'batches', 'standTypes', 'applications', 'stands', 'spouse', 'standclass'));
     }
 
     public function generateStudentID()

@@ -144,7 +144,7 @@
                             <small>Table</small>
                             <div class="pull-right pl-3">
 
-                                <button href="#notice" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Reposession Notice" >
+                                <button href="#notice" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Reposession Notice">
                                     <i class="fa fa-book"> Send Notification</i>
                                 </button>
                             </div>
@@ -213,10 +213,10 @@
                                                 </form>
                                             </td>
                                             <td>
-                                            <form method="POST" action="{{ route('destroyRepo', $s->id) }}">
-                                            {{csrf_field()}}
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit" class="btn btn-danger delete" title='Delete'>Delete</button>
+                                                <form method="POST" action="{{ route('destroyRepo', $s->id) }}">
+                                                    {{csrf_field()}}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger delete" title='Delete'>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -433,74 +433,74 @@
     </div>
 </div>
 
-    <!-- reinstatement modal-->
+<!-- reinstatement modal-->
 
-    <div class="modal fade" id="standReinstate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-book"> Add Reinstatement</i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <form class="form-horizontal" action="{{route('addReinstatement')}}" method="post">
-                    <div class="modal-body">
-                        {{csrf_field()}}
-
-                        <input type="hidden" value="{{Auth::user()->id}}" name="captured_by">
-                        <input type="hidden" value="{{$stand->id}}" name="stand_id">
-
-                        @if($repossession != null)
-                        <!--extra code in tenary- {{($repossession != null ? $repossession->id : NULL)}}-->
-                        <input type="hidden" value="{{$repossession->id}}" name="repossession_id">
-                        @endif
-
-                        @if ($stand->allocations->where('current_status','CURRENT')->first() != null)
-                        <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->application->id}}" name="application_id">
-                        <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->id}}" name="allocation_id">
-                        <input type="hidden" value="{{($stand->batch != null ? $stand->batch->id : NULL)}}" name="stand_batch_id">
-                        @endif
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Reason</label>
-                                <input type="text" name="reason" id="reason" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Reinstatement Date</label>
-                                <input type="date" name="reinstatement_date" class="form-control input-group-lg reg_name" required>
-                            </div>
-                        </div>
-                        <!--/form-group-->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save
-                        </button>
-                    </div>
-                </form>
+<div class="modal fade" id="standReinstate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-book"> Add Reinstatement</i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- STAGE EDIT MODAL -->
-  
-    <!-- START ADD INSPECTION MODAL -->
-    
-    <div class="modal fade" id="addinspection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"><i class="fa fa-book">Development Inspection</i></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+            <form class="form-horizontal" action="{{route('addReinstatement')}}" method="post">
+                <div class="modal-body">
+                    {{csrf_field()}}
+
+                    <input type="hidden" value="{{Auth::user()->id}}" name="captured_by">
+                    <input type="hidden" value="{{$stand->id}}" name="stand_id">
+
+                    @if($repossession != null)
+                    <!--extra code in tenary- {{($repossession != null ? $repossession->id : NULL)}}-->
+                    <input type="hidden" value="{{$repossession->id}}" name="repossession_id">
+                    @endif
+
+                    @if ($stand->allocations->where('current_status','CURRENT')->first() != null)
+                    <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->application->id}}" name="application_id">
+                    <input type="hidden" value="{{$stand->allocations->where('current_status','CURRENT')->first()->id}}" name="allocation_id">
+                    <input type="hidden" value="{{($stand->batch != null ? $stand->batch->id : NULL)}}" name="stand_batch_id">
+                    @endif
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Reason</label>
+                            <input type="text" name="reason" id="reason" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Reinstatement Date</label>
+                            <input type="date" name="reinstatement_date" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save
                     </button>
                 </div>
-                <div class="modal-body">
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- STAGE EDIT MODAL -->
+
+<!-- START ADD INSPECTION MODAL -->
+
+<div class="modal fade" id="addinspection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fa fa-book">Development Inspection</i></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
                 <form class="form-horizontal" action="{{ route('saveStageInspection') }}" method="POST">
 
                     {{ csrf_field() }}
@@ -569,12 +569,12 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <label for="gender">Contact Number</label>
-                                <input type="text" name="contact" value = "{{$gender->mobile}}" class="form-control input-group-lg reg_name" required>
+                                <input type="text" name="contact" value="{{$gender->mobile}}" class="form-control input-group-lg reg_name" required>
                             </div>
                             <div class="col-sm-12">
                                 <label for="gender">Message</label><br>
                                 <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day '. $gender->nationalid .' You have been offered a stand by olimem.Kindly visit us for more info.' }}</textarea>
-                        
+
                             </div>
                         </div>
                     </div>
@@ -587,5 +587,5 @@
         </div>
     </div>
     <!-- END REPOSSESSION NOTICE MODAL -->
-    
-@endsection
+
+    @endsection

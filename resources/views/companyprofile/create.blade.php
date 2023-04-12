@@ -25,8 +25,7 @@
                 <strong>Add Organization</strong>
                 <small>Details</small>
             </div>
-
-            <form method="post" action="{{route('createCompany')}}" enctype="multipart/form-data">
+            <form style="padding: 1cm;" method="post" action="{{route('createCompany')}}" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="col-lg-12">
                     <div class="row">

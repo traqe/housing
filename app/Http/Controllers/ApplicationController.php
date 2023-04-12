@@ -130,25 +130,26 @@ class ApplicationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $expiry_date = Carbon::now()->addDays(365);
         $receipt = Receipt::where('receipt', $request->receipt)->first();
         if ($receipt != null) {
 
-            Application::create(['applicant_id'=> $request->get('applicant_id'),
-                                'batch_id'=> $request->get('batch_id'),
-                                'stand_type_id'=> $request->get('stand_type_id'),
-                                'application_stage_id'=>$request->get('application_stage_id'),
-                                'receipt'=>$request->get('receipt'),
-                                'nature_of_dev'=>$request->get('nature_of_dev'),
-                                'place_of_intent' => $request->get('place_of_intent'),
-                                'details_of_owned' => $request->get('details_of_owned'),
-                                'capital_amount' => $request->get('capital_amount'),
-                                'no_of_dependants' => $request->get('no_of_dependants'),
-                                'num_of_years_in_council' => $request->get('num_of_years_in_council'),
-                                'expiry_date' => $request->get('expiry_date'),
-                                'created_by'=>$request->get('created_by'),
-                                ]);
+            Application::create([
+                'applicant_id' => $request->get('applicant_id'),
+                'batch_id' => $request->get('batch_id'),
+                'stand_type_id' => $request->get('stand_type_id'),
+                'application_stage_id' => $request->get('application_stage_id'),
+                'receipt' => $request->get('receipt'),
+                'nature_of_dev' => $request->get('nature_of_dev'),
+                'place_of_intent' => $request->get('place_of_intent'),
+                'details_of_owned' => $request->get('details_of_owned'),
+                'capital_amount' => $request->get('capital_amount'),
+                'no_of_dependants' => $request->get('no_of_dependants'),
+                'num_of_years_in_council' => $request->get('num_of_years_in_council'),
+                'expiry_date' => $request->get('expiry_date'),
+                'created_by' => $request->get('created_by'),
+            ]);
             return redirect()->back()->with('info', 'Application Successfully Captured');
         }
         return redirect()->back()->with('info', 'Error receipt number does not exist');

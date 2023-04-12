@@ -47,9 +47,9 @@ class LeasesController extends Controller
 
                 $documentName = time() . '.' . $files->getClientOriginalExtension();
                 $request->file->move(public_path('storage/documents/leases'), $documentName);
-    
+
                 $document = $documentName;
-    
+
                 $dataD->model = 'App\Lease';
                 $dataD->model_id = $data->id;
                 $dataD->document_name = $document;
@@ -62,30 +62,32 @@ class LeasesController extends Controller
         }
     }
 
-    public function create(){
+    public function create()
+    {
         return view('leases.create');
     }
 
-    public function searchStands(Request $request){
+    public function searchStands(Request $request)
+    {
         $search = $request->get('term');
 
         $result = Stand::select('stand_no')
-        ->where('stand_no', 'like', "%{$search}%")
-        ->pluck('stand_no');
+            ->where('stand_no', 'like', "%{$search}%")
+            ->pluck('stand_no');
         return new JsonResponse($result);
-        
     }
 
-    public function destroy($id){
-        
+    public function destroy($id)
+    {
+
         $data = Lease::findOrFail($id);
-        
+
         $dataD = Document::where([
             ['model_id', '=', $id],
             ['model', '=', 'App\Lease']
         ])->first();
 
-        if($dataD != null){
+        if ($dataD != null) {
 
             $path = public_path() . '/storage/documents/leases/';
             $file_old = $path . $dataD->document_name;
@@ -93,66 +95,81 @@ class LeasesController extends Controller
 
             $dataD->delete();
         }
-        
-        if($data->delete()){
+
+        if ($data->delete()) {
             return new JsonResponse(["status" => true]);
-        }else{
+        } else {
             return new JsonResponse(["status" => false]);
         }
-        
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $data = Lease::findOrFail($id);
-        $stand = Stand::where('id','=', $data->stand_id)->first();
+        $stand = Stand::where('id', '=', $data->stand_id)->first();
         return view('leases.edit', compact('data', 'stand'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $data = Lease::findOrFail($id);
-        $stand = Stand::where('id','=', $data->stand_id)->first();
-        
+        $stand = Stand::where('id', '=', $data->stand_id)->first();
+
         $data->lease_no = $request->lease_number;
         $data->stand_id = $stand->id;
         $data->date_applied = $request->date_applied;
         $data->expiry_date = $request->expiry_date;
 
-        
-        if($request->file != null){
-           
+
+        if ($request->file != null) {
+
             $dataD = Document::where([
                 ['model_id', '=', $data->id],
                 ['model', '=', 'App\Lease']
             ])->first();
 
-            $path = public_path() . '/storage/documents/leases/';
-            $file_old = $path . $dataD->document_name;
-            unlink($file_old);
+            if ($dataD) {
+                $path = public_path() . '/storage/documents/leases/';
+                $file_old = $path . $dataD->document_name;
+                unlink($file_old);
 
-            $files = $request->file('file');
+                $files = $request->file('file');
 
-            $documentName = time() . '.' . $files->getClientOriginalExtension();
-            $request->file->move(public_path('storage/documents/leases'), $documentName);
-    
-            $document = $documentName;
+                $documentName = time() . '.' . $files->getClientOriginalExtension();
+                $request->file->move(public_path('storage/documents/leases'), $documentName);
 
-            $dataD->document_name = $document;
+                $document = $documentName;
 
-            $dataD->save();
-   
+                $dataD->document_name = $document;
+
+                $dataD->save();
+            } else {
+                $dataD = new Document();
+                $files = $request->file('file');
+                $documentName = time() . '.' . $files->getClientOriginalExtension();
+                $request->file->move(public_path('storage/documents/leases'), $documentName);
+
+                $document = $documentName;
+
+                $dataD->model = 'App\Lease';
+                $dataD->model_id = $data->id;
+                $dataD->document_name = $document;
+
+                $dataD->save();
+            }
         }
 
-        if($data->save()){
+        if ($data->save()) {
             return redirect()->route('lease')->with('message', 'Lease updated successfully!');
         } else {
             return redirect()->back()->with('error', 'Problem updating Lease!');
         }
-
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $data = Lease::findOrFail($id);
-        $stand = Stand::where('id','=', $data->stand_id)->first();
+        $stand = Stand::where('id', '=', $data->stand_id)->first();
         $document = Document::where([
             ['model', 'App\Lease'],
             ['model_id', '=', $data->id]
@@ -161,7 +178,8 @@ class LeasesController extends Controller
         return view('leases.show', compact('data', 'stand', 'document'));
     }
 
-    public function statusDecision(Request $request){
+    public function statusDecision(Request $request)
+    {
 
         /*
         *    1 - approval, 2 - rejection, 3 - renewal, 4 - termination
@@ -169,12 +187,12 @@ class LeasesController extends Controller
 
         $data = Lease::where('id', '=', $request->lease_id)->first();
 
-        if($request->decision == "1"){
+        if ($request->decision == "1") {
 
             $data->lease_status = "ACTIVE";
             $data->approval_status = "APPROVED";
 
-            if($data->save()){
+            if ($data->save()) {
                 $dataL = new LeaseDecision();
 
                 $dataL->lease_id = $request->lease_id;
@@ -189,14 +207,13 @@ class LeasesController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Problem updating Lease!');
             }
-
         }
 
-        if($request->decision == "2"){
+        if ($request->decision == "2") {
             $data->lease_status = "PENDING";
             $data->approval_status = "REJECTED";
 
-            if($data->save()){
+            if ($data->save()) {
                 $dataL = new LeaseDecision();
 
                 $dataL->lease_id = $request->lease_id;
@@ -211,11 +228,11 @@ class LeasesController extends Controller
             }
         }
 
-        if($request->decision == "3"){
+        if ($request->decision == "3") {
             $data->lease_status = "ACTIVE";
             $data->approval_status = "RENEWED";
 
-            if($data->save()){
+            if ($data->save()) {
                 $dataL = new LeaseDecision();
 
                 $dataL->lease_id = $request->lease_id;
@@ -232,11 +249,11 @@ class LeasesController extends Controller
             }
         }
 
-        if($request->decision == "4"){
+        if ($request->decision == "4") {
             $data->lease_status = "EXPIRED";
             $data->approval_status = "TERMINATED";
 
-            if($data->save()){
+            if ($data->save()) {
                 $dataL = new LeaseDecision();
 
                 $dataL->lease_id = $request->lease_id;
@@ -251,5 +268,4 @@ class LeasesController extends Controller
             }
         }
     }
-
 }

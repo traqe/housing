@@ -12,6 +12,7 @@ use App\Allocation;
 use App\InspectionStages;
 use App\StandClass;
 use App\Repossession;
+use App\DevelopmentStage;
 
 class StandController extends Controller
 {
@@ -33,9 +34,9 @@ class StandController extends Controller
          */
         public function create()
         {
-                $status = StandStatus::all();
                 $standTypes = StandType::all();
                 $standClasses = StandClass::all();
+                $status = DevelopmentStage::all();
                 $developers = Developer::all();
                 $batches = Batch::where('batch_type_id', '1')->get();
                 return view('stands.create', compact('standTypes', 'status', 'developers', 'batches', 'standClasses'));

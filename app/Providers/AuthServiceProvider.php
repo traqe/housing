@@ -25,6 +25,20 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('isSuperAdministrator', function ($user) {
+            return $user->housingRole->role_id == 1;
+        });
+
+        Gate::define('isHousingClerk', function ($user) {
+            return $user->housingRole->role_id == 2;
+        });
+
+        Gate::define('isApprover', function ($user) {
+            return $user->housingRole->role_id == 3;
+        });
+
+        Gate::define('isAccounts', function ($user) {
+            return $user->housingRole->role_id == 4;
+        });
     }
 }
