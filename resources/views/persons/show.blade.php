@@ -1209,7 +1209,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="gender">Contact Number</label>
-                            <input type="text" name="contact" value={{$person->mobile}} class="form-control input-group-lg reg_name" required>
+                            <input type="text" name="contact" value="{{$person->mobile}}" class="form-control input-group-lg reg_name" required>
                         </div>
                         <div class="col-sm-12">
                             <label for="gender">Message</label><br>

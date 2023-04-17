@@ -143,18 +143,20 @@
                             <strong>Repossession History</strong>
                             <small>Table</small>
                             <div class="pull-right pl-3">
-
-                                <button href="#notice" data-toggle="modal" class="btn btn-sm btn-warning pull-right" title="Reposession Notice">
+                                <a href="{{ route('repoNotification', $stand->id) }}" class="btn btn-sm btn-warning pull-right" title="Reposession Notice">
                                     <i class="fa fa-book"> Send Notification</i>
-                                </button>
+                                </a>
                             </div>
                             <!--ensures that only stands allocated can add repossessions-->
                             <div class="pull-right">
-
+                                @if($notification)
+                                @if($notification->count >= 2)
                                 @if($stand->status == "ALLOCATED" OR $stand->status == "Allocated" OR $stand->status == "allocated")
                                 <button href="#smallButton" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
                                     <i class="fa fa-plus"> Add Repossession</i>
                                 </button>
+                                @endif
+                                @endif
                                 @endif
                                 <!--ensures that only stands repossessed can be reins-ed-->
                                 @if($stand->repossessed == 1)
@@ -550,42 +552,5 @@
             </div>
         </div>
     </div>
-
     <!-- END ADD INSPECTION MODAL -->
-
-    <!-- REPOSSESSION NOTICE MODAL -->
-    <div class="modal fade" id="notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa fa-ambulance">Send Notice</i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <form class="form-horizontal" action="{{route('sendOffer')}}" method="post">
-                    <div class="modal-body">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="gender">Contact Number</label>
-                                <input type="text" name="contact" value="{{$gender->mobile}}" class="form-control input-group-lg reg_name" required>
-                            </div>
-                            <div class="col-sm-12">
-                                <label for="gender">Message</label><br>
-                                <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day '. $gender->nationalid .' You have been offered a stand by olimem.Kindly visit us for more info.' }}</textarea>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle-o"></span> Send
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- END REPOSSESSION NOTICE MODAL -->
-
     @endsection

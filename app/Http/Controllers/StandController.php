@@ -13,6 +13,8 @@ use App\InspectionStages;
 use App\StandClass;
 use App\Repossession;
 use App\DevelopmentStage;
+use App\Application;
+use App\RepoNotification;
 
 class StandController extends Controller
 {
@@ -65,13 +67,15 @@ class StandController extends Controller
                 $stand = Stand::findOrFail($id);
                 $stage_insp = $stand->stageinspection;
                 $repossession = Repossession::where('stand_id', $id)->get()->last();
+                // error of empty if no offer is on.
+                $notification = RepoNotification::where('stand_id', $stand->id)->get()->first();
                 $allocation = Allocation::where('status', 'APPROVED')->get();
                 $stages = InspectionStages::all();
                 //dd($stages);
                 //return response()->json(['data'=>$stand]);
                 $applications = [];
                 //return $stand->allocation->application->applicant;
-                return view('stands.show', compact('stand', 'allocation', 'stages', 'stage_insp', 'applications', 'repossession'));
+                return view('stands.show', compact('stand', 'allocation', 'stages', 'stage_insp', 'applications', 'repossession', 'notification'));
         }
 
         /**
@@ -115,5 +119,13 @@ class StandController extends Controller
                 $stand = Stand::findOrFail($id);
                 $stand->delete();
                 return redirect()->route('stands');
+        }
+
+        public function getNotification(Request $request, $id)
+        {
+                $stand = Stand::findOrFail($id);
+                $allocation = Allocation::where('stand_id', $stand->id)->get()->last();
+                $application = Application::where('id', $allocation->application_id)->get()->last();
+                return view('stands.sendnotification', compact('stand', 'application'));
         }
 }

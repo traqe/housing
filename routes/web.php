@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/create/stand', ['uses' => 'StandController@store']);
   Route::get('/stand/{id}/edit', ['uses' => 'StandController@edit', 'as' => 'editStand']);
   Route::put('updateStand/{id}', ['uses' => 'StandController@update', 'as' => 'updateStand']);
+  Route::get('reponotification/{id}', ['uses' => 'StandController@getNotification', 'as' => 'repoNotification']);
 
   Route::get('/graves', ['uses' => 'GraveController@index', 'as' => 'graves']);
   Route::get('/graves/{id}', ['uses' => 'GraveController@show', 'as' => 'showGrave']);

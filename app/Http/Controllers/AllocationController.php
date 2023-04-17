@@ -60,7 +60,6 @@ class AllocationController extends Controller
             $lease->entered_by = Auth::user()->id;
             $lease->lease_status = "PENDING";
             $lease->stand_id = $stand->id;
-            dd($lease);
             $lease->save();
         }
 
