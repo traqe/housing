@@ -43,7 +43,7 @@
                     <small>Form</small>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{route('sendOffer')}}" method="post">
+                    <form class="form-horizontal" action="{{route('repoNotify')}}" method="post">
                         <div class="modal-body">
                             {{csrf_field()}}
                             <div class="form-group">

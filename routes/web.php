@@ -832,6 +832,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/bulksms', ['uses' => 'BulkSmsController@sendForm', 'as' => 'send']);
   Route::post('/bulksms', 'BulkSmsController@sendSms');
   Route::post('/sendOffer', ['uses' => 'BulkSmsController@sendOffer', 'as' => 'sendOffer']);
+  Route::post('/repoNotify', ['uses' => 'BulkSmsController@repoNotify', 'as' => 'repoNotify']);
 
   /*spouse routes
   Route::get('PERSONS/{id}/addSpouse', ['uses' => 'SpouseController@create', 'as' => 'createSpouse']);
@@ -841,7 +842,7 @@ Route::middleware('auth')->group(function () {
 
   //waitingList
   Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
-
+  Route::get('waiting-history/{id}', ['uses' => 'WaitingListController@show', 'as' => 'waiting-history']);
   Route::post('/waiting-list', ['uses' => 'WaitingListController@update', 'as' => 'updateExpiryDate']);
 
   //license

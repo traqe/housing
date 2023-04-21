@@ -46,7 +46,7 @@
                                 <div class="pull-right box-tools">
                                     <a class="text-primary" id="renew" data-toggle="modal" data-target="#renewapplication" href="#" title="Renew Application"><i class="fa fa-refresh"></i>
                                     </a>
-                                    <a class="text-warning" href="application/{{$app->id}}" title="Application Details"><i class="fa fa-eye"></i>
+                                    <a class="text-warning" href="{{ route('waiting-history', $app->id) }}" title="Renewal History"><i class="fa fa-eye"></i>
                                     </a>
 
                                 </div>
@@ -76,12 +76,10 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" action="{{ route('updateExpiryDate') }}" method="POST">
-
                     {{ csrf_field() }}
                     <input type="hidden" value="{{Auth::user()->id }}" name="updated_by" />
                     <div class="form-group">
-                        <label for="grave">Application Id</label>
-                        <input type="text" name="app_id" id="id_field" class="form-control" disabled required>
+                        <input type="text" value="" name="app_id" id="id_field" class="form-control" readonly="readonly" required>
                     </div>
                     <div class="form-group">
                         <label for="grave">Receipt No.</label>

@@ -53,7 +53,7 @@ class BulkSmsController extends Controller
 
     public function sendOffer(Request $request)
     {
-        /* Twillio Credentials
+        // Twillio Credentials
         $sid = getenv('TWILIO_SID');
         $token = getenv('TWILIO_TOKEN');
         $client = new Client($sid, $token);
@@ -67,7 +67,28 @@ class BulkSmsController extends Controller
                 'from' => getenv('TWILIO_FROM'),
                 'body' => $message
             ]
-        );*/
+        );
+        //$notification = RepoNotification::updateOrCreate(['stand_id' => $request->get('stand_id'), 'application_id' => $request->get('application_id'), 'count' =>  ]);
+        return back()->with('success', 'Notification Sent Successfully');
+    }
+
+    public function repoNotify(Request $request)
+    {
+        // Twillio Credentials
+        $sid = getenv('TWILIO_SID');
+        $token = getenv('TWILIO_TOKEN');
+        $client = new Client($sid, $token);
+
+        $number = $request->input('contact');
+        $message = $request->input('message');
+
+        $client->messages->create(
+            $number,
+            [
+                'from' => getenv('TWILIO_FROM'),
+                'body' => $message
+            ]
+        );
         //$notification = RepoNotification::updateOrCreate(['stand_id' => $request->get('stand_id'), 'application_id' => $request->get('application_id'), 'count' =>  ]);
         if ((RepoNotification::where('stand_id', $request->stand_id)->get()->first()) == NULL) {
             $notification = new RepoNotification();

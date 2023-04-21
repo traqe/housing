@@ -11,6 +11,7 @@ use App\StageInspection;
 use App\Lease;
 use App\Stand;
 use App\Company;
+use App\DevelopmentStage;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class FormController extends Controller
@@ -36,11 +37,13 @@ class FormController extends Controller
         $spouse = Spouse::where('person_id', $application->applicant->id)->first();
         $company = Company::all()->first();
         $allocation = Allocation::where('application_id', $application->id)->get()->last();
+        $dvpmentstages = DevelopmentStage::all();
         $summaryData = array(
             'application' => $application,
             'spouse' => $spouse,
             'company' => $company,
             'allocation' => $allocation,
+            'dvpmentstages' => $dvpmentstages,
         );
         $pdf = PDF::loadView('forms.offerletter', $summaryData);
         $filename = "Offer Letter Form";

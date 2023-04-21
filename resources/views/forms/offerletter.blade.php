@@ -120,42 +120,14 @@
                     <td><strong>Tariffs</strong></td>
                     <td><strong>Amount</strong></td>
                 </tr>
-                <tr>
-                    <td>SITE Pegging</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Processing fee</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Plan Approval</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Development permit</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>New Lease Processing</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Occupancy fee</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Inspection fee</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>V.A.T</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>TOTAL DUE</td>
-                    <td></td>
-                </tr>
+                <tbody>
+                    @foreach($dvpmentstages as $stage)
+                    <tr>
+                        <td>{{$stage->stage}}</td>
+                        <td></td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
             <p>
                 Your payment of the above amount in full by 31 of..................................20...... shall constitute your unequivocal

@@ -250,9 +250,6 @@
 
                             @else
                             <div class="pull-right">
-                                <a href="{{ route('printStageInspection', $stand->id) }}" class="btn btn-sm btn-primary" title="Print Stage Inspection" disabled>
-                                    <i class="fa fa-plus">Print</i>
-                                </a>
                                 <button data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()" disabled>
                                     <i class="fa fa-plus">Add Inspection</i>
                                 </button>

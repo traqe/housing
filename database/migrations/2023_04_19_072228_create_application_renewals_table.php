@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepoNotificationsTable extends Migration
+class CreateApplicationRenewalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateRepoNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblnotification', function (Blueprint $table) {
+        Schema::create('tblapplicationrenewal', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('stand_id');
             $table->integer('application_id');
+            $table->integer('receipt_no');
+            $table->date('expires_on');
+            $table->integer('created_by');
+            $table->timestamp('deleted_at');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateRepoNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('repo_notifications');
+        Schema::dropIfExists('application_renewals');
     }
 }
