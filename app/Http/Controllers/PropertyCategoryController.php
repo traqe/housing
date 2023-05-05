@@ -7,38 +7,45 @@ use App\PropertyCategory;
 
 class PropertyCategoryController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $types = PropertyCategory::all();
-        return view('propertycategory.index',compact('types'));
+        return view('propertycategory.index', compact('types'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('propertycategory.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         PropertyCategory::create($request->all());
         return redirect('/propertycategories');
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $types = PropertyCategory::findorFail($id);
-        return view('propertycategory.show',compact('types'));
+        return view('propertycategory.show', compact('types'));
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $types = PropertyCategory::findorFail($id);
-        return view('propertycategory.edit',compact('types'));
+        return view('propertycategory.edit', compact('types'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $types = PropertyCategory::findorFail($id);
         $types->update($request->all());
         return redirect('/propertycategories');
     }
 
-    public function destroy(Request $req){
+    public function destroy(Request $req)
+    {
         PropertyCategory::find($req->id)->delete();
         return redirect('/propertycategories');
-    } 
+    }
 }

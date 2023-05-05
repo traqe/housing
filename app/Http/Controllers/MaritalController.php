@@ -75,7 +75,7 @@ class MaritalController extends Controller
     {
         $marital = Marital::findorFail($id);
         $marital->update($request->all());
-        return redirect('maritals');
+        return redirect()->route('marital');
     }
 
     /**

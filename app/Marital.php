@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Marital extends Model
 {
-    protected $table ='tblmaritals';
-    protected $fillable=['marital_status'];
+    protected $table = 'tblmaritals';
+    protected $fillable = ['maritalstatus'];
 
     public function person()
     {
