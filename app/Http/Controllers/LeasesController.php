@@ -143,7 +143,10 @@ class LeasesController extends Controller
                 $dataD->document_name = $document;
 
                 $dataD->save();
-            } else {
+            }
+
+            /* works for one with auto-lease
+            else {
                 $dataD = new Document();
                 $files = $request->file('file');
                 $documentName = time() . '.' . $files->getClientOriginalExtension();
@@ -156,7 +159,7 @@ class LeasesController extends Controller
                 $dataD->document_name = $document;
 
                 $dataD->save();
-            }
+            }*/
         }
 
         if ($data->save()) {
