@@ -51,6 +51,7 @@ class AllocationController extends Controller
         $stand->status = 'ALLOCATED';
         $stand->save();
 
+        /* commented out because tsholotsho does'nt need it.
         if ($stand->status == "ALLOCATED") {
             // creating a new lease when stand has been "allocated"
             $lease = new Lease();
@@ -62,6 +63,7 @@ class AllocationController extends Controller
             $lease->stand_id = $stand->id;
             $lease->save();
         }
+        */
 
 
         $application->application_stage_id = 4;
