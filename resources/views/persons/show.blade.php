@@ -523,7 +523,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="gender">Receipt Number</label>
-                            <input type="text" name="receipt" class="form-control input-group-lg reg_name" required>
+                            <input type="text" name="receipt" class="form-control input-group-lg reg_name">
                         </div>
                     </div>
 
@@ -550,18 +550,17 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <label for="details_of_owned">Details Of Other Owned Stands</label>
+                            <label for="details_of_owned">Details Of Other Residential Stands Leased or Owned In Zimbabwe</label>
                             <input type="text" name="details_of_owned" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <label for="amount_of_capital">Amount Of Capital Available</label>
+                            <label for="amount_of_capital">Amount Of Capital Available For Development</label>
                             <input type="text" name="capital_amount" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="other_info">Number of Dependants</label>
@@ -583,9 +582,12 @@
                             <input type="date" name="expiry_date" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
-
-
-
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="other_info">Other Information</label>
+                            <input type="text" name="other_info" class="form-control input-group-lg reg_name">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Save

@@ -133,7 +133,7 @@
                                         <td>
                                             {{$staff->stage->stage}}
                                             <div class="pull-right box-tools">
-                                                <a class="text-warning" href="{{route("viewPerson", $staff->applicant->id)}}" title="View Details"><i class="fa fa-eye"></i>
+                                                <a class="text-warning" href="{{route('showApplication', $staff->id)}}" title="View Details"><i class="fa fa-eye"></i>
                                                 </a>&nbsp;&nbsp;
 
                                                 @if ($staff->application_stage_id == 4)

@@ -95,48 +95,58 @@
                         </div>
                         <div class="form-group">
                             <label for="gender">Owner</label>
-                            <select name="owner" id="owner" class="form-control input-group-lg reg_name" required>
+                            <select name="owner" id="owner" class="form-control input-group-lg reg_name" onclick="loadDevelopers()" required>
                                 <option selected disabled value="">Select Stand Owner</option>
                                 <option value="Council">Council</option>
                                 <option value="Developer">Developer</option>
                             </select>
                             <!-- <input type="text"  name="owner"  value="{{$stand->owner}}" class="form-control" required> -->
                         </div>
-                        <div class="form-group">
+                        {{--<div class="form-group">
                             <label for="gender">Developer Name</label>
                             <input type="text" name="developer" value="{{$stand->developer}}" class="form-control" required>
-                        </div>
-                        {{--<div class="form-group">--}}
-                        {{--<label for="gender">Application Id</label>--}}
-                        {{--<input type="text" name="application_id" value="{{$stand->application_id}}"--}}
-                        {{--class="form-control" required>--}}
-                        {{--</div>--}}
-                        <div class="form-group">
-                            <label for="gender">Batch</label>
-                            <select name="batch_id" id="batch_id" class="form-control input-group-lg reg_name" required>
-                                <option selected disabled value="">Select Batch</option>
-                                @forelse($batches as $batch)
-                                <option value="{{$batch->id}}">{{$batch->batch}}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Allocation Batch Number</label>
-                            <input type="text" name="allo_batch_no" value="{{$stand->allo_batch_no}}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Service Status</label>
-                            <input type="text" name="serviced_status" value="{{$stand->serviced_status}}" class="form-control" required>
-                        </div>
-                        <input type="submit" class="btn btn-success pull-right">
-                    </form>
+                </div>--}}
+                <div class="form-group">
+                    <label for="gender">Developer</label>
+                    <select name="developer" id="developer" class="form-control input-group-lg reg_name" required>
+                        <option selected disabled>Select Developer</option>
+                        @forelse($developers as $developer)
+                        <option value="{{$developer->id}}">{{$developer->name.' - '.$developer->address}}</option>
+                        @empty
+                        @endforelse
+                    </select>
                 </div>
-                <!-- /.box-body -->
+                {{--<div class="form-group">--}}
+                {{--<label for="gender">Application Id</label>--}}
+                {{--<input type="text" name="application_id" value="{{$stand->application_id}}"--}}
+                {{--class="form-control" required>--}}
+                {{--</div>--}}
+                <div class="form-group">
+                    <label for="gender">Batch</label>
+                    <select name="batch_id" id="batch_id" class="form-control input-group-lg reg_name" required>
+                        <option selected disabled value="">Select Batch</option>
+                        @forelse($batches as $batch)
+                        <option value="{{$batch->id}}">{{$batch->batch}}</option>
+                        @empty
+                        @endforelse
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Allocation Batch Number</label>
+                    <input type="text" name="allo_batch_no" value="{{$stand->allo_batch_no}}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Service Status</label>
+                    <input type="text" name="serviced_status" value="{{$stand->serviced_status}}" class="form-control" required>
+                </div>
+                <input type="submit" class="btn btn-success pull-right">
+                </form>
             </div>
-            <!-- /.box -->
-
+            <!-- /.box-body -->
         </div>
+        <!-- /.box -->
+
     </div>
+</div>
 </div>
 @endsection

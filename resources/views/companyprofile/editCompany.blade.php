@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" name='email' value="{{ $company->email }}">
+                                    <input type="text" class="form-control" placeholder="Email" name='email' value="{{ $company->email }}">
                                 </div>
                             </div>
                         </div>

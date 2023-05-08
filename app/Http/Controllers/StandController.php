@@ -89,9 +89,10 @@ class StandController extends Controller
                 $stand = Stand::findOrFail($id);
                 $status = StandStatus::all();
                 $standTypes = StandType::all();
+                $developers = Developer::all();
                 $standClasses = StandClass::all();
                 $batches = Batch::where('batch_type_id', '1')->get();
-                return view('stands.edit', compact('stand', 'status', 'standTypes', 'batches', 'standClasses'));
+                return view('stands.edit', compact('stand', 'status', 'standTypes', 'batches', 'standClasses', 'developers'));
         }
 
         /**

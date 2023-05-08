@@ -39,7 +39,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <input type="email" class="form-control" placeholder="Email" name='email'>
+                                    <input type="text" class="form-control" placeholder="Email" name='email'>
                                 </div>
                             </div>
                         </div>

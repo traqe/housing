@@ -15,7 +15,7 @@
                         @endif
 
                         <a href="{{ route('printApplication', $application->id) }}" id="btn_print_app" class="btn btn-sm btn-primary" title="Show Data">
-                            <i class="fa fa-table"></i> Print Application
+                            <i class="fa fa-table"></i> Print Application Form
                         </a>
 
                         <a href="" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
