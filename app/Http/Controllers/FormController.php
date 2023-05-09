@@ -81,7 +81,6 @@ class FormController extends Controller
     public function printLease(Request $request)
     {
         $lease = Lease::find($request->id);
-
         $stand = Stand::find($lease->stand_id);
         $allocation = Allocation::where('stand_id', $stand->id)->get()->last();
         $application = Application::find($allocation->application_id);
