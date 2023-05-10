@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="renewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,11 +9,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{ route('lease-decision') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('rurallease-decision') }}" enctype="multipart/form-data">
           {{csrf_field()}}
 
-          <input type="hidden" name="decision" value="1">
-          <input type="hidden" name="lease_id" value="{{$data->id}}">
+          <input type="hidden" name="decision" value="3">
+          <input type="hidden" name="lease_id" value="{{$rurallease->id}}">
 
           <div class="form-group">
             <label for="gender">Receipt Number</label>
