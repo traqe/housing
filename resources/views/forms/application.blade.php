@@ -15,6 +15,9 @@
         font-family: 'Arial Narrow', Arial, sans-serif;
     }
 
+    #company-details table {
+        line-height: 9pt;
+    }
 
     .row th,
     .row td {

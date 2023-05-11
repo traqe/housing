@@ -15,6 +15,11 @@
         font-size: 11pt;
     }
 
+    #company-details table {
+        line-height: 9pt;
+        border-spacing: 0px;
+    }
+
     th,
     td {
         padding: 6px;

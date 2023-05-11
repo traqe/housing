@@ -58,12 +58,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="end-date">Area</label>
+                            <label for="end-date">Communal Land Area</label>
                             <input type="text" name="area" class="form-control" value="{{$rurallease->area}}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="end-date">Purpose of Stand</label>
+                            <label for="end-date">Business (Purpose)</label>
                             <input type="text" name="stand_purpose" class="form-control" value="{{$rurallease->stand_purpose}}" required>
                         </div>
                         <div class="form-group mb-3">

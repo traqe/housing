@@ -13,6 +13,10 @@
         font-family: 'Arial Narrow', Arial, sans-serif;
     }
 
+    #company-details table {
+        line-height: 9pt;
+    }
+
     table {
         width: 100%;
         font-family: 'Arial Narrow', Arial, sans-serif;

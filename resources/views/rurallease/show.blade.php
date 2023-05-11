@@ -15,8 +15,8 @@
                     <h3><i class="fa fa-briefcase"> Rural Leases</i></h3>
                 </div>
                 <div class="pull-right">
-                    <a href="#" id="btn_show_data" class="btn btn-sm btn-warning" title="Print Lease">
-                        <i class="fa fa-file"></i> Print Lease Form
+                    <a href="{{ route('printRuralLease', $rurallease->id) }}" id="btn_show_data" class="btn btn-sm btn-warning" title="Print Lease">
+                        <i class="fa fa-file"></i> Print Rural Lease Form
                     </a>
                     <a href="{{ route('rurallease.index') }}" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
                         <i class="fa fa-table"></i> Show Data
@@ -38,11 +38,11 @@
                         <input type="text" id="lessee" name="lessee" class="form-control" value="{{$rurallease->person->firstname . ' ' . $rurallease->person->surname}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Name of Area</label>
+                        <label for="gender">Communal Land Area</label>
                         <input type="text" name="area" class="form-control" value="{{$rurallease->area}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Purpose of Stand</label>
+                        <label for="gender">Business (Purpose)</label>
                         <input type="text" name="area" class="form-control" value="{{$rurallease->stand_purpose}}" disabled>
                     </div>
                     <div class="form-group">

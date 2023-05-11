@@ -13,6 +13,7 @@
         border-bottom: 1px solid;
         width: 80%;
         font-family: 'Arial Narrow', Arial, sans-serif;
+        font-size: 11.5pt;
     }
 
 
@@ -32,6 +33,11 @@
         float: right;
         width: 70%;
         padding-left: 10cm;
+    }
+
+    #company-details table {
+        line-height: 9pt;
+        border-spacing: 0px;
     }
 
     #company-image {
@@ -57,7 +63,7 @@
     p {
         line-height: 0.6cm;
         font-family: 'Arial Narrow', Arial, sans-serif;
-        font-size: 12.5pt;
+        font-size: 12pt;
     }
 </style>
 

@@ -15,6 +15,10 @@
         font-family: 'Arial Narrow', Arial, sans-serif;
     }
 
+    #company-details table {
+        line-height: 10pt;
+        border-spacing: 0px;
+    }
 
     td {
         padding: 6px;

@@ -454,6 +454,7 @@ Route::middleware('auth')->group(function () {
   Route::get('printStageInspection/{id}', ['uses' => 'FormController@printStageInspection', 'as' => 'printStageInspection']);
   Route::get('printCession/{id}', ['uses' => 'FormController@printCession', 'as' => 'printCession']);
   Route::get('printLease/{id}', ['uses' => 'FormController@printLease', 'as' => 'printLease']);
+  Route::get('printRuralLease/{id}', ['uses' => 'FormController@printRuralLease', 'as' => 'printRuralLease']);
   // Route::get('printCertOfCompletion', ['uses' => 'FormController@printCertOfCompletion', 'as' => 'printCertOfCompletion']);
   // Route::get('printCertOfOccupation', ['uses' => 'FormController@printCertOfOccupation', 'as' => 'printCertOfOccupation']);
 

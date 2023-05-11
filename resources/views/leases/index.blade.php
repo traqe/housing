@@ -14,7 +14,7 @@
             <div class="card-header">
                 <div class="pull-left">
                     <i class="fa fa-align-justify"></i>
-                    <strong>Lease</strong>
+                    <strong>Leases</strong>
                     <small>Table</small>
                 </div>
                 <div class="pull-right">

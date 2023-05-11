@@ -112,11 +112,11 @@
                         <input type="date" name="expiry_date" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="grave">Area</label>
+                        <label for="grave">Communal Land Area</label>
                         <input type="text" name="area" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="grave">Purpose Of Stand</label>
+                        <label for="grave">Business (Purpose)</label>
                         <input type="text" name="stand_purpose" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
