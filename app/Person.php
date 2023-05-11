@@ -52,4 +52,9 @@ class Person extends Model
     {
         return $this->hasMany(Spouse::class, 'person_id');
     }
+
+    public function rurallease()
+    {
+        return $this->hasMany(RuralLease::class, 'person_id');
+    }
 }

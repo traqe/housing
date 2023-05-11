@@ -9,11 +9,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{ route('lease-decision') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('rurallease-decision') }}" enctype="multipart/form-data">
           {{csrf_field()}}
 
           <input type="hidden" name="decision" value="1">
-          <input type="hidden" name="lease_id" value="{{$data->id}}">
+          <input type="hidden" name="lease_id" value="{{$rurallease->id}}">
 
           <div class="form-group">
             <label for="gender">Receipt Number</label>

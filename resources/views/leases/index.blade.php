@@ -1,7 +1,6 @@
 @extends('master')
 @section('content')
 
-
 <div class="container-fluid">
 
     @include('leases.alert.alert')
@@ -15,10 +14,13 @@
             <div class="card-header">
                 <div class="pull-left">
                     <i class="fa fa-align-justify"></i>
-                    <strong>Lease</strong>
+                    <strong>Leases</strong>
                     <small>Table</small>
                 </div>
                 <div class="pull-right">
+                    <a href="{{route('rurallease.index')}}" id="btn_add_new_data" class="btn btn-sm btn-primary" title="Go To Rural Leases">
+                        <i class="fa fa-home"></i> Rural Leases
+                    </a>
                     <a href="{{ route('lease-create') }}" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
                         <i class="fa fa-plus-circle"></i> Add Data
                     </a>

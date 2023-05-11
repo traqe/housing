@@ -12,6 +12,7 @@ use App\Lease;
 use App\Stand;
 use App\Company;
 use App\DevelopmentStage;
+use App\RuralLease;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class FormController extends Controller
@@ -93,6 +94,19 @@ class FormController extends Controller
         );
         $pdf = PDF::loadView('forms.lease', $summaryData);
         $filename = "Lease Form";
+        return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
+    }
+
+    public function printRuralLease(Request $request)
+    {
+        $rurallease = RuralLease::find($request->id);
+        $company = Company::all()->first();
+        $summaryData = array(
+            'rurallease' => $rurallease,
+            'company' => $company,
+        );
+        $pdf = PDF::loadView('forms.rurallease', $summaryData);
+        $filename = "Rural Lease Form";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
