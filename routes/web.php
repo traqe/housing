@@ -863,6 +863,11 @@ Route::middleware('auth')->group(function () {
   Route::get('lease/{id}', ['uses' => 'LeasesController@show', 'as' => 'lease-show']);
   Route::post('lease-decision', ['uses' => 'LeasesController@statusDecision', 'as' => 'lease-decision']);
   //--End Lease Routes--//
+
+  //-- Debtors Routes --//
+  Route::get('debtors',['uses' => 'DebtorsController@index','as' => 'debtors']);
+  Route::get('debtors/{id}',['uses' =>'DebtorsController@show','as'=>'showDebtor']);
+  //-- End Debtors Routes --//
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');

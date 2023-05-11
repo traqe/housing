@@ -144,9 +144,10 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-striped table-bordered table-hover" id="example">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Title</th>
                                     <th>FullName</th>
                                     <th>National ID</th>
@@ -160,6 +161,7 @@
                                 <tbody>
                                 @forelse($people as $person)
                                     <tr>
+                                        <td>{{$person->id}}</td>
                                         <td>{{$person->title}}</td>
                                         <td><a href="{{ route('viewPerson', $person->id)}}"> {{$person->surname.' '.$person->firstname}} </a> </td>
                                         <td>{{$person->nationalid}}</td>
@@ -188,6 +190,14 @@
                                 </tbody>
                             </table>
                             <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
 {{--                                {{ $people->render() }}--}}
                             </ul>
                         </div>

@@ -105,7 +105,14 @@
                     </li>
                 </ul>
             </li>
-
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-folder-open"></i> Sage Transactions</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('debtors')}}"><i class="icon-star"></i> Debtors List</a>
+                    </li>
+                </ul>
+            </li>
             {{--<li class="nav-item">--}}
 
             {{--<a class="nav-link" href="{{route('applications')}}"><i class="fa fa-bar-chart"></i> Reports</a>--}}
