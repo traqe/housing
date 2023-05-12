@@ -141,9 +141,9 @@
                                             <td><strong>REMARKS</strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Setting Out</td>
+                                            <td>PEGGING</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "SETTING OUT")
+                                            @if($stage->stage == "PEGGING")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -153,9 +153,9 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Trenching, foundation and footing</td>
+                                            <td>TRENCH DIGGING</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "TRENCHING, FOUNDATION AND FOOTING")
+                                            @if($stage->stage == "TRENCH DIGGING")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -165,9 +165,9 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Slab</td>
+                                            <td>FOUNDATION POURING</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "SLAB")
+                                            @if($stage->stage == "FOUNDATION POURING")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -177,9 +177,9 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Brickwork</td>
+                                            <td>FLOOR LEVEL</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "BRICKWORK")
+                                            @if($stage->stage == "FLOOR LEVEL")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -189,9 +189,9 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Roofing</td>
+                                            <td>BOTTOM LEVEL</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "ROOFING")
+                                            @if($stage->stage == "BOTTOM LEVEL")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -201,9 +201,9 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Plumbing, flooring, plastering and finishes</td>
+                                            <td>DOORFRAME LEVEL</td>
                                             @foreach($stageinspection as $stage)
-                                            @if($stage->stage == "PLUMBING, FLOORING, PLASTERING AND FINISHES")
+                                            @if($stage->stage == "DOORFRAME LEVEL")
                                             <td>{{$stage->ins_status}}</td>
                                             <td>{{$stage->contractors}}</td>
                                             <td>{{$stage->inspector_name}}</td>
@@ -213,12 +213,40 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <td>Other (Specify if any)</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>ROOF LEVEL</td>
+                                            @foreach($stageinspection as $stage)
+                                            @if($stage->stage == "ROOF LEVEL")
+                                            <td>{{$stage->ins_status}}</td>
+                                            <td>{{$stage->contractors}}</td>
+                                            <td>{{$stage->inspector_name}}</td>
+                                            <td>{{$stage->witness}}</td>
+                                            <td>{{$stage->remarks}}</td>
+                                            @endif
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td>ROOF</td>
+                                            @foreach($stageinspection as $stage)
+                                            @if($stage->stage == "ROOF")
+                                            <td>{{$stage->ins_status}}</td>
+                                            <td>{{$stage->contractors}}</td>
+                                            <td>{{$stage->inspector_name}}</td>
+                                            <td>{{$stage->witness}}</td>
+                                            <td>{{$stage->remarks}}</td>
+                                            @endif
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td>DRAINAGE</td>
+                                            @foreach($stageinspection as $stage)
+                                            @if($stage->stage == "DRAINAGE")
+                                            <td>{{$stage->ins_status}}</td>
+                                            <td>{{$stage->contractors}}</td>
+                                            <td>{{$stage->inspector_name}}</td>
+                                            <td>{{$stage->witness}}</td>
+                                            <td>{{$stage->remarks}}</td>
+                                            @endif
+                                            @endforeach
                                         </tr>
                                         <tr>
                                             <td>Other (Specify if any)</td>
