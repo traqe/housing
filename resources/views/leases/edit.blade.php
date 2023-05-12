@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="start-date">Date Applied</label>
+                            <label for="start-date">Date Issued</label>
                             <input type="date" name="date_applied" class="form-control" value="{{$data->date_applied}}" required>
                         </div>
                         <div class="form-group">

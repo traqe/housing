@@ -232,16 +232,15 @@
                     <p>PART C: Referee <strong>(to be completed by all applicants)</strong></p>
                     <ol style="list-style: numeric;">
                         <li>
-                            Name of Referee_______________________________________
+                            Name of Referee: {{$application->applicant->nok->fullname}}
                         </li>
                         <li>
-                            Address_____________________________________________________
+                            Address: {{$application->applicant->nok->address}}
                         </li>
                         <li>
-                            Contact Telephone Number_______________________________
-                        </li>
+                            Contact Telephone Number: {{$application->applicant->nok->telephone}}
                         <li>
-                            Relationship____________________________________
+                            Relationship: {{$application->applicant->nok->relationship}}
                         </li>
                     </ol>
                     <br>

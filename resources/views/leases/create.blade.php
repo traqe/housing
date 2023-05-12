@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card card-accent-primary">
             <div class="card-header">
                 <i class="fa fa-align-justify"></i>
@@ -32,7 +32,7 @@
                 @include('layouts.partials.alerts')
 
                 <div class="card-body">
- 
+
                     <form method="post" action="{{ route('lease-store') }}" enctype="multipart/form-data">
                         {{csrf_field()}}
 
@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="start-date">Date Applied</label>
+                            <label for="start-date">Date Issued</label>
                             <input type="date" name="date_applied" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -59,9 +59,9 @@
                             <label for="formFile" class="form-label">Supporting Documents</label>
                             <input class="form-control" type="file" name="file">
                         </div>
-  
+
                         <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa  fa-check-circle"></span> Create Lease</button>
-                        
+
                     </form>
 
                 </div>
@@ -83,8 +83,10 @@
 <script type="text/javascript">
     var route = "{{ url('lease-stand-autocomplete') }}";
     $('#search').typeahead({
-        source:  function (term, process) {
-        return $.get(route, { term: term }, function (data) {
+        source: function(term, process) {
+            return $.get(route, {
+                term: term
+            }, function(data) {
                 return process(data);
             });
         }

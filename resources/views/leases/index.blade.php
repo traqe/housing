@@ -32,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>Lease Number</th>
-                            <th>Date Applied</th>
+                            <th>Date Issued</th>
                             <th>Expiry Date</th>
                             <th>Status</th>
                             <th>Action</th>

@@ -87,8 +87,12 @@
                                     <td>{{$cession->reason}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Witness</td>
-                                    <td>{{$cession->witness}}</td>
+                                    <td>Cedent Witness</td>
+                                    <td>{{$cession->cedent_witness}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Cessionary Witness</td>
+                                    <td>{{$cession->cessionary_witness}}</td>
                                 </tr>
                             </tbody>
                         </table>

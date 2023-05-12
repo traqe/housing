@@ -52,9 +52,11 @@ class ReportController extends Controller
     {
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        $company = Company::all()->first();
         $loans = Loan::where('loan_balance', '>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->where('counter', 0)->where('rollover_status_id', 1)->where('id', '>', 0)->orderby('loan_balance', 'desc')->get();
         $summaryData = array(
             'loans' => $loans,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.loans', $summaryData);
         $filename = "Loans Report";
@@ -64,9 +66,10 @@ class ReportController extends Controller
     public function getApplicants()
     {
         $people = Person::orderby('surname')->orderby('surname')->orderby('firstname')->get(); //->sortBy('surname');//->sortBy('firstname');;
-
+        $company = Company::all()->first();
         $summaryData = array(
             'people' => $people,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.applicants', $summaryData);
         $filename = "Applicants Report";
@@ -76,9 +79,10 @@ class ReportController extends Controller
     public function getApplications()
     {
         $applications = Application::all();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'applications' => $applications,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.applications', $summaryData);
         $filename = "Applicatios Report";
@@ -87,9 +91,10 @@ class ReportController extends Controller
     public function getStands()
     {
         $stands = Stand::all();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'stands' => $stands,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.stands', $summaryData);
         $filename = "All Stands Report";
@@ -99,9 +104,10 @@ class ReportController extends Controller
     public function getAvailableStands()
     {
         $stands = Stand::where('status', 'Available')->get();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'stands' => $stands,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.available', $summaryData);
         $filename = "Available Stands Report";
@@ -111,9 +117,10 @@ class ReportController extends Controller
     public function getAllocatedStands()
     {
         $stands = Stand::where('status', 'Allocated')->get();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'stands' => $stands,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.allocated', $summaryData);
         $filename = "Allocated Stands Report";
@@ -125,9 +132,10 @@ class ReportController extends Controller
         $applications = Application::whereHas('stage', function (Builder $builder) {
             $builder->where('stage', 'APPROVED');
         })->get();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'applications' => $applications,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.approved', $summaryData);
         $filename = "Approved Applicatios Report";
@@ -139,9 +147,10 @@ class ReportController extends Controller
         $applications = Application::whereHas('stage', function (Builder $builder) {
             $builder->where('stage', 'DECLINED');
         })->get();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'applications' => $applications,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.declined', $summaryData);
         $filename = "Declined Applicatios Report";
@@ -153,9 +162,10 @@ class ReportController extends Controller
         $applications = Application::whereHas('stage', function (Builder $builder) {
             $builder->whereIn('stage', ['CREATED', 'ALLOCATED']);
         })->get();
-
+        $company = Company::all()->first();
         $summaryData = array(
             'applications' => $applications,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.pending', $summaryData);
         $filename = "Pending Applicatios Report";
@@ -199,12 +209,14 @@ class ReportController extends Controller
     public function getProductLoans(Request $request)
     {
         $product = Product::find($request->productId);
+        $company = Company::all()->first();
         $loans = $product->loans->where('loan_balance', '>', 0)->where('rollover_status_id', 1)->where('id', '>', 0)->sortByDesc(function ($s) {
             return [$s->loan_balance];
         });
         $summaryData = array(
             'loans' => $loans,
-            'product' => $product
+            'product' => $product,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.productloans', $summaryData);
         $filename = "Product Loans Report";
@@ -216,12 +228,14 @@ class ReportController extends Controller
         $payment = PaymentMethod::find($request->methodId);
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        $company = Company::all()->first();
         $transactions = Transaction::where('transaction_type_id', $request->methodId)->where('Amount', '>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->orderby('created_at', 'desc')->get();
         $summaryData = array(
             'method' => $payment,
             'transactions' => $transactions,
             'from' => $fromDate,
-            'to' => $toDate
+            'to' => $toDate,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.paymenttype', $summaryData);
         $filename = "Transaction Type Report";
@@ -234,6 +248,7 @@ class ReportController extends Controller
         //return $request->transactionTypeId;
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        $company = Company::all()->first();
         //$transactions = Transaction::whereIn('transaction_type_id', [1,3])->where('Amount','>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->orderby('created_at', 'desc')->get();
         $transactions = Report::whereIn('transactionType', ['Admin Fee'])->where('Amount', '>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->orderby('created_at', 'desc')->get();
 
@@ -242,7 +257,8 @@ class ReportController extends Controller
             'method' => $payment,
             'transactions' => $transactions,
             'from' => $fromDate,
-            'to' => $toDate
+            'to' => $toDate,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.adminfee', $summaryData);
         $filename = "AdminFee Report";
@@ -255,6 +271,7 @@ class ReportController extends Controller
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
         $transactions = null;
+        $company = Company::all()->first();
         if ($request->userId == 'All') {
             $transactions = Transaction::where('Amount', '>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->orderby('created_at', 'desc')->get();
         } else {
@@ -264,7 +281,8 @@ class ReportController extends Controller
             'user' => $user,
             'transactions' => $transactions,
             'from' => $fromDate,
-            'to' => $toDate
+            'to' => $toDate,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.transactionlist', $summaryData);
         $filename = "Transaction List Report";
@@ -275,8 +293,10 @@ class ReportController extends Controller
     {
         //$loans = Loan::where('loan_balance', '<', 0 )->where('rollover_status_id', 1)->orderby('loan_balance','desc')->get();
         $loans = Loan::where('loan_balance', '<', 0)->where('rollover_status_id', 1)->where('id', '>', 0)->orderby('loan_balance', 'desc')->get();
+        $company = Company::all()->first();
         $summaryData = array(
             'loans' => $loans,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.refunds', $summaryData);
         $filename = "Refunds Report";
@@ -287,10 +307,12 @@ class ReportController extends Controller
     {
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        $company = Company::all()->first();
         //$loans = Loan::where('loan_balance', '<', 0 )->where('rollover_status_id', 1)->orderby('loan_balance','desc')->get();
         $loans = Loan::where('loan_balance', '>', 0)->where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->where('rollover_status_id', 1)->whereIn('counter', [1, 2, 3])->where('id', '>', 0)->orderby('loan_balance', 'desc')->get();
         $summaryData = array(
             'loans' => $loans,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.defaulters', $summaryData);
         $filename = "Defaulters Report";
@@ -301,8 +323,10 @@ class ReportController extends Controller
     {
         //$loans = Loan::where('loan_balance', '<', 0 )->where('rollover_status_id', 1)->orderby('loan_balance','desc')->get();
         $loans = Loan::where('loan_balance', '>', 0)->where('rollover_status_id', 1)->where('counter', '>', 3)->where('id', '>', 0)->orderby('loan_balance', 'desc')->get();
+        $company = Company::all()->first();
         $summaryData = array(
             'loans' => $loans,
+            'company' => $company
         );
         $pdf = PDF::loadView('reports.baddebtors', $summaryData);
         $filename = "Bad Debtors Report";
@@ -312,9 +336,11 @@ class ReportController extends Controller
     public function getStatement(Request $request)
     {
         $client = Client::where('ClientNo', $request->clientNo)->first();
+        $company = Company::all()->first();
         if ($client != null) {
             $summaryData = array(
                 'client' => $client,
+                'company' => $company
             );
             $pdf = PDF::loadView('reports.statement', $summaryData);
             $filename = "Client Statement Report";
@@ -327,6 +353,7 @@ class ReportController extends Controller
     {
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        $company = Company::all()->first();
         $clients = Client::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->get();
         $male = Client::where('created_at', '>=', $fromDate)->where('created_at', '<=', $toDate)->whereHas('person.gender', function (Builder $builder) {
             $builder->where('id', 2);
@@ -339,7 +366,8 @@ class ReportController extends Controller
                 'male' => $male,
                 'female' => $female,
                 'from' => $fromDate,
-                'to' => $toDate
+                'to' => $toDate,
+                'company' => $company
             );
             $pdf = PDF::loadView('reports.newClients', $summaryData);
             $filename = "New Clients Report";

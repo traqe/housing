@@ -76,7 +76,7 @@
 
                     <div class="form-group">
                         <label for="gender">Email Address</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="text" name="email" class="form-control">
                     </div>
 
                     <div class="form-group">

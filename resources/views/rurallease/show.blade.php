@@ -56,7 +56,7 @@
                     </div>
                     @endif
                     <div class="form-group">
-                        <label for="start-date">Date Applied</label>
+                        <label for="start-date">Date Issued</label>
                         <input type="date" name="date_applied" class="form-control" value="{{$rurallease->date_applied}}" disabled>
                     </div>
                     <div class="form-group">

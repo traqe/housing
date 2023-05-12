@@ -902,8 +902,16 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <label for="gender">Witness</label>
-                            <input type="text" name="witness" class="form-control input-group-lg reg_name" required>
+                            <label for="gender">Cedent Witness</label>
+                            <input type="text" name="cedent_witness" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
+                    <!--/form-group-->
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Cessionary Witness</label>
+                            <input type="text" name="cessionary_witness" class="form-control input-group-lg reg_name" required>
                         </div>
                     </div>
                     <!--/form-group-->
@@ -1085,7 +1093,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">Email Address</label>
-                                <input type="email" name="email" value="{{$person->email}}" class="form-control">
+                                <input type="text" name="email" value="{{$person->email}}" class="form-control">
                             </div>
                             <div class="form-group">
                                 <div class="form-group">

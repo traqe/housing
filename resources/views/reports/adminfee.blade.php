@@ -58,7 +58,7 @@
 </style>
 
 
-{{--<div  id="watermark">--}}
+{{--<div id="watermark">--}}
 {{--<a href="">--}}
 {{--<img src="{{asset('img/logo-symbol.png')}}" alt="logo">--}}
 {{--</a>--}}
@@ -74,7 +74,7 @@
 
 <div class="container">
 
-    <br/>
+    <br />
     <div style="text-align:centre">
         {{--<img src="{{asset('img/header.png')}}" height="120" width="100%" alt="logo">--}}
     </div>
@@ -95,45 +95,46 @@
                     </tr>
                 </table>
                 {{--<h4 style=" font-size:12pt; font-weight:normal" >STATEMENT FOR {{$client->person->first_name.' '.$client->person->last_name }}</h4>--}}
-                {{--<h4 style="font-weight:bold; font-size:14pt">{{$student->LastName.' '.$student->FirstName}}  </h4>--}}
+                {{--<h4 style="font-weight:bold; font-size:14pt">{{$student->LastName.' '.$student->FirstName}} </h4>--}}
                 {{--<h4 style="font-weight:normal; font-size: 12pt">Possible Attendance 28 Actual Attendance 26 </h4>--}}
             </td>
         </tr>
         <tr>
-            <td colspan="8" style="text-align: center"><h4
-                        style=" font-size:12pt; font-weight:normal">{{strtoupper($method)}} REPORT
-                    FROM {{$from}} TO {{$to}}</h4></td>
+            <td colspan="8" style="text-align: center">
+                <h4 style=" font-size:12pt; font-weight:normal">{{strtoupper($method)}} REPORT
+                    FROM {{$from}} TO {{$to}}</h4>
+            </td>
         </tr>
     </table>
 
 </div>
-<br/>
+<br />
 
 
 <div>
     <table class="table" style="width: 100%; font-size: 0.8em;" border="0">
         <thead>
-        <tr align="center" style="background-color: lightgray">
-            <th width="20%">Date</th>
-            <th width="20%">FullName</th>
-            {{--<th width="20%">Loan Account</th>--}}
-            <th width="20%">Transaction Type</th>
-            <th width="20%">Amount</th>
+            <tr align="center" style="background-color: lightgray">
+                <th width="20%">Date</th>
+                <th width="20%">FullName</th>
+                {{--<th width="20%">Loan Account</th>--}}
+                <th width="20%">Transaction Type</th>
+                <th width="20%">Amount</th>
 
-        </tr>
+            </tr>
         </thead>
 
-        @forelse($transactions as  $s)
-            <tr>
-                <td align="center">{{$s->created_at}}<span style="font-size:9pt;"></span></td>
-                <td>
-                    <span style="font-size:9pt;">{{$s->description}}</span>
-                </td>
-                {{--<td><span style="font-size:9pt;">{{$s->loan->account_no}}</span></td>--}}
-                <td><span style="font-size:9pt;">{{$s->transactionType}}</span></td>
-                <td><span style="font-size:9pt;">{{$s->Amount}}</span></td>
-                {{--<td > <span style="font-size:9pt;">{{$s->balance}}</span></td>--}}
-            </tr>
+        @forelse($transactions as $s)
+        <tr>
+            <td align="center">{{$s->created_at}}<span style="font-size:9pt;"></span></td>
+            <td>
+                <span style="font-size:9pt;">{{$s->description}}</span>
+            </td>
+            {{--<td><span style="font-size:9pt;">{{$s->loan->account_no}}</span></td>--}}
+            <td><span style="font-size:9pt;">{{$s->transactionType}}</span></td>
+            <td><span style="font-size:9pt;">{{$s->Amount}}</span></td>
+            {{--<td > <span style="font-size:9pt;">{{$s->balance}}</span></td>--}}
+        </tr>
         @empty
         @endforelse
     </table>
@@ -159,10 +160,7 @@
                 <td width="30%" align="right">DIRECTOR : MR R PASI</td>
             </tr>
         </table>
-        <br/> <br/> <br/>
+        <br /> <br /> <br />
     </div>
 
 </div>
-
-
-

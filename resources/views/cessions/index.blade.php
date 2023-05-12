@@ -111,7 +111,8 @@
                                         <th>Stand</th>
                                         <th>StandType</th>
                                         <th>Reason</th>
-                                        <th>Witness</th>
+                                        <th>Cedent Witness</th>
+                                        <th>Cessionary Witness</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -123,7 +124,8 @@
                                         <td>{{$staff->stand->stand_no}}</td>
                                         <td>{{$staff->stand->type}}</td>
                                         <td>{{$staff->reason}}</td>
-                                        <td>{{$staff->witness}}</td>
+                                        <td>{{$staff->cedent_witness}}</td>
+                                        <td>{{$staff->cessionary_witness}}</td>
                                         <td>
                                             {{$staff->status}}
                                             <div class="pull-right box-tools">

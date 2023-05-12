@@ -31,7 +31,7 @@
                             <th>Lease No.</th>
                             <th>Lessee</th>
                             <th>Purpose</th>
-                            <th>Date Applied</th>
+                            <th>Date Issued</th>
                             <th>Expiry Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -104,7 +104,7 @@
                         <input type="text" name="lease_no" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="grave">Date Applied</label>
+                        <label for="grave">Date Issued</label>
                         <input type="date" name="date_applied" class="form-control" required>
                     </div>
                     <div class="form-group">
