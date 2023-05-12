@@ -12,6 +12,7 @@
         /*border-top: 1px solid;
         border-bottom: 1px solid;*/
         width: 100%;
+        width: 100%;
         font-family: 'Arial Narrow', Arial, sans-serif;
         font-size: 11.5pt;
     }
@@ -65,6 +66,7 @@
         line-height: 0.6cm;
         font-family: 'Arial Narrow', Arial, sans-serif;
         font-size: 11.5pt;
+        font-size: 11.5pt;
     }
 </style>
 <div id="border">
@@ -98,8 +100,15 @@
             <p id="lease-header">
                 <strong>
                     APPLICATION FOR LEASE FOR TRADING AND LIKE PURPOSES IN COMMUNAL LAND
+                    APPLICATION FOR LEASE FOR TRADING AND LIKE PURPOSES IN COMMUNAL LAND
                 </strong>
             </p>
+            <p>
+                I hereby make application for (a) lease site (b) a cession of a leased site (c) an additional business one a leased <br>
+                site (d) a deletion of a business from a leased site. (e) an alteration of business on a leased site (f) a change of <br>
+                site (g) a sub-lease.
+            </p>
+            <p>(DELETE THE INAPPLIABLE)</p>
             <p>
                 I hereby make application for (a) lease site (b) a cession of a leased site (c) an additional business one a leased <br>
                 site (d) a deletion of a business from a leased site. (e) an alteration of business on a leased site (f) a change of <br>
@@ -111,18 +120,25 @@
             <tr>
                 <td>1. District: TSHOLOTSHO RURAL DISTRICT COUNCIL</td>
                 <td>Communal Land: {{$rurallease->area}}</td>
+                <td>1. District: TSHOLOTSHO RURAL DISTRICT COUNCIL</td>
+                <td>Communal Land: {{$rurallease->area}}</td>
             </tr>
             <tr>
                 <td>Surname or company name: {{$rurallease->person->surname}}</td>
+                <td>Surname or company name: {{$rurallease->person->surname}}</td>
             </tr>
             <tr>
+                <td>Other names: {{$rurallease->person->firstname}}</td>
                 <td>Other names: {{$rurallease->person->firstname}}</td>
             </tr>
             <tr>
                 <td>Identity Card Number: {{$rurallease->person->nationalid}}</td>
                 <td>District: TSHOLOTSHO RURAL DISTRICT/____________________</td>
+                <td>Identity Card Number: {{$rurallease->person->nationalid}}</td>
+                <td>District: TSHOLOTSHO RURAL DISTRICT/____________________</td>
             </tr>
             <tr>
+                <td>Postal Address: {{$rurallease->person->postaladdress}}</td>
                 <td>Postal Address: {{$rurallease->person->postaladdress}}</td>
             </tr>
         </table>

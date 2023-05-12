@@ -865,6 +865,12 @@ Route::middleware('auth')->group(function () {
   Route::post('lease-decision', ['uses' => 'LeasesController@statusDecision', 'as' => 'lease-decision']);
   //--End Lease Routes--//
 
+
+  //-- Debtors Routes --//
+  Route::get('debtors',['uses' => 'DebtorsController@index','as' => 'debtors']);
+  Route::get('debtors/{id}',['uses' =>'DebtorsController@show','as'=>'showDebtor']);
+  //-- End Debtors Routes --//
+
   // Rural Lease Routes//
   Route::get('rurallease', ['uses' => 'RuralLeaseController@index', 'as' => 'rurallease.index']);
   //Route::get('rurallease-renewal/{id}/edit', ['uses' => 'RuralLeaseController@renewLease', 'as' => 'rurallease-renewal']);
@@ -874,6 +880,7 @@ Route::middleware('auth')->group(function () {
   Route::get('rurallease/{id}/edit', ['uses' => 'RuralLeaseController@edit', 'as' => 'rurallease-edit']);
   Route::put('rurallease/{id}/edit', ['uses' => 'RuralLeaseController@update', 'as' => 'rurallease-update']);
   Route::delete('rurallease/{id}', ['uses' => 'RuralLeaseController@destroy', 'as' => 'rurallease.destroy']);
+
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');
