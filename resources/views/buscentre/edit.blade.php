@@ -45,7 +45,7 @@
                                 <select name="ward_id" id="ward_id" class="form-control input-group-lg reg_name" required>
                                     <option selected disabled value="">Select Ward</option>
                                     @forelse($wards as $wards)
-                                        <option value="{{$wards->ward_id}}">{{$wards->name}}</option>
+                                        <option value="{{$wards->id}}">{{$wards->name}}</option>
                                     @empty
                                     @endforelse
                                 </select>

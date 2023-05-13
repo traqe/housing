@@ -58,14 +58,31 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="end-date">Communal Land Area</label>
-                            <input type="text" name="area" class="form-control" value="{{$rurallease->area}}" required>
-                        </div>
+                                <label for="gender">Ward</label>
+                                <select name="ward" id="ward" class="form-control input-group-lg reg_name" required>
+                                    <option selected disabled value="">Select Ward</option>
+                                    @forelse($wards as $wards)
+                                        <option value="{{$wards->name}}">{{$wards->name}}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                    </div>
+                    <div class="form-group">
+                                <label for="gender">Centre</label>
+                                <select name="centre" id="centre" class="form-control input-group-lg reg_name" required>
+                                    <option selected disabled value="">Select Centre</option>
+                                    @forelse($buscentre as $bus)
+                                        <option value="{{$bus->name}}">{{$bus->name}}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
 
-                        <div class="form-group">
-                            <label for="end-date">Business (Purpose)</label>
-                            <input type="text" name="stand_purpose" class="form-control" value="{{$rurallease->stand_purpose}}" required>
-                        </div>
+                            </div>
+                    <div class="form-group">
+                        <label for="grave">Type</label>
+                        <input type="text" name="type" class="form-control" required>
+                    </div>
+
                         <div class="form-group mb-3">
                             <label for="formFile" class="form-label">Supporting Documents</label>
                             <input class="form-control" type="file" name="file">

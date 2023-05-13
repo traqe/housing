@@ -9,14 +9,18 @@ use App\RuralLease;
 use App\RuralLeaseDecision;
 use Illuminate\Support\Facades\Auth;
 use App\RuralDocument;
+use App\Ward;
+use App\BusinessCentre;
 
 class RuralLeaseController extends Controller
 {
     public function index()
     {
         $ruralleases = RuralLease::all();
-        $applicants = Person::all();
-        return view('rurallease.index', compact('ruralleases', 'applicants'));
+        $applicants = Person::all()->sortby('surname');
+        $wards = Ward::all();
+        $buscentre = BusinessCentre::all();
+        return view('rurallease.index', compact('ruralleases', 'applicants','wards','buscentre'));
     }
 
     public function store(Request $request)
@@ -26,7 +30,9 @@ class RuralLeaseController extends Controller
         $rurallease->lease_no = $request->lease_no;
         $rurallease->date_applied = $request->date_applied;
         $rurallease->expiry_date = $request->expiry_date;
-        $rurallease->area = $request->area;
+        $rurallease->ward = $request->ward;
+        $rurallease->centre = $request->centre;
+        $rurallease->type = $request->type;
         $rurallease->stand_purpose = $request->stand_purpose;
         $rurallease->created_by =  $request->created_by;
         $rurallease->lease_status = 'PENDING';

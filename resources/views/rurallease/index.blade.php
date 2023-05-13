@@ -93,7 +93,7 @@
                     <label for="grave">Lessee</label>
                     <select name="person_id" class="form-control input-group-lg reg_name" required>
                         @forelse($applicants as $applicant)
-                        <option value="{{ $applicant->id }}">{{ $applicant->firstname . " " . $applicant->surname }}</option>
+                        <option value="{{ $applicant->id }}">{{ $applicant->surname . " " . $applicant->firstname . " " . $applicant->nationalid }}</option>
                         @empty
 
                         @endforelse
@@ -112,13 +112,31 @@
                         <input type="date" name="expiry_date" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="grave">Communal Land Area</label>
-                        <input type="text" name="area" class="form-control" required>
+                                <label for="gender">Ward</label>
+                                <select name="ward" id="ward" class="form-control input-group-lg reg_name" required>
+                                    <option selected disabled value="">Select Ward</option>
+                                    @forelse($wards as $wards)
+                                        <option value="{{$wards->name}}">{{$wards->name}}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
                     </div>
                     <div class="form-group">
-                        <label for="grave">Business (Purpose)</label>
-                        <input type="text" name="stand_purpose" class="form-control" required>
+                                <label for="gender">Centre</label>
+                                <select name="centre" id="centre" class="form-control input-group-lg reg_name" required>
+                                    <option selected disabled value="">Select Centre</option>
+                                    @forelse($buscentre as $bus)
+                                        <option value="{{$bus->name}}">{{$bus->name}}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+
+                            </div>
+                    <div class="form-group">
+                        <label for="grave">Type</label>
+                        <input type="text" name="type" class="form-control" required>
                     </div>
+
                     <div class="form-group mb-3">
                         <label for="formFile" class="form-label">Supporting Documents</label>
                         <input class="form-control" type="file" name="file">
