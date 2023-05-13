@@ -8,13 +8,16 @@
                 <div class="card-body">
                     <div class="pull-right">
 
-                        <a href="{{route('cemeterysections')}}" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
+                        <a href="{{route('wards')}}" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
                             <i class="fa fa-table"></i> Show Data
                         </a>
 
-                        <a href="{{route('createCemeterySection')}}" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
+
+                        <a href="{{route('createWard')}}" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
                             <i class="fa fa-plus-circle"></i> Add Data
                         </a>
+
+
 
                         <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
                             <i class="fa fa-upload"></i> Export Data
@@ -29,17 +32,17 @@
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-file"></i>
-                    <strong>Edit Section</strong>
+                    <strong>Edit Ward</strong>
                     <small>Form</small>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('updateCemeterySection',$section->id )}}">
+                    <form method="post" action="{{route('updateWard',$ward->id )}}">
                         <input class="hidden" type="hidden" name="updated_by" value="{{Auth::user()->id}}">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
                         <div class="form-group">
-                            <label for="gender">Section</label>
-                            <input type="text" name="name" value="{{$section->name}}" class="form-control">
+                            <label for="gender">Ward</label>
+                            <input type="text" name="name" value="{{$ward->name}}" class="form-control">
                         </div>
                         <input type="submit" class="btn btn-success pull-right">
                     </form>

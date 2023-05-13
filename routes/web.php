@@ -881,6 +881,22 @@ Route::middleware('auth')->group(function () {
   Route::put('rurallease/{id}/edit', ['uses' => 'RuralLeaseController@update', 'as' => 'rurallease-update']);
   Route::delete('rurallease/{id}', ['uses' => 'RuralLeaseController@destroy', 'as' => 'rurallease.destroy']);
 
+  // Ward Routes //
+  Route::get('wards',['uses'=> 'WardController@index','as' => 'wards']);
+  Route::get('wards/create',['uses' => 'WardController@create','as' =>'createWard']);
+  Route::post('wards/create',['uses'=> 'WardController@store']);
+  Route::get('wards/{id}/edit',['uses' => 'WardController@edit','as' => 'editWard']);
+  Route::put('wards/{id}/edit',['uses' => 'WardController@update','as' =>'updateWard']);
+  Route::get('wards/{id}',['uses'=>'WardController@show','as'=>'showWard']);
+
+  //BusCentre Routes //
+  Route::get('Buscentre',['uses'=> 'BusinessCentreController@index','as' => 'Buscentre']);
+  Route::get('Buscentre/create',['uses' => 'BusinessCentreController@create','as' =>'createBuscentre']);
+  Route::post('Buscentre/create',['uses'=> 'BusinessCentreController@store']);
+  Route::get('Buscentre/{id}/edit',['uses' => 'BusinessCentreController@edit','as' => 'editBuscentre']);
+  Route::put('Buscentre/{id}/edit',['uses' => 'BusinessCentreController@update','as' =>'updateBuscentre']);
+  Route::get('Buscentre/{id}',['uses'=>'BusinessCentreController@show','as'=>'showBuscentre']);
+
 });
 // Section Pages
 //Route::view('/sample/error404','errors.404')->name('error404');

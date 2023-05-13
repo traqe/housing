@@ -21,6 +21,9 @@
                         <a class="nav-link" href="{{route('cemeterysections')}}"><i class="icon-star"></i> Cemetery Sections </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('wards')}}"><i class="icon-star"></i> Wards </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('inspectionstages')}}"><i class="icon-star"></i> Inspection Stages </a>
                     </li>
                     <li class="nav-item">
