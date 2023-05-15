@@ -39,7 +39,7 @@
             <div class="card box-primary">
                 <div class="card-header">
                     <i class="fa fa-file"></i>
-                    <strong>Create Gender</strong>
+                    <strong>send notification</strong>
                     <small>Form</small>
                 </div>
                 <div class="card-body">
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="gender">Message</label><br>
-                                    <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day. '. $application->applicant->nationalid . ' ' .'Kindly note that your stand will remain repossessed. Visit the offices to restore your stand back' }}</textarea>
+                                    <textarea name="message" class="form-control input-group-lg reg_name" required>{{ 'Good day. '. $application->applicant->nationalid . ' ' .'Kindly note that your stand will be repossessed if you do not develop within the given time period.Visit Tsholotsho rdc offices for more info' }}</textarea>
 
                                 </div>
                             </div>

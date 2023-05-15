@@ -15,7 +15,7 @@
    <meta name="author" content="Łukasz Holeczek">
    <meta name="keyword" content="Hornet">
    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
-   <title>LoanPro</title>
+   <title>Olimem Housing</title>
  
    <!-- Icons -->
    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">

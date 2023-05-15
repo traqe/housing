@@ -24,7 +24,7 @@
             <input type="text" name="amount" class="form-control" placeholder="Amount.." required>
           </div>
           <div class="form-group">
-            <label for="gender">Reason</label>
+            <label for="gender">Narration</label>
             <textarea class="form-control" name="reason" rows="2"></textarea>
           </div>
 

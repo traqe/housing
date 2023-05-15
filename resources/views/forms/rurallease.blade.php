@@ -100,15 +100,8 @@
             <p id="lease-header">
                 <strong>
                     APPLICATION FOR LEASE FOR TRADING AND LIKE PURPOSES IN COMMUNAL LAND
-                    APPLICATION FOR LEASE FOR TRADING AND LIKE PURPOSES IN COMMUNAL LAND
                 </strong>
             </p>
-            <p>
-                I hereby make application for (a) lease site (b) a cession of a leased site (c) an additional business one a leased <br>
-                site (d) a deletion of a business from a leased site. (e) an alteration of business on a leased site (f) a change of <br>
-                site (g) a sub-lease.
-            </p>
-            <p>(DELETE THE INAPPLIABLE)</p>
             <p>
                 I hereby make application for (a) lease site (b) a cession of a leased site (c) an additional business one a leased <br>
                 site (d) a deletion of a business from a leased site. (e) an alteration of business on a leased site (f) a change of <br>
@@ -119,26 +112,19 @@
         <table>
             <tr>
                 <td>1. District: TSHOLOTSHO RURAL DISTRICT COUNCIL</td>
-                <td>Communal Land: {{$rurallease->area}}</td>
-                <td>1. District: TSHOLOTSHO RURAL DISTRICT COUNCIL</td>
-                <td>Communal Land: {{$rurallease->area}}</td>
+                <td>Communal Land: {{$rurallease->ward}}</td>
             </tr>
             <tr>
                 <td>Surname or company name: {{$rurallease->person->surname}}</td>
-                <td>Surname or company name: {{$rurallease->person->surname}}</td>
             </tr>
             <tr>
-                <td>Other names: {{$rurallease->person->firstname}}</td>
                 <td>Other names: {{$rurallease->person->firstname}}</td>
             </tr>
             <tr>
                 <td>Identity Card Number: {{$rurallease->person->nationalid}}</td>
                 <td>District: TSHOLOTSHO RURAL DISTRICT/____________________</td>
-                <td>Identity Card Number: {{$rurallease->person->nationalid}}</td>
-                <td>District: TSHOLOTSHO RURAL DISTRICT/____________________</td>
             </tr>
             <tr>
-                <td>Postal Address: {{$rurallease->person->postaladdress}}</td>
                 <td>Postal Address: {{$rurallease->person->postaladdress}}</td>
             </tr>
         </table>
@@ -149,7 +135,7 @@
         <p>4. What capital is available to you?___________________________ <br>
             Are you being financed in whole or in part by some other person? YES/NO <br>
             If yes state amount $________________ and Name of Financier_____________________</p>
-        <p>5. Locality of site (name of business centre, kraal, school, dip etc): {{$rurallease->area}} <br>
+        <p>5. Locality of site (name of business centre, kraal, school, dip etc): {{$rurallease->ward . ' ' . $rurallease->centre}} <br>
             if NOT a business centre state distance in kilometres to neareast township or business centre_____________________ and give reasons for sitting outside a business centre. <br>
             ______________________________________________________________________________________________________________________________________________________________________________ <br>
             _______________________________________________________________________________________________________________________________________________________________________________</p>

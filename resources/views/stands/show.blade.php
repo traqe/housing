@@ -149,14 +149,14 @@
                             </div>
                             <!--ensures that only stands allocated can add repossessions-->
                             <div class="pull-right">
-                                @if($notification)
-                                @if($notification->count >= 2)
+                                {{--@if($notification)--}}
+                                {{--@if($notification->count >= 2)--}}
                                 @if($stand->status == "ALLOCATED" OR $stand->status == "Allocated" OR $stand->status == "allocated")
                                 <button href="#smallButton" data-toggle="modal" class="btn btn-sm btn-success pull-right" title="Add Cession">
                                     <i class="fa fa-plus"> Add Repossession</i>
                                 </button>
-                                @endif
-                                @endif
+                                {{--@endif--}}
+                                {{--@endif--}}
                                 @endif
                                 <!--ensures that only stands repossessed can be reins-ed-->
                                 @if($stand->repossessed == 1)

@@ -38,16 +38,20 @@
                         <input type="text" id="lessee" name="lessee" class="form-control" value="{{$rurallease->person->firstname . ' ' . $rurallease->person->surname}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Communal Land Area</label>
-                        <input type="text" name="area" class="form-control" value="{{$rurallease->area}}" disabled>
+                        <label for="gender">Ward</label>
+                        <input type="text" name="area" class="form-control" value="{{$rurallease->ward}}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Business (Purpose)</label>
-                        <input type="text" name="area" class="form-control" value="{{$rurallease->stand_purpose}}" disabled>
+                        <label for="gender">Centre</label>
+                        <input type="text" name="area" class="form-control" value="{{$rurallease->centre}}" disabled>
                     </div>
                     <div class="form-group">
                         <label for="start-date">Status</label>
                         <input type="text" name="lease_status" class="form-control" value="{{$rurallease->lease_status}}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Type</label>
+                        <input type="text" name="lease_status" class="form-control" value="{{$rurallease->type}}" disabled>
                     </div>
                     @if($rurallease->approval_status != null)
                     <div class="form-group">

@@ -124,7 +124,7 @@ class PersonController extends Controller
         $maritals = Marital::All();
         $batches = Batch::where('batch_type_id', '2')->get();
         $standTypes = StandType::all();
-        $people = Person::all();
+        $people = Person::all()->sortby('surname');
         $standclass = StandClass::all();
 
         // beneficiaries of each person captured here and passed into compact

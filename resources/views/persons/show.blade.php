@@ -881,7 +881,7 @@
                                 <option value="" selected disabled>Beneficiary</option>
                                 @forelse($people as $p)
                                 @if ($p->id != $person->id)
-                                <option value="{{$p->id}}">{{$p->firstname.' '.$p->surname.' '.$p->nationalid}}</option>
+                                <option value="{{$p->id}}">{{$p->surname.' '.$p->firstname.' '.$p->nationalid}}</option>
                                 @endif
                                 @empty
                                 @endforelse
