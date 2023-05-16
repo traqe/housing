@@ -518,6 +518,18 @@
                         </div>
                     </div>
                     <!--/form-group-->
+                    <div class="form-group">
+                    <div class="col-sm-12">
+                            <label for="gender">Ownership Partner</label>
+                            <select name="partner_id" class="form-control input-group-lg reg_name">
+                                <option value="" selected disabled>Partner</option>
+                                @forelse($people as $person)
+                                <option value="{{$person->id}}">{{$person->surname . ' '. $person->firstname . ' ' . $person->nationalid}}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+</div>
 
                     <div class="form-group">
                         <div class="col-sm-12">

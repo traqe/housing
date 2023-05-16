@@ -126,6 +126,12 @@
                                     <tr>
                                         <td>${{ round($costPerM2, 2) }}</td>
                                     </tr>
+                                    <tr>
+                                        <th>Recommended Stand Price</th>
+                                    </tr>
+                                    <tr>
+                                        <td>${{round($data->size * $costPerM2,2)}}</td>
+                                    </tr>    
                                 </tbody>
                             </table>
                         </div>

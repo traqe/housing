@@ -214,6 +214,8 @@ Route::middleware('auth')->group(function () {
   Route::get('getApprovedApplications', ['uses' => 'ReportController@getApprovedApplications', 'as' => 'getApprovedApplications']);
   Route::get('getDeclinedApplications', ['uses' => 'ReportController@getDeclinedApplications', 'as' => 'getDeclinedApplications']);
   Route::get('getPendingApplications', ['uses' => 'ReportController@getPendingApplications', 'as' => 'getPendingApplications']);
+  Route::get('getGenderTotal',['uses' => 'ReportController@getGenderTotal','as' =>'getGenderTotal']);
+  Route::get('getWards',['uses' => 'ReportController@getWard','as' => 'getWards']);
 
   //	Route::view('/sample/dashboard','samples.dashboard');
   //	Route::view('/sample/buttons','samples.buttons');

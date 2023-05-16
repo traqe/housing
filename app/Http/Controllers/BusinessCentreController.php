@@ -21,7 +21,7 @@ class BusinessCentreController extends Controller
 
     public function store(Request $request){
         BusinessCentre::create($request->all());
-        return redirect('buscentre');
+        return redirect('Buscentre');
     }
 
     public function update(Request $request, $id){

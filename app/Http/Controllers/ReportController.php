@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Barryvdh\DomPDF\Facade as PDF;
 use Excel;
+use App\Ward;
 
 class ReportController extends Controller
 {
@@ -205,6 +206,26 @@ class ReportController extends Controller
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
+    public function getGenderTotal(){
+        $company = Company::all()->first();
+        $persons = Person::all();
+        $females = Person::where('gender_id',2)->count();
+        $males = Person::where('gender_id',1)->count();
+        $unassigned = Person::where('gender_id',0)->count();
+        $summaryData = array('females' => $females,'males'=> $males,'unassigned' => $unassigned,'company' => $company,'persons' => $persons);
+        $pdf = PDF::loadView('reports.gender',$summaryData);
+        $filename = "Gender Report";
+        return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
+    }
+
+    public function getWard(){
+        $company = Company::all()->first();
+        $wards = Ward::all();
+        $summaryData = array('company' => $company,'wards' => $wards);
+        $pdf = PDF::loadView('reports.wards',$summaryData);
+        $filename = "Wards & BusCentres";
+        return $pdf->stream($filename . '.pdf', array('Attachement' => 0));
+    }
 
     public function getProductLoans(Request $request)
     {
