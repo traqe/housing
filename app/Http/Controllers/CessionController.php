@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cession;
+use App\Person;
+use App\Application;
 use Illuminate\Http\Request;
 
 class CessionController extends Controller
@@ -23,9 +25,11 @@ class CessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('standconfigs.create');
+    public function create($id)
+    {   $person = Person::findOrFail($id);
+        $people = Person::all()->sortby('surname');
+        $applications = Application::where('applicant_id', $id)->get();
+        return view('persons.cession',compact('person','people','applications'));
     }
 
     /**
@@ -37,7 +41,7 @@ class CessionController extends Controller
     public function store(Request $request)
     {
         Cession::create($request->all());
-        return redirect()->back();
+        return redirect('cessions');
     }
 
     /**

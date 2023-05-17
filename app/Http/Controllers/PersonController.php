@@ -249,7 +249,11 @@ class PersonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $person = Person::findOrFail($id);
+        $genders = Gender::all();
+        $maritals = Marital::All();
+
+        return view('persons.edit',compact('person','genders','maritals'));
     }
 
     public function addMedical(Request $request)

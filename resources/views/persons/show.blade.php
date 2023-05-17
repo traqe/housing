@@ -44,7 +44,7 @@
                                 <small>Details</small>
                             </i>
                             <div class="pull-right">
-                                <a href="#" data-toggle="modal" data-target="#editPerson" data-backrop="false" class="" title="Edit Personal Details">
+                                <a href="{{route('editPerson',$person->id)}}" class="btn btn-sm btn-primary"  data-backrop="false" class="" title="Edit Personal Details">
                                     <i class="fa fa-pencil"> Edit</i>
                                 </a>
                             </div>
@@ -160,9 +160,9 @@
                                         <i class="fa fa-plus"> Add Application</i>
                                     </button>
 
-                                    <button href="#addCession" data-toggle="modal" class="btn btn-sm btn-success" title="Add Cession">
+                                    <a href="{{request('id')}}/createCession" class="btn btn-sm btn-success" title="Add Cession">
                                         <i class="fa fa-plus"> Add Cession</i>
-                                    </button>
+                                    </a>
                                 </div>
                                 <br />
                                 <br />
@@ -703,143 +703,6 @@
 
 <!--beneficiaries-->
 
-{{--<div class="box-group" id="accordion">--}}
-{{--<div class="card card-accent-primary">--}}
-{{--<div class="card-header">--}}
-{{--<i>--}}
-{{--<strong>--}}
-{{--<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" class="collapsed">--}}
-{{--<strong>Application</strong>--}}
-{{--<small>Details</small>--}}
-{{--</a>--}}
-{{--</strong>--}}
-{{--</i>--}}
-{{--</div>--}}
-{{--<div id="collapse5" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">--}}
-{{--<div class="card-body">--}}
-{{--<form method="post" action="{{route('createApplication')}}" class="form-horizontal">--}}
-{{--{{csrf_field()}}--}}
-{{--<input type="hidden" value="{{$person->userIdNum}}" name="userIdNum">--}}
-{{--<input type="hidden" value="{{$session}}" name="Session">--}}
-{{--<input type="hidden" value="{{date('Y').'-'.($appnum + 1)}}" name="applicationNum">--}}
-{{--<input type="hidden" value="Manual" name="applicationType">--}}
-{{--<input type="hidden" value="{{date('Y')}}" name="appYear">--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="EntryCriteria" id="EntryCriteria" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>Entry Type</option>--}}
-{{--<option value="Normal">Normal</option>--}}
-{{--<option value="Mature">Mature</option>--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="EntryType" id="EntryType" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>Format</option>--}}
-{{--<option value="Block">Block</option>--}}
-{{--<option value="Conventional">Conventional</option>--}}
-{{--<option value="Parallel">Parallel</option>--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="Session" id="Session" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>Select Intake</option>--}}
-{{--@forelse($session as $app)--}}
-{{--<option value="{{$app->session}}">{{$app->title}}</option>--}}
-{{--@empty--}}
-{{--@endforelse--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="C1Code" id="C1Code" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>First Choice Programme</option>--}}
-{{--@forelse($courses as $su)--}}
-{{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-{{--@empty--}}
-{{--@endforelse--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="C2Code" id="C2Code" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>Second Choice Programme</option>--}}
-{{--@forelse($courses as $su)--}}
-{{--<option value="{{$su->academicProgrammeCode}}">{{$su->academicProgrammeName}}</option>--}}
-{{--@empty--}}
-{{--@endforelse--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<input type="text"  name="Sponsor" placeholder="Sponsor"  class="form-control" required>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<label>--}}
-{{--<input type="checkbox" style="zoom:2.0;"  name="StaffMember">--}}
-{{--</label>--}}
-{{--Tick if You Are a Staff Member--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<input type="text"  name="LastSchoolAttended" placeholder="Last School Attended" class="form-control" required>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<input type="text"  name="FromDate" placeholder="From Date e.g. August 2010" class="form-control" required>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<input type="text"  name="ToDate" placeholder="To Date e.g. March 2014" class="form-control" required>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<input type="text"  name="LastSchoolAddress"  placeholder="Last School Address" class="form-control" required>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<select name="aboutus" id="aboutus" class="form-control input-group-lg reg_name" required>--}}
-{{--<option value="" selected disabled>How did you hear about Zimbabwe School Of Mines</option>--}}
-{{--<option value="Facebook">Facebook</option>--}}
-{{--<option value="Website">Website</option>--}}
-{{--<option value="Friend">Friend</option>--}}
-{{--<option value="Outreach Programmes">Outreach Programmes</option>--}}
-
-{{--</select>--}}
-{{--</div>--}}
-{{--</div><!--/form-group-->--}}
-{{--<div class="form-group">--}}
-{{--<div class="col-sm-12">--}}
-{{--<button type="submit"  class="btn btn-primary btn-flat pull-right">  <span class="fa fa-check-circle"></span> Save </button>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<br/>--}}
-{{--<br/>--}}
-{{--</form>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
 
 </div>
 
@@ -868,6 +731,12 @@
                     <input type="hidden" value="{{$person->id}}" name="from_person">
                     <input type="hidden" value="{{Auth::user()->id}}" name="created_by">
 
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="gender">Cedor</label>
+                            <input type="text" name="reason" value="{{$person->id}}" class="form-control input-group-lg reg_name" required>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="gender">Stand</label>
@@ -1046,7 +915,7 @@
 {{--</div>--}}
 {{--<!-- /.modal-dialog -->--}}
 {{--</div>--}}
-
+{{--
 <div class="modal fade" id="editPerson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -1214,7 +1083,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
+--}}
 <div class="modal fade" id="offer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -1252,6 +1121,7 @@
     function allocate(id) {
         console.log('My application id is ' + id)
         $('#stand_application_id').val(id);
+
     }
 </script>
 

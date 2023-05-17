@@ -79,7 +79,8 @@
                     {{ csrf_field() }}
                     <input type="hidden" value="{{Auth::user()->id }}" name="updated_by" />
                     <div class="form-group">
-                        <input type="text" value="" name="app_id" id="id_field" class="form-control" readonly="readonly" required>
+                    <label for="grave">Waiting List No.</label>
+                        <input type="text"  name="app_id" id="id_field" value="{{$app->id}}"class="form-control" readonly="readonly" required>
                     </div>
                     <div class="form-group">
                         <label for="grave">Receipt No.</label>
@@ -96,12 +97,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $("#renew").click(function() {
-        var id = $("#app_id").val();
-        document.getElementById('id_field').value = id;
-        console.log(id);
-    });
-</script>
+
 
 @endsection

@@ -15,6 +15,11 @@ class WaitingListController extends Controller
         return view('waitinglist.index', compact('applications'));
     }
 
+    public function renewal($id){
+        $applications = Application::findOrFail($id);
+        return view('waitinglist.renewal',compact('applications'));
+    }
+
     public function update(Request $request)
     {
         $id = $request->get('app_id');

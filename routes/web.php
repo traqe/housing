@@ -405,6 +405,7 @@ Route::middleware('auth')->group(function () {
   Route::put('/updateCession', ['uses' => 'AllocationController@updateCession', 'as' => 'updateCession']); #
   // Route to show each cession details.
   Route::get('/cessions/{id}', ['uses' => 'CessionController@show', 'as' => 'showCession']);
+  Route::get('PERSONS/{id}/createCession',['uses' => 'CessionController@create','as' => 'createCession']);
 
   Route::post('/addRepossession', ['uses' => 'RepossessionController@store', 'as' => 'addRepossession']);
   Route::put('/updateRepossession', ['uses' => 'RepossessionController@update', 'as' => 'updateRepossession']);
@@ -847,6 +848,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/waiting-list', ['uses' => 'WaitingListController@index', 'as' => 'waitinglist']);
   Route::get('waiting-history/{id}', ['uses' => 'WaitingListController@show', 'as' => 'waiting-history']);
   Route::post('/waiting-list', ['uses' => 'WaitingListController@update', 'as' => 'updateExpiryDate']);
+  Route::get('/application/{id}/renewal', ['uses' => 'WaitingListController@renewal', 'as' => 'renewApp']);
 
   //license
   Route::get('users/status/{user_id}/{status_code}', ['uses' => 'AdminController@updateStatus', 'as' => 'updateStatus']);
