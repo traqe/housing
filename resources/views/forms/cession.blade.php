@@ -101,29 +101,22 @@
                         </div>
                         <div class="card-body">
                             <p><strong>1. TO BE COMPLETED BY CEDENT</strong></p>
-                            <p>I, the undersigned <strong>{{$cession->owner->firstname.' '.$cession->owner->surname}}</strong>. ID Number <strong>{{$cession->owner->nationalid}}</strong> <br>
-                                Contact Details <strong>{{$cession->owner->mobile}}</strong>, do hereby apply to cede, assign and transfer to <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number <strong>{{$cession->beneficiary->nationalid}}</strong> agreement of Lease Number _____________________ in respect of a ____________________ as from the ___________ day of _______________/______________ <br>
-                                for a consideration of _______________ being in respect of the value of land; and ________________ in respect of development and improvements.</p>
-                            <p>
-                                Signed at TSHOLOTSHO RURAL DISTRICT COUNCIL this__________ day of ______________/20______
-                            </p>
-                            <p>As Witness</p>
-                            <p>(i) {{$cession->witness}} ID Number___________________ Signature________________</p>
-                            <p>Cedent</p>
-                            <p>(ii) <strong>{{$cession->owner->firstname.' '.$cession->owner->surname}}</strong> ID Number <strong>{{$cession->owner->nationalid}}</strong> Signature________________ </p>
+                            <p><i>I, the undersigned <strong>{{$cession->owner->firstname.' '.$cession->owner->surname}}</strong>. ID Number: <strong>{{$cession->owner->nationalid}}</strong> <br>
+                                    Contact Details: <strong>{{$cession->owner->mobile}}</strong>, do hereby apply to cede, assign and transfer to <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number: <strong>{{$cession->beneficiary->nationalid}}</strong> agreement of Lease Number: _____________________ in respect of a ____________________ as from the ___________ day of _______________/______________ <br>
+                                    for a consideration of _______________ being in respect of the value of land; and ________________ in respect of development and improvements. Signed at TSHOLOTSHO RURAL DISTRICT COUNCIL this__________ day of ______________/20______
+                                </i></p>
+                            <p>As Witness <i>(for Cedent)</i>: {{$cession->cedent_witness}} (i) {{$cession->witness}} ID Number:______________________ Signature________________</p>
+                            <p>Cedent: <br> (ii) <strong>{{$cession->owner->firstname.' '.$cession->owner->surname}}</strong> ID Number: <strong>{{$cession->owner->nationalid}}</strong> Signature________________ </p>
+                            <br>
                             <p><strong>2.TO BE COMPLETED BY CESSIONARY</strong></p>
                             <p>
-                                I <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number <strong>{{$cession->beneficiary->nationalid}}</strong> Address <strong>{{$cession->beneficiary->address}}</strong> <br>
-                                Contact details {{$cession->beneficiary->mobile}} Do hereby apply to accept transfer of agreement for lease number ________________ at {{$cession->stand->stand_no}} Tsholotsho ______________________ <br>
-                                As from the _________________ day of _______________/20_______________
+                                <i>I <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number: <strong>{{$cession->beneficiary->nationalid}}</strong> Address: <strong>{{$cession->beneficiary->address}}</strong> <br>
+                                    Contact details: {{$cession->beneficiary->mobile}} Do hereby apply to accept transfer of agreement for lease number: ________________ at {{$cession->stand->stand_no}} Tsholotsho ______________________
+                                    As from the _________________ day of _______________/20_______________
+                                </i>
                             </p>
-                            <br>
-                            <p>As Witness</p>
-                            <p>(i) <strong>{{$cession->witness}}</strong> ID Number________________ Signature________________</p>
-                            <p>Cessionary</p>
-                            <p>(ii) <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number <strong>{{$cession->beneficiary->nationalid}}</strong> Signature________________ </p>
-                            <p><strong>3. CESSION WITNESSED BY</strong> {{$cession->witness}} ID Number________________ Signature________________</p>
-                            <p><strong>4. CESSION APPROVED BY CHIEF EXECUTIVE OFFICER</strong>___________________ ID Number__________________ Signature________________</p>
+                            <p>As Witness <i>(for Cessionary)</i>: {{$cession->cessionary_witness}} <br> (i) <strong>{{$cession->witness}}</strong> ID Number: ____________________ Signature ________________ <br> Cessionary <br> (ii) <strong>{{$cession->beneficiary->firstname.' '.$cession->beneficiary->surname}}</strong> ID Number: <strong>{{$cession->beneficiary->nationalid}}</strong> Signature ________________ </p>
+                            <p><strong>3. CESSION APPROVED BY CHIEF EXECUTIVE OFFICER</strong>__________________________ <br> ID Number:__________________ Signature ________________</p>
                         </div>
                     </div>
                 </div>

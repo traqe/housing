@@ -235,17 +235,14 @@
                         <div class="card-header">
                             @if ($stand->status == 'ALLOCATED' OR $stand->status == 'Allocated' OR $stand->status == 'allocated')
                             <div class="pull-right">
-                                @foreach($stage_insp as $stage)
-                                @if ($stage != NULL)
-                                <a href="{{ route('printStageInspection', $stand->id) }}" class="btn btn-sm btn-success" title="Print Stage Inspection" disabled>
+                                @if (count($stage_insp) > 0)
+                                <a href="{{ route('printStageInspection', $stand->id) }}" class="btn btn-sm btn-success" title="Print Stage Inspection">
                                     <i class="fa fa-file"> Print</i>
                                 </a>
                                 @endif
-                                @endforeach
                                 <button data-toggle="modal" data-target="#addinspection" class="btn btn-sm btn-primary" title="Add Stage Inspection" onclick="myStand()">
                                     <i class="fa fa-plus"> Add Inspection</i>
                                 </button>
-
                             </div>
 
                             @else
