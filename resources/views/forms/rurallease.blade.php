@@ -12,7 +12,6 @@
         /*border-top: 1px solid;
         border-bottom: 1px solid;*/
         width: 100%;
-        width: 100%;
         font-family: 'Arial Narrow', Arial, sans-serif;
         font-size: 11.5pt;
     }
@@ -28,6 +27,7 @@
         padding-right: 20px;
         height: 14pt;
         padding-bottom: 1pt;
+        width: 100%;
     }
 
 
@@ -111,36 +111,37 @@
         </center>
         <table>
             <tr>
-                <td>1. District: TSHOLOTSHO RURAL DISTRICT COUNCIL</td>
-                <td>Communal Land: {{$rurallease->ward}}</td>
+                <td>1. District: <b>TSHOLOTSHO RDC</b></td>
+                <td>Communal Land: <b>{{$rurallease->ward}}</b></td>
             </tr>
             <tr>
-                <td>Surname or company name: {{$rurallease->person->surname}}</td>
+                <td>Surname or company name: <b>{{$rurallease->person->surname}}</b></td>
+                <td>Business Centre: <b>{{$rurallease->centre}}</b></td>
             </tr>
             <tr>
-                <td>Other names: {{$rurallease->person->firstname}}</td>
+                <td>Other names: <b>{{$rurallease->person->firstname}}</b></td>
             </tr>
             <tr>
-                <td>Identity Card Number: {{$rurallease->person->nationalid}}</td>
-                <td>District: TSHOLOTSHO RURAL DISTRICT/____________________</td>
+                <td>Identity Card Number: <b>{{$rurallease->person->nationalid}}</b></td>
+                <td>District: <b>TSHOLOTSHO RURAL DISTRICT</b></td>
             </tr>
             <tr>
-                <td>Postal Address: {{$rurallease->person->postaladdress}}</td>
+                <td>Postal Address: <b>{{$rurallease->person->postaladdress}}</b></td>
             </tr>
         </table>
         <p>(If a company, a seperate advice must be attached giving (a) the full names of each and every director (b) their birthplace and date of birth (c) their dates of entry into Zimbabwe, and places of entry (d) whether or not they hold Zimbabwean citizenship.)</p>
-        <p>3. Managerial details: Surname ______________________ <br>
+        <p>2. Managerial details: Surname ______________________ <br>
             Other names:_______________________ <br>
             Identity No._______________________ District_____________________</p>
-        <p>4. What capital is available to you?___________________________ <br>
+        <p>3. What capital is available to you?___________________________ <br>
             Are you being financed in whole or in part by some other person? YES/NO <br>
             If yes state amount $________________ and Name of Financier_____________________</p>
-        <p>5. Locality of site (name of business centre, kraal, school, dip etc): {{$rurallease->ward . ' ' . $rurallease->centre}} <br>
+        <p>4. Locality of site (name of business centre, kraal, school, dip etc): {{$rurallease->ward . ' ' . $rurallease->centre}} <br>
             if NOT a business centre state distance in kilometres to neareast township or business centre_____________________ and give reasons for sitting outside a business centre. <br>
             ______________________________________________________________________________________________________________________________________________________________________________ <br>
             _______________________________________________________________________________________________________________________________________________________________________________</p>
-        <p>6. Nature of proposed business: {{$rurallease->stand_purpose}}</p>
-        <p>7. Have you any other leases in Communal Land? YES/NO if YES state_________________ <br>
+        <p>5. Nature of proposed business: {{$rurallease->stand_purpose}}</p>
+        <p>6. Have you any other leases in Communal Land? YES/NO if YES state_________________ <br>
             No._______________________ and advice Receipt Number and amount covering payment of current rental________________________________________________________</p>
         <p>I certify that the information given above is true and correct and that I have not withheld and information that may way affect my application. <br>
             DATE: ____________/_____________/_______________ SIGNATURE OF APPLICANT:______________________</p>
