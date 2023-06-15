@@ -123,28 +123,60 @@
                 <th width="15%">Total</th>
             </tr>
         </thead>
-       
-        <tr> 
+
+        <tr>
             <td align="center">Male<span style="font-size:9pt;"></span></td>
             <td align="center"> <span style="font-size:9pt;">{{$males}}</span></td>
         </tr>
-        <tr> 
+        <tr>
             <td align="center">Female<span style="font-size:9pt;"></span></td>
             <td align="center"> <span style="font-size:9pt;">{{$females}}</span></td>
         </tr>
-        <tr> 
-            <td align="center">Unkown<span style="font-size:9pt;"></span></td>
+        <tr>
+            <td align="center">Unknown<span style="font-size:9pt;"></span></td>
             <td align="center"> <span style="font-size:9pt;">{{$unassigned}}</span></td>
         </tr>
-        
-        <tr> 
+
+        <tr>
             <td align="center">Total Number Of People<span style="font-size:9pt;"></span></td>
             <td align="center"> <span style="font-size:9pt;">{{$persons->count()}}</span></td>
         </tr>
-    
     </table>
 
     <br>
+
+    <table class="table" style="width: 100%; font-size: 0.8em;" border="0">
+        <thead>
+            <tr align="center" style="background-color: lightgray">
+                <th width="15%">Stand owners by gender</th>
+                <th width="15%">Total</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td align="center">Male<span style="font-size:9pt;"></span></td>
+            <td align="center"> <span style="font-size:9pt;">{{$owner_male}}</span></td>
+        </tr>
+        <tr>
+            <td align="center">Female<span style="font-size:9pt;"></span></td>
+            <td align="center"> <span style="font-size:9pt;">{{$owner_female}}</span></td>
+        </tr>
+        <tr>
+            <td align="center">Other<span style="font-size:9pt;"></span></td>
+            <td align="center"> <span style="font-size:9pt;">{{$owner_other}}</span></td>
+        </tr>
+
+        <tr>
+            <td align="center">Unknown<span style="font-size:9pt;"></span></td>
+            <td align="center"> <span style="font-size:9pt;">{{$owner_unassigned}}</span></td>
+        </tr>
+
+        <tr>
+            <td align="center">Total Number Of People Owning Stands<span style="font-size:9pt;"></span></td>
+            <td align="center"> <span style="font-size:9pt;">{{ $owner_male + $owner_female + $owner_other + $owner_unassigned }}</span></td>
+        </tr>
+    </table>
+
 
     {{--<table style="width: 100%; font-size: 0.8em;" border="0">--}}
     {{--<tr>--}}

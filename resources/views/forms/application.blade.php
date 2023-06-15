@@ -106,7 +106,6 @@
                                 <h3>Application Form</h3>
                             </center>
                         </div>
-                        <br>
                         <p>PART A - <strong>Personal Particulars</strong></p>
                         <br>
                         <div class="card-body">
@@ -121,6 +120,14 @@
                                             <td>Name & ID No. of Spouse</td>
                                             @if($spouse != NULL)
                                             <td>{{$spouse->name}}, {{$spouse->surname}} <br> {{$spouse->nationalid}}</td>
+                                            @else
+                                            <td><i>(Not Applicable)</i></td>
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            <td>Ownership Partner</td>
+                                            @if($partner != NULL)
+                                            <td>{{$partner->firstname}}, {{$partner->surname}}</td>
                                             @else
                                             <td><i>(Not Applicable)</i></td>
                                             @endif
@@ -187,6 +194,31 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
+                    <p><b>Next of Kin details</b></p>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="table-nok" class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{{$application->applicant->nok->fullname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Relationship</td>
+                                        <td>{{$application->applicant->nok->relationship}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Details</td>
+                                        <td>{{$application->applicant->nok->telephone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{$application->applicant->nok->email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <br>
                     <p>PART B</p>
                     <div class="card col-md-6">
@@ -239,6 +271,10 @@
                         </li>
                         <li>
                             Contact Telephone Number: {{$application->applicant->nok->telephone}}
+                        </li>
+                        <li>
+                            Email: {{$application->applicant->nok->email}}
+                        </li>
                         <li>
                             Relationship: {{$application->applicant->nok->relationship}}
                         </li>

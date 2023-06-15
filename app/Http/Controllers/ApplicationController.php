@@ -136,6 +136,7 @@ class ApplicationController extends Controller
         // if ($receipt != null) {
         Application::create([
             'applicant_id' => $request->get('applicant_id'),
+            'partner_id' => $request->get('partner_id'),
             'batch_id' => $request->get('batch_id'),
             'stand_type_id' => $request->get('stand_type_id'),
             'application_stage_id' => $request->get('application_stage_id'),
@@ -219,7 +220,12 @@ class ApplicationController extends Controller
     {
         $application = Application::find($id);
         $spouse = Spouse::where('person_id', $application->applicant->id)->first();
-        return view('applications.show', ['application' => $application, 'spouse' => $spouse]);
+        if ($application->partner_id != NULL) {
+            $partner = Person::where('id', $application->partner_id)->get()->first();
+        } else {
+            $partner = NULL;
+        }
+        return view('applications.show', ['application' => $application, 'spouse' => $spouse, 'partner' => $partner]);
     }
 
     public function getApplicant($id)

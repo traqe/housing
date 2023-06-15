@@ -119,6 +119,7 @@ class LeasesController extends Controller
         $data->stand_id = $stand->id;
         $data->date_applied = $request->date_applied;
         $data->expiry_date = $request->expiry_date;
+        $data->updated_by = $request->updated_by;
 
 
         if ($request->file != null) {

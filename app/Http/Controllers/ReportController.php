@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Allocation;
 use App\Application;
+use App\BusinessCentre;
 use App\Client;
 use App\Exports\ReportsExport;
 use App\Loan;
@@ -206,23 +208,55 @@ class ReportController extends Controller
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
-    public function getGenderTotal(){
+    public function getGenderTotal()
+    {
         $company = Company::all()->first();
         $persons = Person::all();
-        $females = Person::where('gender_id',2)->count();
-        $males = Person::where('gender_id',1)->count();
-        $unassigned = Person::where('gender_id',0)->count();
-        $summaryData = array('females' => $females,'males'=> $males,'unassigned' => $unassigned,'company' => $company,'persons' => $persons);
-        $pdf = PDF::loadView('reports.gender',$summaryData);
+        $females = Person::where('gender_id', 2)->count();
+        $males = Person::where('gender_id', 1)->count();
+        $unassigned = Person::where('gender_id', 0)->count();
+
+        // gender stats owning stands.
+        $current_owners = Allocation::where('current_status', 'CURRENT')->get();
+        $owner_male = 0;
+        $owner_female = 0;
+        $owner_unassigned = 0;
+        $owner_other = 0;
+        foreach ($current_owners as $allocation) {
+            $application = Application::find($allocation->application_id);
+            $owner = Person::find($application->applicant_id);
+
+            switch ($owner->gender_id) {
+                case 0:
+                    $owner_unassigned += 1;
+                    break;
+
+                case 1:
+                    $owner_male += 1;
+                    break;
+
+                case 2:
+                    $owner_female += 1;
+                    break;
+
+                case 3:
+                    $owner_other += 1;
+                    break;
+            }
+        }
+        $summaryData = array('females' => $females, 'males' => $males, 'unassigned' => $unassigned, 'company' => $company, 'persons' => $persons, 'owner_male' => $owner_male, 'owner_female' => $owner_female, 'owner_unassigned' => $owner_unassigned, 'owner_other' => $owner_other);
+        $pdf = PDF::loadView('reports.gender', $summaryData);
         $filename = "Gender Report";
         return $pdf->stream($filename . '.pdf', array('Attachment' => 0));
     }
 
-    public function getWard(){
+    public function getWard()
+    {
         $company = Company::all()->first();
         $wards = Ward::all();
-        $summaryData = array('company' => $company,'wards' => $wards);
-        $pdf = PDF::loadView('reports.wards',$summaryData);
+        $bc = BusinessCentre::all();
+        $summaryData = array('company' => $company, 'wards' => $wards, 'bc' => $bc);
+        $pdf = PDF::loadView('reports.wards', $summaryData);
         $filename = "Wards & BusCentres";
         return $pdf->stream($filename . '.pdf', array('Attachement' => 0));
     }

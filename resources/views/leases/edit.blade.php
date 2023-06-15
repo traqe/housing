@@ -30,6 +30,7 @@
                 <div class="card-body">
 
                     <form method="post" action="{{ route('lease-update', $data->id) }}" enctype="multipart/form-data">
+                        <input class="hidden" type="hidden" name="updated_by" value="{{Auth::user()->id}}">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
 

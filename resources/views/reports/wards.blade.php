@@ -105,7 +105,7 @@
         </tr>
         <tr>
             <td colspan="8" style="text-align: center">
-                <h4 style=" font-size:12pt; font-weight:normal">GENDER STATS</h4>
+                <h4 style=" font-size:12pt; font-weight:normal">WARD STATS</h4>
             </td>
         </tr>
     </table>
@@ -123,30 +123,22 @@
                 <th width="15%">Centre</th>
             </tr>
         </thead>
-       
-        <tr> 
-            @forelse($wards as $ward)
-            <td align="center">{{$ward->name}}<span style="font-size:9pt;"></span></td>
-            
-            <td align="center"> <span style="font-size:9pt;">centre here</span></td>
+        @foreach($wards as $ward)
+        <tr align="center">
+            <td>{{$ward->name}}</td>
+            <td>
+                @foreach($bc as $centre)
+
+                @if($centre->ward_id == $ward->id)
+                {{$centre->name}} <br>
+                @endif
+
+                @endforeach
+            </td>
         </tr>
-            @empty
-            @endforelse
+        @endforeach
     </table>
-
     <br>
-
-    {{--<table style="width: 100%; font-size: 0.8em;" border="0">--}}
-    {{--<tr>--}}
-    {{--<td>Number of New Male Customers</td>--}}
-    {{--<td>{{$male}}</td>--}}
-    {{--</tr>--}}
-    {{--<tr>--}}
-    {{--<td>Number of FeMale A</td>--}}
-    {{--<td>{{$female}}</td>--}}
-    {{--</tr>--}}
-    {{--</table>--}}
-
     <div class="footer">
 
         <table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 10pt; color: #000000;">

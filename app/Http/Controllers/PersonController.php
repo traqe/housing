@@ -253,7 +253,7 @@ class PersonController extends Controller
         $genders = Gender::all();
         $maritals = Marital::All();
 
-        return view('persons.edit',compact('person','genders','maritals'));
+        return view('persons.edit', compact('person', 'genders', 'maritals'));
     }
 
     public function addMedical(Request $request)

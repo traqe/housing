@@ -48,6 +48,14 @@
                                     @endif
                                 </tr>
                                 <tr>
+                                    <td>Ownership Partner</td>
+                                    @if($partner != NULL)
+                                    <td>{{$partner->firstname . ", " . $partner->surname}}</td>
+                                    @else
+                                    <td><i>(Not Applicable)</i></td>
+                                    @endif
+                                </tr>
+                                <tr>
                                     <td>Address</td>
                                     <td>{{$application->applicant->address}}</td>
                                 </tr>

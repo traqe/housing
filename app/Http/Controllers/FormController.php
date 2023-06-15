@@ -11,6 +11,7 @@ use App\StageInspection;
 use App\Lease;
 use App\Stand;
 use App\Company;
+use App\Person;
 use App\DevelopmentStage;
 use App\RuralLease;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -21,11 +22,16 @@ class FormController extends Controller
     {
         $application = Application::find($request->id);
         $spouse = Spouse::where('person_id', $application->applicant->id)->first();
+        $partner = NULL;
+        if ($application->partner_id != NULL) {
+            $partner = Person::where('id', $application->partner_id)->get()->first();
+        }
         $company = Company::all()->first();
         $summaryData = array(
             'application' => $application,
             'spouse' => $spouse,
             'company' => $company,
+            'partner' => $partner
         );
         $pdf = PDF::loadView('forms.application', $summaryData);
         $filename = "Application Form";

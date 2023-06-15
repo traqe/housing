@@ -15,6 +15,7 @@ use App\Repossession;
 use App\DevelopmentStage;
 use App\Application;
 use App\RepoNotification;
+use Illuminate\Support\Facades\Auth;
 
 class StandController extends Controller
 {
